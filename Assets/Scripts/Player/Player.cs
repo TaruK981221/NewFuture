@@ -96,7 +96,7 @@ namespace TeamProject
                 m_Position.y += Time.deltaTime * m_Speed;
                 m_Player.transform.position += m_Position;
                 m_PlayerState = P_STATE.JUMP;
-                m_PlayerDirection = P_DIRECTION.RIGHT;
+               // m_PlayerDirection = P_DIRECTION.RIGHT;
 
             }
 
