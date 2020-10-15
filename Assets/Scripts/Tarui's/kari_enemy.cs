@@ -12,12 +12,16 @@ public class kari_enemy : MonoBehaviour
 
     float JumpTime = 0.0f;
 
+    float jumpT = 0.0f;
+
     // Start is called before the first frame update
     void Start()
     {
         rigidbody = this.GetComponent<Rigidbody2D>();
 
         oldPos = this.transform.position;
+
+        jumpT = Random.Range(0.5f, 2.0f);
     }
 
     // Update is called once per frame
@@ -40,17 +44,19 @@ public class kari_enemy : MonoBehaviour
 
         JumpTime += Time.deltaTime;
 
-        if(JumpTime >= 2.0f)
+        if(JumpTime >= jumpT)
         {
             JumpTime = 0.0f;
 
             rigidbody.velocity += (new Vector2(0.0f, 10.0f));
+
+            jumpT = Random.Range(0.5f, 2.0f);
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "wall")
+        if (collision.gameObject.tag == "wall" || collision.gameObject.tag == "enemy")
         {
             Flg = !Flg;
         }
