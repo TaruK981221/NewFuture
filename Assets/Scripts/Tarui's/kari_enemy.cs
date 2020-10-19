@@ -9,10 +9,14 @@ public class kari_enemy : MonoBehaviour
     bool Flg = false;
 
     Vector3 oldPos = Vector3.zero;
+    Vector3 oldStartPos = Vector3.zero;
 
     float JumpTime = 0.0f;
 
     float jumpT = 0.0f;
+
+    [SerializeField]
+    bool JumpFlg = false;
 
     // Start is called before the first frame update
     void Start()
@@ -42,15 +46,20 @@ public class kari_enemy : MonoBehaviour
             //rigidbody.velocity += new Vector2(-1.0f, 0.0f);
         }
 
-        JumpTime += Time.deltaTime;
-
-        if(JumpTime >= jumpT)
+        if (!JumpFlg)
         {
-            JumpTime = 0.0f;
+            JumpTime += Time.deltaTime;
 
-            rigidbody.velocity += (new Vector2(0.0f, 10.0f));
+            if (JumpTime >= jumpT)
+            {
+                JumpTime = 0.0f;
 
-            jumpT = Random.Range(0.5f, 2.0f);
+                rigidbody.velocity += (new Vector2(0.0f, 10.0f));
+
+                jumpT = Random.Range(0.5f, 2.0f);
+
+                JumpFlg = true;
+            }
         }
     }
 
@@ -59,6 +68,10 @@ public class kari_enemy : MonoBehaviour
         if (collision.gameObject.tag == "wall" || collision.gameObject.tag == "enemy")
         {
             Flg = !Flg;
+        }
+        else
+        {
+            JumpFlg = false;
         }
     }
 }
