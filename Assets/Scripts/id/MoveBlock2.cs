@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MoveBlock : MonoBehaviour
+public class MoveBlock2 : MonoBehaviour
 {
 
     private Rigidbody2D rigid;
-    private Vector3 defaultPos;
+    private Vector2 defaultPos;
 
     void Start()
     {
@@ -15,6 +15,6 @@ public class MoveBlock : MonoBehaviour
 
     void FixedUpdate()
     {
-        rigid.MovePosition(new Vector2(defaultPos.x, defaultPos.y + Mathf.PingPong(Time.time, 2)/*, defaultPos.z*/));
+        rigid.MovePosition(new Vector2(defaultPos.x + Mathf.PingPong(Time.time, 2), defaultPos.y));
     }
 }
