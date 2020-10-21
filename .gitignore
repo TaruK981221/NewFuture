@@ -58,3 +58,37 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+Assets/Sound.meta
+Assets/Sound/BGM.meta
+Assets/Sound/SE.meta
+Assets/Sound/BGM/Flutter.mp3.meta
+Assets/Sound/BGM/陰鬱な青.mp3.meta
+Assets/Sound/BGM/人智を超えたもの.mp3.meta
+Assets/Sound/BGM/誰もいない風景.mp3.meta
+Assets/Sound/BGM/不穏.mp3.meta
+Assets/Sound/BGM/不穏な影.mp3.meta
+Assets/Sound/SE/HIT.meta
+Assets/Sound/SE/ジャンプ.meta
+Assets/Sound/SE/スタイルチェンジ.meta
+Assets/Sound/SE/弓.meta
+Assets/Sound/SE/剣.meta
+Assets/Sound/SE/足音.meta
+Assets/Sound/SE/着地.meta
+Assets/Sound/SE/投擲.meta
+Assets/Sound/SE/HIT/katana-slash1.mp3.meta
+Assets/Sound/SE/HIT/katana-slash2.mp3.meta
+Assets/Sound/SE/HIT/katana-slash4.mp3.meta
+Assets/Sound/SE/HIT/zombie-beat1.mp3.meta
+Assets/Sound/SE/ジャンプ/punch-swing1.mp3.meta
+Assets/Sound/SE/スタイルチェンジ/sword-clash1.mp3.meta
+Assets/Sound/SE/スタイルチェンジ/sword-clash2.mp3.meta
+Assets/Sound/SE/スタイルチェンジ/umbrella-close1.mp3.meta
+Assets/Sound/SE/スタイルチェンジ/umbrella-open1.mp3.meta
+Assets/Sound/SE/弓/ロープ　軋み.mp3.meta
+Assets/Sound/SE/弓/弓と矢.mp3.meta
+Assets/Sound/SE/剣/剣　斬撃_01.mp3.meta
+Assets/Sound/SE/剣/剣　斬撃_02.mp3.meta
+Assets/Sound/SE/足音/se_maoudamashii_se_footstep01.mp3.meta
+Assets/Sound/SE/足音/se_maoudamashii_se_footstep02.mp3.meta
+Assets/Sound/SE/着地/landing1.mp3.meta
+Assets/Sound/SE/投擲/knife-throw1.mp3.meta
