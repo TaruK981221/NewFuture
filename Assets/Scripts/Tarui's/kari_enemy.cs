@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class kari_enemy : MonoBehaviour
 {
-    Rigidbody2D rigidbody;
+    new Rigidbody2D rigidbody = null;
 
     bool Flg = false;
 

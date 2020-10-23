@@ -14,26 +14,28 @@ public class enemy_one : MonoBehaviour
     }
 
     [SerializeField]
-    float MoveDis = 10.0f;
-
-    [SerializeField]
     GameObject bullet = null;
 
     bool MoveFlg = true;
     bool attackFlg = false;
 
     bool LRFlg = false;
-
-    [SerializeField]
+    
     ENEMY_STATUS status = ENEMY_STATUS.Wait;
 
-    const float moveTime = 3.0f;
-    const float waitTime = 3.0f;
-    const float attackTime = 1.5f;
+    [SerializeField, Header("移動時間")]
+    float moveTime = 3.0f;
+    [SerializeField, Header("待機時間")]
+    float waitTime = 3.0f;
+    [SerializeField, Header("攻撃時間")]
+    float attackTime = 1.5f;
+
+    [SerializeField]
+    float attackTiming = 1.5f / 2.0f;
 
     float actionTime = 0.0f;
 
-    Rigidbody2D rigidbody = null;
+    new Rigidbody2D rigidbody = null;
 
     // Start is called before the first frame update
     void Start()
@@ -81,7 +83,7 @@ public class enemy_one : MonoBehaviour
                     {
                         actionTime += Time.deltaTime;
 
-                        if (!attackFlg && actionTime > attackTime / 2)
+                        if (!attackFlg && actionTime > attackTiming)
                         {
                             GameObject obj;
                             obj = Instantiate(bullet, this.transform.position, Quaternion.identity);

@@ -13,9 +13,9 @@ public class enemy_bullet : MonoBehaviour
         }
     }
 
-    Rigidbody2D rigidbody;
+    new Rigidbody2D rigidbody;
 
-    Renderer renderer;
+    new Renderer renderer;
 
     [SerializeField]
     float speed = 10.0f;
