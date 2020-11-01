@@ -7,13 +7,19 @@ namespace TeamProject
     public class Player : MonoBehaviour
     {
         //ここはプレイヤーの状態
-        public P_STATE m_PlayerState;
-        public P_GROUND m_PlayerGround;
-        public P_DIRECTION m_PlayerDirection;
-        public P_STYLE m_playerStyle;
+        [Header("")]
+        public P_STATE m_state;
+        public P_GROUND m_ground;
+        public P_DIRECTION m_direction;
+        public P_STYLE m_style;
 
-        //
+        public PlayerState m_playerState;
+
+        [Header("座標計算用速度")]
         public Vector2 m_speed;
+        [Header("追加する速度(移動,ジャンプ,落下)")]
+        public P_ADDSPEED m_addSpeed;
+        //public Vector2 m_addSpeed;
         public GameObject m_Player;
         public Vector3 m_Position;
 
@@ -26,79 +32,92 @@ namespace TeamProject
         public float speed;     //速度
         public float gravity;   //重力
         public float jumpSpeed; //ジャンプする速度
-        public float jumpHeight;//高さ制限
-        public float jumpLimitTime;//ジャンプ制限時間
+        [Header("ジャンプ高さ制限")]
+        public float jumpHeight;
+        [Header("ジャンプ制限時間")]
+        public float jumpLimitTime;
+
         public GroundCheck_k ground; //接地判定
         public GroundCheck_k head;//頭ぶつけた判定
 
         //プライベート変数
         //private Animator anim = null;
         private Rigidbody2D rb = null;
-        private bool isGround = false;
+        public bool isGround = false;
+        public bool isHead = false;
         //private bool isJump = false;
-        private bool isHead = false;
         private float jumpPos = 0.0f;
         private float jumpTime = 0.0f;
         // Start is called before the first frame update
         void Start()
         {
-            m_PlayerState = P_STATE.IDLE;
-            m_PlayerGround = P_GROUND.GROUND;
-            m_PlayerDirection = P_DIRECTION.RIGHT;
-            m_playerStyle = P_STYLE.BLADE;
-                        m_Player = this.gameObject;
+            m_state = P_STATE.IDLE;
+            m_ground = P_GROUND.GROUND;
+            m_direction = P_DIRECTION.RIGHT;
+            m_style = P_STYLE.BLADE;
+            m_Player = this.gameObject;
 
             //コンポーネントのインスタンスを捕まえる
             //anim = GetComponent<Animator>();
             rb = GetComponent<Rigidbody2D>();
 
+            m_playerState = new IdleState();
+            m_addSpeed.runSpeed = speed;
+            m_addSpeed.jumpSpeed = jumpSpeed;
+            m_addSpeed.fallSpeed = gravity;
         }
 
         // Update is called once per frame
         void Update()
         {
+            bool keyinput = m_playerState.PlayerInput();
+            //キー入力されたら行動する
+            //m_speed.x = 0.0f;
+            //m_speed.y = 0.0f;
+            m_Position = Vector3.zero;
             //接地判定を得る
             isGround = ground.IsGround();
             isHead = head.IsGround();
+            m_playerState.SetIsGround(isGround);
+            m_playerState.SetIsHead(isHead);
 
-            //キー入力されたら行動する
-            m_speed.x = 0.0f;
-            m_speed.y = 0.0f;
-            m_Position = Vector3.zero;
-            switch (m_PlayerState)
+            //入力を受けたかどうか
+            if (keyinput)
             {
-                case P_STATE.IDLE:
-                    IdleUpdate();
-                    break;
-                case P_STATE.RUN:
-                    RunUpdate();
-                    break;
+                GetParameter(m_playerState.m_Param);
+                ChangeState(m_playerState.m_nextState);
+               // Debug.Log("m_playerState:MAIN:" + m_playerState.m_Param.m_PlayerDirection);
 
-                case P_STATE.JUMP:
-                    JumpUpdate();
-                    break;
-                case P_STATE.RISE:
-                    RiseUpdate();
-                    break;
-                case P_STATE.FALL:
-                    break;
-                case P_STATE.ATTACK:
-                    AttackUpdate();
-                    break;
-                case P_STATE.JUMP_ATTACK:
-                    JumpAttackUpdate();
-                    break;
-                case P_STATE.DAMAGE:
-                    DamageUpdate();
-                    break;
-                case P_STATE.STYLE_CHANGE:
-                    StyleChangeUpdate();
-                    break;
-                case P_STATE.MAX_STATE:
+                SetParameter();
+                Debug.Log("m_speed:A:" + m_speed);
 
-                    break;
+                Debug.Log("m_speed:B:" + m_speed);
+                m_playerState.SetPos(new Vector2( m_Player.transform.position.x, m_Player.transform.position.y));
+                m_playerState.SetMaxJumpHeight(jumpHeight);
+                m_playerState.SetMaxJumpTime(jumpLimitTime);
+                if (m_playerState==PlayerState.m_riseState)
+                {
+                    m_playerState.SetJumpStartPos(m_Player.transform.position.y);
+                }
+            }
+            m_playerState.SetPos(new Vector2(m_Player.transform.position.x, m_Player.transform.position.y));
+            m_speed = m_playerState.SetSpeed(m_addSpeed);
+            //現在の状態の更新
+            bool stateUpdate = m_playerState.Update();
+            if (stateUpdate)
+            {
+                GetParameter(m_playerState.m_Param);
+                ChangeState(m_playerState.m_nextState);
+                SetParameter();
+
+                m_speed = m_playerState.SetSpeed(m_addSpeed);
+
+                m_playerState.SetPos(new Vector2(m_Player.transform.position.x, m_Player.transform.position.y));
             }
 
+
+
+            //rb.velocity = new Vector2(m_speed.x, m_speed.y);
             //座標の更新
             m_Position.x += Time.deltaTime * m_speed.x;
             m_Position.y += Time.deltaTime * m_speed.y;
@@ -112,25 +131,25 @@ namespace TeamProject
             //右入力
             if (InputManager.InputManager.Instance.GetArrow(InputManager.ArrowCode.RightArrow) || Input.GetKey(KeyCode.RightArrow))
             {
-                m_PlayerState = P_STATE.RUN;
-                m_PlayerDirection = P_DIRECTION.RIGHT;
+                m_state = P_STATE.RUN;
+                m_direction = P_DIRECTION.RIGHT;
 
             }
             else if (InputManager.InputManager.Instance.GetArrow(InputManager.ArrowCode.LeftArrow) || Input.GetKey(KeyCode.LeftArrow))
             {            //左入力
 
-                m_PlayerState = P_STATE.RUN;
-                m_PlayerDirection = P_DIRECTION.LEFT;
+                m_state = P_STATE.RUN;
+                m_direction = P_DIRECTION.LEFT;
 
             }
             //入力
             if (InputManager.InputManager.Instance.GetKeyDown(InputManager.ButtonCode.Jump))
             {
-                m_PlayerState = P_STATE.RISE;
+                m_state = P_STATE.RISE;
                 m_speed.y = jumpSpeed;
                 jumpPos = transform.position.y; //ジャンプした位置を記録する
 
-                m_PlayerGround = P_GROUND.JUMP_1ST;
+                m_ground = P_GROUND.JUMP_1ST;
                 //isJump = true;
 
                 jumpTime = 0.0f;
@@ -139,16 +158,63 @@ namespace TeamProject
             //入力
             if (InputManager.InputManager.Instance.GetKeyDown(InputManager.ButtonCode.Attack))
             {
-                m_PlayerState = P_STATE.ATTACK;
+                m_state = P_STATE.ATTACK;
+
+                ChangeState(new AttackState());
 
             }
             //入力
             if (InputManager.InputManager.Instance.GetKeyDown(InputManager.ButtonCode.StyleNext))
             {
-                m_PlayerState = P_STATE.STYLE_CHANGE;
+                m_state = P_STATE.STYLE_CHANGE;
 
             }
 
+        }
+        private void RunUpdate()
+        {
+            //右入力
+            if (InputManager.InputManager.Instance.GetArrow(InputManager.ArrowCode.RightArrow) || Input.GetKey(KeyCode.RightArrow))
+            {
+                //m_Position.x += Time.deltaTime * m_speed.x;
+                //m_Player.transform.position += m_Position;
+                m_speed.x = speed;
+
+                m_direction = P_DIRECTION.RIGHT;
+
+            }
+            else if (InputManager.InputManager.Instance.GetArrow(InputManager.ArrowCode.LeftArrow) || Input.GetKey(KeyCode.LeftArrow))
+            {            //左入力
+
+                //m_Position.x -= Time.deltaTime * m_speed.x;
+                //m_Player.transform.position += m_Position;
+                m_speed.x = -1.0f * speed;
+
+                m_direction = P_DIRECTION.LEFT;
+
+            }
+            else
+            {
+                m_state = P_STATE.IDLE;
+
+            }
+            //入力
+            if (InputManager.InputManager.Instance.GetKeyDown(InputManager.ButtonCode.Jump))
+            {
+                m_state = P_STATE.JUMP;
+
+            }
+            //入力
+            if (InputManager.InputManager.Instance.GetKeyDown(InputManager.ButtonCode.Attack))
+            {
+                m_state = P_STATE.ATTACK;
+
+            }
+            //入力
+            if (InputManager.InputManager.Instance.GetKeyDown(InputManager.ButtonCode.StyleNext))
+            {
+                m_state = P_STATE.STYLE_CHANGE;
+            }
         }
         private void JumpUpdate()
         {
@@ -162,7 +228,7 @@ namespace TeamProject
             //入力
             if (pushUpKey && canHeight && canTime)// && !isHead)
             {
-                m_PlayerState = P_STATE.JUMP;
+                m_state = P_STATE.JUMP;
                 // m_PlayerDirection = P_DIRECTION.RIGHT;
 
                 m_speed.y = jumpSpeed;
@@ -173,10 +239,10 @@ namespace TeamProject
             {
                 if (isGround)
                 {
-                m_PlayerState = P_STATE.IDLE;
+                    m_state = P_STATE.IDLE;
 
-                m_PlayerGround = P_GROUND.GROUND;
-                jumpTime = 0.0f;
+                    m_ground = P_GROUND.GROUND;
+                    jumpTime = 0.0f;
 
                 }
                 m_speed.y = -gravity;
@@ -190,7 +256,7 @@ namespace TeamProject
                 //m_Player.transform.position += m_Position;
                 //m_PlayerState = P_STATE.RUN;
                 m_speed.x = speed;
-                m_PlayerDirection = P_DIRECTION.RIGHT;
+                m_direction = P_DIRECTION.RIGHT;
 
             }
             else if (InputManager.InputManager.Instance.GetArrow(InputManager.ArrowCode.LeftArrow) || Input.GetKey(KeyCode.LeftArrow))
@@ -200,7 +266,7 @@ namespace TeamProject
                 //m_Player.transform.position += m_Position;
                 m_speed.x = -1.0f * speed;
                 // m_PlayerState = P_STATE.RUN;
-                m_PlayerDirection = P_DIRECTION.LEFT;
+                m_direction = P_DIRECTION.LEFT;
 
             }
             //else
@@ -211,7 +277,7 @@ namespace TeamProject
             //入力
             if (InputManager.InputManager.Instance.GetKeyDown(InputManager.ButtonCode.Attack))
             {
-                m_PlayerState = P_STATE.JUMP_ATTACK;
+                m_state = P_STATE.JUMP_ATTACK;
 
             }
             //入力
@@ -231,7 +297,7 @@ namespace TeamProject
             //入力
             if (pushUpKey && canHeight && canTime)// && !isHead)
             {
-                m_PlayerState = P_STATE.JUMP;
+                m_state = P_STATE.JUMP;
                 // m_PlayerDirection = P_DIRECTION.RIGHT;
 
                 m_speed.y = jumpSpeed;
@@ -242,10 +308,10 @@ namespace TeamProject
             {
                 if (isGround)
                 {
-                m_PlayerState = P_STATE.IDLE;
+                    m_state = P_STATE.IDLE;
 
-                m_PlayerGround = P_GROUND.GROUND;
-                jumpTime = 0.0f;
+                    m_ground = P_GROUND.GROUND;
+                    jumpTime = 0.0f;
 
                 }
                 m_speed.y = -gravity;
@@ -259,7 +325,7 @@ namespace TeamProject
                 //m_Player.transform.position += m_Position;
                 //m_PlayerState = P_STATE.RUN;
                 m_speed.x = speed;
-                m_PlayerDirection = P_DIRECTION.RIGHT;
+                m_direction = P_DIRECTION.RIGHT;
 
             }
             else if (InputManager.InputManager.Instance.GetArrow(InputManager.ArrowCode.LeftArrow) || Input.GetKey(KeyCode.LeftArrow))
@@ -269,7 +335,7 @@ namespace TeamProject
                 //m_Player.transform.position += m_Position;
                 m_speed.x = -1.0f * speed;
                 // m_PlayerState = P_STATE.RUN;
-                m_PlayerDirection = P_DIRECTION.LEFT;
+                m_direction = P_DIRECTION.LEFT;
 
             }
             //else
@@ -280,57 +346,12 @@ namespace TeamProject
             //入力
             if (InputManager.InputManager.Instance.GetKeyDown(InputManager.ButtonCode.Attack))
             {
-                m_PlayerState = P_STATE.JUMP_ATTACK;
+                m_state = P_STATE.JUMP_ATTACK;
 
             }
             //入力
             if (InputManager.InputManager.Instance.GetKeyDown(InputManager.ButtonCode.StyleNext))
             {
-            }
-        }
-        private void RunUpdate()
-        {
-            //右入力
-            if (InputManager.InputManager.Instance.GetArrow(InputManager.ArrowCode.RightArrow) || Input.GetKey(KeyCode.RightArrow))
-            {
-                //m_Position.x += Time.deltaTime * m_speed.x;
-                //m_Player.transform.position += m_Position;
-                m_speed.x = speed;
-
-                m_PlayerDirection = P_DIRECTION.RIGHT;
-
-            }
-            else if (InputManager.InputManager.Instance.GetArrow(InputManager.ArrowCode.LeftArrow) || Input.GetKey(KeyCode.LeftArrow))
-            {            //左入力
-
-                //m_Position.x -= Time.deltaTime * m_speed.x;
-                //m_Player.transform.position += m_Position;
-                m_speed.x = -1.0f *speed;
-
-                m_PlayerDirection = P_DIRECTION.LEFT;
-
-            }
-            else
-            {
-                m_PlayerState = P_STATE.IDLE;
-
-            }
-            //入力
-            if (InputManager.InputManager.Instance.GetKeyDown(InputManager.ButtonCode.Jump))
-            {
-                m_PlayerState = P_STATE.JUMP;
-
-            }
-            //入力
-            if (InputManager.InputManager.Instance.GetKeyDown(InputManager.ButtonCode.Attack))
-            {
-                m_PlayerState = P_STATE.ATTACK;
-
-            }
-            //入力
-            if (InputManager.InputManager.Instance.GetKeyDown(InputManager.ButtonCode.StyleNext))
-            {
-                m_PlayerState = P_STATE.STYLE_CHANGE;
             }
         }
         private void AttackUpdate()
@@ -342,12 +363,12 @@ namespace TeamProject
             {
 
             }
-             else
+            else
             {
-                m_PlayerState = P_STATE.IDLE;
+                m_state = P_STATE.IDLE;
 
             }
-       }
+        }
         private void JumpAttackUpdate()
         {
             //ひとまず時間で待機に戻る処理
@@ -367,23 +388,23 @@ namespace TeamProject
             {
                 m_timeCount = 0.0f;
                 StyleChange();
-                m_PlayerState = P_STATE.IDLE;
+                m_state = P_STATE.IDLE;
 
             }
         }
 
         private void StyleChange()
         {
-            switch (m_playerStyle)
+            switch (m_style)
             {
                 case P_STYLE.BLADE:
-                    m_playerStyle = P_STYLE.SPEED;
+                    m_style = P_STYLE.SPEED;
                     break;
                 case P_STYLE.SPEED:
-                    m_playerStyle = P_STYLE.MAGIC;
+                    m_style = P_STYLE.MAGIC;
                     break;
                 case P_STYLE.MAGIC:
-                    m_playerStyle = P_STYLE.BLADE;
+                    m_style = P_STYLE.BLADE;
                     break;
                 case P_STYLE.MAX_STYLE:
                     break;
@@ -398,11 +419,36 @@ namespace TeamProject
             if (m_timeCount > m_styleChangeTime)
             {
                 m_timeCount = 0.0f;
-                m_PlayerState = P_STATE.IDLE;
+                m_state = P_STATE.IDLE;
+                m_playerState = new IdleState();
 
             }
         }
 
+        private void ChangeState(PlayerState _state)
+        {
+            if (_state==null)
+            {
+                return;
+            }
+            m_playerState = _state;
+        }
+        private void GetParameter(P_PARAMETER _param)
+        {
+
+            m_state = _param.m_PlayerState;
+            m_ground = _param.m_PlayerGround;
+            m_direction = _param.m_PlayerDirection;
+            m_style = _param.m_playerStyle;
+
+        }
+        private void SetParameter()
+        {
+            m_playerState.m_Param.m_PlayerState = m_state;
+            m_playerState.m_Param.m_PlayerGround = m_ground;
+            m_playerState.m_Param.m_PlayerDirection = m_direction;
+            m_playerState.m_Param.m_playerStyle = m_style;
+        }
 
     }//    public class Player : MonoBehaviour END
 }//namespace TeamProject END
