@@ -8,6 +8,7 @@ TagManager:
   - enemy
   - GroundPlatform
   - FallFloor
+  - Ground
   layers:
   - Default
   - TransparentFX
