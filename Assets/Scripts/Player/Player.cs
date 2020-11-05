@@ -201,7 +201,7 @@ namespace TeamProject
             //入力
             if (InputManager.InputManager.Instance.GetKeyDown(InputManager.ButtonCode.Jump))
             {
-                m_state = P_STATE.JUMP;
+                m_state = P_STATE.RISE;
 
             }
             //入力
@@ -228,7 +228,7 @@ namespace TeamProject
             //入力
             if (pushUpKey && canHeight && canTime)// && !isHead)
             {
-                m_state = P_STATE.JUMP;
+                m_state = P_STATE.RISE;
                 // m_PlayerDirection = P_DIRECTION.RIGHT;
 
                 m_speed.y = jumpSpeed;
@@ -297,7 +297,7 @@ namespace TeamProject
             //入力
             if (pushUpKey && canHeight && canTime)// && !isHead)
             {
-                m_state = P_STATE.JUMP;
+                m_state = P_STATE.RISE;
                 // m_PlayerDirection = P_DIRECTION.RIGHT;
 
                 m_speed.y = jumpSpeed;

@@ -8,7 +8,6 @@ namespace TeamProject
     {
         IDLE = 0,       //待機
         RUN,            //走る
-        JUMP,           //ジャンプ
         RISE,           //上昇
         FALL,           //下降
         ATTACK,          //攻撃
