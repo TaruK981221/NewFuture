@@ -1,19 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class ObjectCollision : MonoBehaviour
-{
-    [Header("これを踏んだ時のプレイヤーが跳ねる高さ")] public float boundHeight;
-
-    /// <summary>
-    /// このオブジェクトをプレイヤーが踏んだかどうか
-    /// </summary>
-    [HideInInspector] public bool playerStepOn;
-}
 
 public class FallDownFloor : MonoBehaviour
 {
@@ -58,7 +45,7 @@ public class FallDownFloor : MonoBehaviour
                 Destroy(this);
             }
         }
-        else
+       else
         {
             Debug.Log("fallDownFloor インスペクターに設定し忘れがあります");
             Destroy(this);
@@ -147,70 +134,6 @@ public class FallDownFloor : MonoBehaviour
                 fallingTimer += Time.deltaTime;
                 isOn = false;
             }
-        }
-    }
-}
-public class GroundCheck : MonoBehaviour
-{
-    [Header("エフェクトがついた床を判定するか")] public bool checkPlatformGroud = true;
-
-    private string groundTag = "Ground";
-    private string platformTag = "GroundPlatform";
-    private string moveFloorTag = "MoveFloor";
-    private string fallFloorTag = "FallFloor";
-    private bool isGround = false;
-    private bool isGroundEnter, isGroundStay, isGroundExit;
-
-    //接地判定を返すメソッド
-    public bool IsGround()
-    {
-        if (isGroundEnter || isGroundStay)
-        {
-            isGround = true;
-        }
-        else if (isGroundExit)
-        {
-            isGround = false;
-        }
-        isGroundEnter = false;
-        isGroundStay = false;
-        isGroundExit = false;
-        return isGround;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == groundTag)
-        {
-            isGroundEnter = true;
-        }
-        else if (checkPlatformGroud && (collision.tag == platformTag || collision.tag == moveFloorTag || collision.tag == fallFloorTag))
-        {
-            isGroundEnter = true;
-        }
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.tag == groundTag)
-        {
-            isGroundStay = true;
-        }
-        else if (checkPlatformGroud && (collision.tag == platformTag || collision.tag == moveFloorTag || collision.tag == fallFloorTag))
-        {
-            isGroundStay = true;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.tag == groundTag)
-        {
-            isGroundExit = true;
-        }
-        else if (checkPlatformGroud && (collision.tag == platformTag || collision.tag == moveFloorTag || collision.tag == fallFloorTag))
-        {
-            isGroundExit = true;
         }
     }
 }
