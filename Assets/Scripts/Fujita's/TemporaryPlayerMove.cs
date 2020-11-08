@@ -30,5 +30,17 @@ public class TemporaryPlayerMove : MonoBehaviour
             pos.x -= 0.1f;
             this.transform.position = pos;
         }
+
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            pos.y += 0.1f;
+            this.transform.position = pos;
+        }
+
+        if (Input.GetKey(KeyCode.DownArrow))
+        {
+            pos.y -= 0.1f;
+            this.transform.position = pos;
+        }
     }
 }
