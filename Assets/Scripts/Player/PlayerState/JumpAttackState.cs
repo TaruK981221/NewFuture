@@ -11,14 +11,11 @@ namespace TeamProject
     {
         public JumpAttackState()
         {
-            Debug.Log("コンストラクタ:ATTACK");
+            SetNextState();
+            Debug.Log("コンストラクタ:J_ATTACK");
         }
 
-        //// Start is called before the first frame update
-        //void Start()
-        //{
-
-        //}
+        override public void SetSelfState() { m_selfState = P_STATE.JUMP_ATTACK; }
 
         //// Update is called once per frame
         //void Update()

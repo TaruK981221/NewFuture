@@ -9,22 +9,23 @@ namespace TeamProject
     /// </summary>
     public class RunState : PlayerState
     {
+        //方向によるスピード変化用（左：-1、右：+1、入力無し：0）
+        private float m_speedDirection = 0.0f;
+
         public RunState()
         {
+            SetNextState();
             Debug.Log("コンストラクタ:RUN");
             Debug.Log("m_PlayerState:RUN:" + m_Param.m_PlayerDirection);
         }
 
-        //// Start is called before the first frame update
-        //void Start()
-        //{
-
-        //}
-
+        override public void SetSelfState() { m_selfState = P_STATE.RUN; }
         //// Update is called once per frame
         override public bool Update()
         {
             // Debug.Log("m_PlayerState:RUN:" + m_Param.m_PlayerDirection);
+            PositionUpdate();
+
             return false;
         }
         public override Vector2 SetSpeed(P_ADDSPEED _addSpeed)
@@ -50,6 +51,24 @@ namespace TeamProject
             return returnSpeed;
 
         }
+        public override void SetSpeed()
+        {
+            float speedDirection = 0.0f;
+            switch (m_Param.m_PlayerDirection)
+            {
+                case P_DIRECTION.RIGHT:
+                    speedDirection = +1.0f;
+                    break;
+                case P_DIRECTION.LEFT:
+                    speedDirection = -1.0f;
+                    break;
+                case P_DIRECTION.MAX_DIRECT:
+                    break;
+            }
+            m_speed.x = speedDirection * m_horizontalSpeed;
+            m_speed.y = +0.0f * m_gravitySpeed;
+        }
+
 
         override public bool PlayerInput()
         {

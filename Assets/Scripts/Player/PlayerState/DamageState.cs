@@ -11,14 +11,12 @@ namespace TeamProject
     {
         public DamageState()
         {
-            Debug.Log("コンストラクタ:ATTACK");
+            SetNextState();
+
+            Debug.Log("コンストラクタ:DAMAGE");
         }
 
-        //// Start is called before the first frame update
-        //void Start()
-        //{
-
-        //}
+        override public void SetSelfState() { m_selfState = P_STATE.DAMAGE; }
 
         //// Update is called once per frame
         //void Update()
