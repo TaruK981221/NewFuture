@@ -9,6 +9,7 @@ public class enemy_wolf : MonoBehaviour
         stay=0,
         attack,
         walk,
+        Damage,
 
         end
     }
@@ -153,6 +154,12 @@ public class enemy_wolf : MonoBehaviour
                     Walk();
                 }
                 break;
+
+            case STATUS.Damage:
+                {
+                    Damage();
+                }
+                break;
         }
     }
 
@@ -260,6 +267,11 @@ public class enemy_wolf : MonoBehaviour
 
             rb.velocity = Vector2.zero;
         }
+    }
+
+    void Damage()
+    {
+
     }
 
     /* Actionの中身 end */

@@ -8,19 +8,20 @@ public class enemy_bard : MonoBehaviour
     {
         fly = 0,
         attack,
+        Damage,
 
         end
     }
     enum ATK_STATUS
     {
         stay=0,
-        fall,       // 降下
-        rise,       // 上昇
+        attack,
 
         end
     }
 
     // こいつの状態
+    [SerializeField]
     STATUS status = STATUS.fly;
     ATK_STATUS aStatus = ATK_STATUS.stay;
 
@@ -39,16 +40,19 @@ public class enemy_bard : MonoBehaviour
 
     // 攻撃の際に使用
     float AtkTime = 0;
+    bool isAtkStart = false;
     [SerializeField]
-    float AtkStayTimeLimit = 2, AtkJumpTimeLimit = 2;
+    float AtkStayTimeLimit = 2, AtkFallTimeLimit = 2;
     bool AtkFlg = false;
+    float AtkX = 0.0f;
 
     // 飛行の際に使用
-    float FlyTime = 0;
-    [SerializeField]
-    float FlyTimeLimit = 2;
     [SerializeField, Header("縦の揺れの幅(周波数)")]
     float T = 1.0f;
+
+    // 攻撃の際に使用
+    [SerializeField]
+    float Move = 5.0f;
 
     // false : 左    true : 右
     bool isLR = false;
@@ -72,6 +76,17 @@ public class enemy_bard : MonoBehaviour
         Action();
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject == player && !isAttackOK)
+        {
+            status = STATUS.attack;
+            isAttackOK = true;
+
+            rb.velocity = Vector2.zero;
+        }
+    }
+
     void Action()
     {
         switch (status)
@@ -93,20 +108,6 @@ public class enemy_bard : MonoBehaviour
 
     void Fly()
     {
-        // 歩行する時間の管理
-        if (FlyTimeLimit > FlyTime)
-        {
-            FlyTime += Time.deltaTime;
-            if(FlyTimeLimit < FlyTime)
-            {
-                FlyTime = FlyTimeLimit;
-            }
-        }
-        else
-        {
-            FlyTime = 0;
-        }
-
         // 左右で移動が変わる
         if (isLR)
         {
@@ -119,9 +120,8 @@ public class enemy_bard : MonoBehaviour
 
         // 上下の揺れ運動
         float X = this.transform.position.x;
-        float time = FlyTime / FlyTimeLimit;
 
-        float Y = Mathf.Sin(2 * Mathf.PI * T * time) + StartY;
+        float Y = Mathf.Sin(2 * Mathf.PI * T * Time.time) + StartY;
 
         this.transform.position = new Vector3(X, Y, 0.0f);
     }
@@ -141,52 +141,52 @@ public class enemy_bard : MonoBehaviour
                     else
                     {
                         AtkTime = 0;
-                        aStatus = ATK_STATUS.fall;
+                        aStatus = ATK_STATUS.attack;
                         AtkFlg = true;
                     }
                 }
                 break;
 
             // 攻撃中のジャンプ(攻撃の内容)
-            case ATK_STATUS.fall:
+            case ATK_STATUS.attack:
                 {
-                    if (AtkFlg)
+                    if(!isAtkStart)
                     {
-                        AtkFlg = false;
+                        isAtkStart = true;
 
-                        if (isLR)
-                        {
-                            rb.velocity = new Vector2(4.0f, 8.0f);
-                        }
-                        else
-                        {
-                            rb.velocity = new Vector2(-4.0f, 8.0f);
-                        }
+                        AtkX = this.transform.position.x;
                     }
 
-                    if (AtkJumpTimeLimit > AtkTime)
+                    float time = AtkTime / AtkFallTimeLimit;
+                    float X;
+                    float Y = Mathf.Sin(2 * Mathf.PI * 0.5f * (time+1)) * Move + StartY;
+                    
+                    if (isLR)
+                    {
+                        X = -Mathf.Sin(2 * Mathf.PI * 0.5f * (time + 0.5f)) * Move + AtkX + Move;
+                    }
+                    else
+                    {
+                        X = Mathf.Sin(2 * Mathf.PI * 0.5f * (time + 0.5f)) * Move + AtkX - Move;
+                    }
+
+                    this.transform.position = new Vector3(X, Y, 0.0f);
+
+                    if (AtkFallTimeLimit > AtkTime)
                     {
                         AtkTime += Time.deltaTime;
                     }
                     else
                     {
                         AtkTime = 0;
-                        AtkOKTime = 0;
                         status = STATUS.fly;
                         aStatus = ATK_STATUS.stay;
                     }
                 }
                 break;
-
-            case ATK_STATUS.rise:
-                {
-
-                }
-                break;
         }
 
     }
-
-
+    
     /* Actionの中身 end */
 }
