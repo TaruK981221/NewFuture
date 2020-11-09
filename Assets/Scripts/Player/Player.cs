@@ -14,6 +14,7 @@ namespace TeamProject
         public P_STYLE m_style;
 
         public PlayerState m_playerState;
+        private PlayerState m_playerPrevState;
 
         [Header("座標計算用速度")]
         public Vector2 m_speed;
@@ -21,6 +22,7 @@ namespace TeamProject
         public P_ADDSPEED m_addSpeed;
         //public Vector2 m_addSpeed;
         public GameObject m_Player;
+        private PlayerAnimation m_playerAnim;
         public Vector3 m_Position;
 
         [Header("スタイルチェンジにかかる時間・仮")]
@@ -36,6 +38,8 @@ namespace TeamProject
         public float jumpHeight;
         [Header("ジャンプ制限時間")]
         public float jumpLimitTime;
+        [Header("最低ジャンプ時間")]
+        public float jumpMinTime;
 
         public GroundCheck_k ground; //接地判定
         public GroundCheck_k head;//頭ぶつけた判定
@@ -60,68 +64,84 @@ namespace TeamProject
             //コンポーネントのインスタンスを捕まえる
             //anim = GetComponent<Animator>();
             rb = GetComponent<Rigidbody2D>();
-
+            m_playerAnim = GetComponent<PlayerAnimation>();
             m_playerState = new IdleState();
-            m_addSpeed.runSpeed = speed;
-            m_addSpeed.jumpSpeed = jumpSpeed;
-            m_addSpeed.fallSpeed = gravity;
+            m_playerPrevState = m_playerState;
+
+            Vector3 vec3work = this.transform.position;
+            m_playerState.SetPosition(vec3work);
+            //速度のセット
+            m_playerState.SetBaseSpeed(speed, gravity, jumpSpeed);
+            m_playerState.SetSpeed();
+
         }
 
         // Update is called once per frame
         void Update()
         {
+            //プレイヤーの入力確認
             bool keyinput = m_playerState.PlayerInput();
+            Vector3 vec3work = this.transform.position;
+            //アニメーションのリセット
+            m_playerAnim.AnimOFF(m_playerState.GetCurrentState());
+
+
             //キー入力されたら行動する
-            //m_speed.x = 0.0f;
-            //m_speed.y = 0.0f;
-            m_Position = Vector3.zero;
+            //m_Position = Vector3.zero;
+            //入力を受けたかどうか
+            if (keyinput)
+            {
+
+                Debug.Log("playerState:MAIN:" + m_playerState);
+                GetParameter(m_playerState.m_Param);
+                m_playerState.m_nextState.SetPosition(vec3work);
+                ChangeState(m_playerState.m_nextState);
+                SetParameter();
+                m_playerState.SetJumpParameter(jumpHeight, jumpLimitTime, jumpMinTime);
+                //
+
+                //m_playerState.SetPosition(vec3work);
+                //m_playerState.SetMaxJumpHeight(jumpHeight);
+                //m_playerState.SetMaxJumpTime(jumpLimitTime);
+                //if (m_playerState == PlayerState.m_riseState)
+                //{
+                //    m_playerState.SetJumpStartPos(m_Player.transform.position.y);
+                //}
+            }
+
+            //m_playerState.SetPosition(vec3work);
+            //m_speed = m_playerState.SetSpeed(m_addSpeed);
+            //速度のセット
+            m_playerState.SetBaseSpeed(speed, gravity, jumpSpeed);
+            m_playerState.SetSpeed();
+
+            //プレイヤーの更新処理
+            bool stateUpdate = m_playerState.Update();
+            if (stateUpdate)
+            {
+                GetParameter(m_playerState.m_Param);
+                m_playerState.m_nextState.SetPosition(vec3work);
+                ChangeState(m_playerState.m_nextState);
+                SetParameter();
+
+                //m_speed = m_playerState.SetSpeed(m_addSpeed);
+
+                //m_playerState.SetPosition(vec3work);
+           }
             //接地判定を得る
             isGround = ground.IsGround();
             isHead = head.IsGround();
             m_playerState.SetIsGround(isGround);
             m_playerState.SetIsHead(isHead);
 
-            //入力を受けたかどうか
-            if (keyinput)
-            {
-                GetParameter(m_playerState.m_Param);
-                ChangeState(m_playerState.m_nextState);
-               // Debug.Log("m_playerState:MAIN:" + m_playerState.m_Param.m_PlayerDirection);
 
-                SetParameter();
-                Debug.Log("m_speed:A:" + m_speed);
-
-                Debug.Log("m_speed:B:" + m_speed);
-                m_playerState.SetPos(new Vector2( m_Player.transform.position.x, m_Player.transform.position.y));
-                m_playerState.SetMaxJumpHeight(jumpHeight);
-                m_playerState.SetMaxJumpTime(jumpLimitTime);
-                if (m_playerState==PlayerState.m_riseState)
-                {
-                    m_playerState.SetJumpStartPos(m_Player.transform.position.y);
-                }
-            }
-            m_playerState.SetPos(new Vector2(m_Player.transform.position.x, m_Player.transform.position.y));
-            m_speed = m_playerState.SetSpeed(m_addSpeed);
-            //現在の状態の更新
-            bool stateUpdate = m_playerState.Update();
-            if (stateUpdate)
-            {
-                GetParameter(m_playerState.m_Param);
-                ChangeState(m_playerState.m_nextState);
-                SetParameter();
-
-                m_speed = m_playerState.SetSpeed(m_addSpeed);
-
-                m_playerState.SetPos(new Vector2(m_Player.transform.position.x, m_Player.transform.position.y));
-            }
-
-
-
-            //rb.velocity = new Vector2(m_speed.x, m_speed.y);
             //座標の更新
-            m_Position.x += Time.deltaTime * m_speed.x;
-            m_Position.y += Time.deltaTime * m_speed.y;
-            m_Player.transform.position += m_Position;
+            vec3work = m_playerState.GetPosition();
+            m_Player.transform.position = vec3work;
+            //m_Position = m_playerState.GetPosition();
+            m_state = m_playerState.GetCurrentState();
+            //アニメーションの更新
+            m_playerAnim.AnimON(m_playerState.GetCurrentState());
 
         }
 
@@ -166,7 +186,7 @@ namespace TeamProject
             //入力
             if (InputManager.InputManager.Instance.GetKeyDown(InputManager.ButtonCode.StyleNext))
             {
-                m_state = P_STATE.STYLE_CHANGE;
+                m_state = P_STATE.STYLE_CHANGE_NEXT;
 
             }
 
@@ -213,7 +233,7 @@ namespace TeamProject
             //入力
             if (InputManager.InputManager.Instance.GetKeyDown(InputManager.ButtonCode.StyleNext))
             {
-                m_state = P_STATE.STYLE_CHANGE;
+                m_state = P_STATE.STYLE_CHANGE_NEXT;
             }
         }
         private void JumpUpdate()
@@ -427,7 +447,7 @@ namespace TeamProject
 
         private void ChangeState(PlayerState _state)
         {
-            if (_state==null)
+            if (_state == null)
             {
                 return;
             }

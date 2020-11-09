@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StyleChangeState : MonoBehaviour
+namespace TeamProject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    public class StyleChangeState : PlayerState
     {
-        
+        // Start is called before the first frame update
+        override public void SetSelfState() { m_selfState = P_STATE.STYLE_CHANGE_NEXT; }
+
+        // Update is called once per frame
+        override public bool Update()
+        {
+            PositionUpdate();
+
+            return false;
+        }
     }
 }

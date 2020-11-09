@@ -9,47 +9,43 @@ namespace TeamProject
     /// </summary>
     public class RunState : PlayerState
     {
+        //方向によるスピード変化用（左：-1、右：+1、入力無し：0）
+        private float m_speedDirection = 0.0f;
+
         public RunState()
         {
+            SetNextState(this);
+            SetPrevState(this);
             Debug.Log("コンストラクタ:RUN");
             Debug.Log("m_PlayerState:RUN:" + m_Param.m_PlayerDirection);
         }
 
-        //// Start is called before the first frame update
-        //void Start()
-        //{
-
-        //}
-
+        override public void SetSelfState() { m_selfState = P_STATE.RUN; }
         //// Update is called once per frame
         override public bool Update()
         {
             // Debug.Log("m_PlayerState:RUN:" + m_Param.m_PlayerDirection);
+            PositionUpdate();
+
             return false;
         }
-        public override Vector2 SetSpeed(P_ADDSPEED _addSpeed)
+        public override void SetSpeed()
         {
-            Vector2 returnSpeed;
-            float speedDirection = 0.0f;
             switch (m_Param.m_PlayerDirection)
             {
                 case P_DIRECTION.RIGHT:
-                    speedDirection = +1.0f;
+                    m_speedDirection = +1.0f;
                     break;
                 case P_DIRECTION.LEFT:
-                    speedDirection = -1.0f;
+                    m_speedDirection = -1.0f;
                     break;
                 case P_DIRECTION.MAX_DIRECT:
                     break;
             }
-            returnSpeed.x = speedDirection * _addSpeed.runSpeed;
-            returnSpeed.y = +0.0f * _addSpeed.fallSpeed;
-            //returnSpeed.y = +0.0f * _addSpeed.jumpSpeed;
-
-
-            return returnSpeed;
-
+            m_speed.x = m_speedDirection * m_horizontalSpeed;
+            m_speed.y = +0.0f * m_gravitySpeed;
         }
+
 
         override public bool PlayerInput()
         {
@@ -72,7 +68,9 @@ namespace TeamProject
                         m_Param.m_PlayerState = P_STATE.IDLE;
                         m_Param.m_PlayerDirection = P_DIRECTION.RIGHT;
                         // Debug.Log("right:RUNRUN");
-                        m_nextState = m_idleState;
+                        SetPrevState(this);
+                        SetNextState(m_idleState);
+
                         keyinput = true;
                     }
                     //左入力
@@ -82,7 +80,8 @@ namespace TeamProject
                         m_Param.m_PlayerState = P_STATE.RUN;
                         m_Param.m_PlayerDirection = P_DIRECTION.LEFT;
                         // Debug.Log("left:RUN");
-                        m_nextState = m_runState;
+                        SetPrevState(this);
+                        SetNextState(m_runState);
                         keyinput = true;
 
                     }
@@ -95,7 +94,8 @@ namespace TeamProject
                         m_Param.m_PlayerState = P_STATE.RUN;
                         m_Param.m_PlayerDirection = P_DIRECTION.RIGHT;
                         // Debug.Log("right:IDLE");
-                        m_nextState = m_runState;
+                        SetPrevState(this);
+                        SetNextState(m_runState);
                         keyinput = true;
                     }
                     //左入力を解除
@@ -105,7 +105,8 @@ namespace TeamProject
                         m_Param.m_PlayerState = P_STATE.IDLE;
                         m_Param.m_PlayerDirection = P_DIRECTION.LEFT;
                         //Debug.Log("left:IDLE");
-                        m_nextState = m_idleState;
+                        SetPrevState(this);
+                        SetNextState(m_idleState);
                         keyinput = true;
 
                     }
@@ -118,7 +119,7 @@ namespace TeamProject
             {
                 m_Param.m_PlayerState = P_STATE.RISE;
                 m_Param.m_PlayerGround = P_GROUND.JUMP_1ST;
-
+                SetPrevState(this);
                 SetNextState(m_riseState);
                 keyinput = true;
             }
