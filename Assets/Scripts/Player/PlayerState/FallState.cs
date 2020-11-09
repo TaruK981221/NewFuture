@@ -14,7 +14,8 @@ namespace TeamProject
 
         public FallState()
         {
-            SetNextState();
+            SetPrevState(this);
+            SetNextState(this);
             Debug.Log("コンストラクタ:FALL");
         }
 
@@ -26,23 +27,15 @@ namespace TeamProject
             if (m_isGround)
             {
                 Debug.Log("接地しました:FALLステート");
+                SetPrevState(this);
                 SetNextState(m_idleState);
-                SetIsGround(false);
+
+                //SetIsGround(false);
                 return true;
             }
             PositionUpdate();
 
             return false;
-        }
-        public override Vector2 SetSpeed(P_ADDSPEED _addSpeed)
-        {
-            Vector2 returnSpeed;
-            returnSpeed.x = m_horizontalSpeed * _addSpeed.runSpeed;
-            //returnSpeed.y = +0.0f * _addSpeed.jumpSpeed;
-            returnSpeed.y = -1.0f * _addSpeed.fallSpeed;
-
-            return returnSpeed;
-
         }
         override public void SetSpeed()
         {
@@ -66,7 +59,8 @@ namespace TeamProject
             {
                 m_Param.m_PlayerDirection = P_DIRECTION.LEFT;
                 m_speedDirection = SetDirectionSpeed(-1.0f);
-                SetNextState();
+                SetPrevState(this);
+                SetNextState(this);
 
                 keyinput = true;
             }
@@ -75,7 +69,8 @@ namespace TeamProject
             {
                 m_Param.m_PlayerDirection = P_DIRECTION.RIGHT;
                 m_speedDirection = SetDirectionSpeed(1.0f);
-                SetNextState();
+                SetPrevState(this);
+                SetNextState(this);
                 Debug.Log("右入力:"+this);
 
                 keyinput = true;
@@ -84,7 +79,8 @@ namespace TeamProject
             if (!L_input && !R_input)
             {
                 m_speedDirection = SetDirectionSpeed(0.0f);
-                SetNextState();
+                SetPrevState(this);
+                SetNextState(this);
             }
 
             return keyinput;

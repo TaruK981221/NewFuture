@@ -11,8 +11,8 @@ namespace TeamProject
     {
         public DamageState()
         {
-            SetNextState();
-
+            SetNextState(this);
+            SetPrevState(this);
             Debug.Log("コンストラクタ:DAMAGE");
         }
 

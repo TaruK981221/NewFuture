@@ -8,8 +8,8 @@ namespace TeamProject
     {
         public IdleState()
         {
-            SetNextState();
-
+            SetPrevState(this);
+            SetNextState(this);
             Debug.Log("コンストラクタ:IDLE");
         }
         // Start is called before the first frame update
@@ -25,24 +25,15 @@ namespace TeamProject
             if (!m_isGround)
             {
                 Debug.Log("No接地:IDLEステート");
+                SetPrevState(this);
                 SetNextState(m_fallState);
                 //SetIsGround(false);
                 return true;
             }
+
             PositionUpdate();
 
-
             return false;
-        }
-        public override Vector2 SetSpeed(P_ADDSPEED _addSpeed)
-        {
-            Vector2 returnSpeed;
-            returnSpeed.x = +0.0f * _addSpeed.runSpeed;
-            returnSpeed.y = +0.0f * _addSpeed.jumpSpeed;
-            //returnSpeed.y = +0.0f * _addSpeed.fallSpeed;
-
-            return returnSpeed;
-
         }
         public override void SetSpeed()
         {
@@ -70,6 +61,7 @@ namespace TeamProject
                 m_Param.m_PlayerState = P_STATE.RUN;
                 m_Param.m_PlayerDirection = P_DIRECTION.RIGHT;
                 Debug.Log("right:IDLE");
+                SetPrevState(this);
                 SetNextState(m_runState);
                 keyinput = true;
             }
@@ -80,9 +72,15 @@ namespace TeamProject
                 m_Param.m_PlayerState = P_STATE.RUN;
                 m_Param.m_PlayerDirection = P_DIRECTION.LEFT;
                 Debug.Log("left:IDLE");
+                SetPrevState(this);
                 SetNextState(m_runState);
 
                 keyinput = true;
+
+            }
+            else
+            {
+                SetNextState(this);
 
             }
             //ジャンプ入力
@@ -97,6 +95,7 @@ namespace TeamProject
 
                 //jumpTime = 0.0f;
                 Debug.Log("jump:IDLE");
+                SetPrevState(this);
                 SetNextState(m_riseState);
                 keyinput = true;
 
@@ -106,6 +105,7 @@ namespace TeamProject
             if (InputManager.InputManager.Instance.GetKeyDown(InputManager.ButtonCode.Attack))
             {
 
+                //SetPrevState(this);
                 SetNextState(m_attackState);
 
                 Debug.Log("attack:IDLE");
@@ -115,7 +115,8 @@ namespace TeamProject
             if (InputManager.InputManager.Instance.GetKeyDown(InputManager.ButtonCode.StyleNext))
             {
                 //m_PlayerState = P_STATE.STYLE_CHANGE;
-                SetNextState();
+                //SetPrevState(this);
+                SetNextState(this);
 
                 Debug.Log("style:IDLE");
 
@@ -124,7 +125,8 @@ namespace TeamProject
             else if (InputManager.InputManager.Instance.GetKeyDown(InputManager.ButtonCode.StyleNext))
             {
                 //m_PlayerState = P_STATE.STYLE_CHANGE;
-                SetNextState();
+                //SetPrevState(this);
+                SetNextState(this);
                 Debug.Log("style:IDLE");
 
             }

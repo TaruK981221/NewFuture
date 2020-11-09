@@ -49,5 +49,10 @@ namespace TeamProject
             anim.SetBool(pAnimName[(int)_currentPState], true);
         }
 
+        public void AnimOFF(P_STATE _currentPState)
+        {            
+            anim.SetBool(pAnimName[(int)_currentPState], false);
+        }
+
     }//    public class FallState : PlayerState END
 }//namespace TeamProject END

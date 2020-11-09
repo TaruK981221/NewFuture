@@ -11,7 +11,8 @@ namespace TeamProject
     {
         public AttackState()
         {
-            SetNextState();
+            SetNextState(this);
+            SetPrevState(this);
             Debug.Log("コンストラクタ:ATTACK");
         }
 

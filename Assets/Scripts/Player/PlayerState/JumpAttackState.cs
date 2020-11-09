@@ -11,7 +11,8 @@ namespace TeamProject
     {
         public JumpAttackState()
         {
-            SetNextState();
+            SetNextState(this);
+            SetPrevState(this);
             Debug.Log("コンストラクタ:J_ATTACK");
         }
 

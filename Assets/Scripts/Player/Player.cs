@@ -38,6 +38,8 @@ namespace TeamProject
         public float jumpHeight;
         [Header("ジャンプ制限時間")]
         public float jumpLimitTime;
+        [Header("最低ジャンプ時間")]
+        public float jumpMinTime;
 
         public GroundCheck_k ground; //接地判定
         public GroundCheck_k head;//頭ぶつけた判定
@@ -69,7 +71,7 @@ namespace TeamProject
             Vector3 vec3work = this.transform.position;
             m_playerState.SetPosition(vec3work);
             //速度のセット
-            m_playerState.SetBaseSpeed(speed, jumpSpeed, gravity);
+            m_playerState.SetBaseSpeed(speed, gravity, jumpSpeed);
             m_playerState.SetSpeed();
 
         }
@@ -80,25 +82,22 @@ namespace TeamProject
             //プレイヤーの入力確認
             bool keyinput = m_playerState.PlayerInput();
             Vector3 vec3work = this.transform.position;
-            //m_playerState.SetPosition(vec3work);
+            //アニメーションのリセット
+            m_playerAnim.AnimOFF(m_playerState.GetCurrentState());
 
 
             //キー入力されたら行動する
             //m_Position = Vector3.zero;
-            //接地判定を得る
-            isGround = ground.IsGround();
-            isHead = head.IsGround();
-            m_playerState.SetIsGround(isGround);
-            m_playerState.SetIsHead(isHead);
             //入力を受けたかどうか
             if (keyinput)
             {
 
                 Debug.Log("playerState:MAIN:" + m_playerState);
                 GetParameter(m_playerState.m_Param);
+                m_playerState.m_nextState.SetPosition(vec3work);
                 ChangeState(m_playerState.m_nextState);
                 SetParameter();
-
+                m_playerState.SetJumpParameter(jumpHeight, jumpLimitTime, jumpMinTime);
                 //
 
                 //m_playerState.SetPosition(vec3work);
@@ -113,7 +112,7 @@ namespace TeamProject
             //m_playerState.SetPosition(vec3work);
             //m_speed = m_playerState.SetSpeed(m_addSpeed);
             //速度のセット
-            m_playerState.SetBaseSpeed(speed, jumpSpeed, gravity);
+            m_playerState.SetBaseSpeed(speed, gravity, jumpSpeed);
             m_playerState.SetSpeed();
 
             //プレイヤーの更新処理
@@ -121,27 +120,29 @@ namespace TeamProject
             if (stateUpdate)
             {
                 GetParameter(m_playerState.m_Param);
+                m_playerState.m_nextState.SetPosition(vec3work);
                 ChangeState(m_playerState.m_nextState);
                 SetParameter();
 
                 //m_speed = m_playerState.SetSpeed(m_addSpeed);
 
                 //m_playerState.SetPosition(vec3work);
-            }
+           }
+            //接地判定を得る
+            isGround = ground.IsGround();
+            isHead = head.IsGround();
+            m_playerState.SetIsGround(isGround);
+            m_playerState.SetIsHead(isHead);
 
 
-
-            //rb.velocity = new Vector2(m_speed.x, m_speed.y);
             //座標の更新
-            //m_Position.x += Time.deltaTime * m_speed.x;
-            //m_Position.y += Time.deltaTime * m_speed.y;
-            vec3work= m_playerState.GetPosition();
+            vec3work = m_playerState.GetPosition();
             m_Player.transform.position = vec3work;
             //m_Position = m_playerState.GetPosition();
             m_state = m_playerState.GetCurrentState();
-
-            //アニメーションの変更
+            //アニメーションの更新
             m_playerAnim.AnimON(m_playerState.GetCurrentState());
+
         }
 
         //更新関数

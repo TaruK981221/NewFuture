@@ -9,12 +9,14 @@ namespace TeamProject
     /// </summary>
     public class RiseState : PlayerState
     {
-         //ジャンプ開始時点の高さ
+        //ジャンプ開始時点の高さ
         private float m_StartHeight2;
         //最大ジャンプ高さ受け取り用
-        private float m_jumpMaxHeight2;
+        private float m_jumpMaxHeight;
         //最大時間
-        private float m_maxTime2 = 0.0f;
+        private float m_jumpMaxTime = 0.0f;
+        //最低ジャンプ時間
+        private float m_jumpMinTime = 0.0f;
 
         //ジャンプ開始地点登録フラグ
         private bool m_jumpHeightSetFlag = false;
@@ -24,7 +26,8 @@ namespace TeamProject
 
         public RiseState()
         {
-            SetNextState();
+            SetNextState(this);
+            SetPrevState(this);
             Debug.Log("コンストラクタ:RISE");
         }
 
@@ -42,27 +45,30 @@ namespace TeamProject
             if (m_isHead)
             {
                 Debug.Log("頭ぶつけました:RISEステート");
+                SetPrevState(this);
                 SetNextState(m_fallState);
                 SetJumpStartFlag(false);
                 SetIsHead(false);
                 m_timer = 0.0f;
 
-                return true;   
+                return true;
             }
-            if (m_Position.y> m_jumpMaxHeight2 + m_StartHeight2)
+            if (m_Position.y > m_jumpMaxHeight + m_StartHeight2)
             {
                 Debug.Log("最高到達点:RISEステート");
                 m_timer = 0.0f;
+                SetPrevState(this);
                 SetNextState(m_fallState);
                 SetJumpStartFlag(false);
 
                 return true;
 
             }
-            if (m_timer>m_maxTime)
+            if (m_timer > m_jumpMaxTime)
             {
                 Debug.Log("滞空時間終了:RISEステート");
                 m_timer = 0.0f;
+                SetPrevState(this);
                 SetNextState(m_fallState);
                 SetJumpStartFlag(false);
 
@@ -74,20 +80,10 @@ namespace TeamProject
             m_timer += Time.deltaTime;
             return false;
         }
-        public override Vector2 SetSpeed(P_ADDSPEED _addSpeed)
-        {
-            Vector2 returnSpeed;
-            returnSpeed.x = +m_horizontalSpeed * _addSpeed.runSpeed;
-            returnSpeed.y = +1.0f * _addSpeed.jumpSpeed;
-            //returnSpeed.y = +0.0f * _addSpeed.fallSpeed;
-
-            return returnSpeed;
-
-        }
         public override void SetSpeed()
         {
             m_speed.x = m_speedDirection * m_horizontalSpeed;
-            m_speed.y = -1.0f * m_gravitySpeed;
+            m_speed.y = 1.0f * m_gravitySpeed;
             ////水平速度
             //m_horizontalSpeed
             ////重力速度
@@ -96,6 +92,16 @@ namespace TeamProject
             //m_jumpSpeed
         }
 
+        override public void SetJumpParameter(float _maxheight, float _maxtime, float _mintime)
+        {
+            //最大ジャンプ高さ
+            m_jumpMaxHeight = _maxheight;
+            //最大時間
+            m_jumpMaxTime = _maxtime;
+            //最低時間
+            m_jumpMinTime = _mintime;
+
+        }
 
         override public bool PlayerInput()
         {
@@ -113,7 +119,8 @@ namespace TeamProject
             {
                 m_Param.m_PlayerDirection = P_DIRECTION.LEFT;
                 m_speedDirection = SetDirectionSpeed(-1.0f);
-                SetNextState();
+                SetNextState(this);
+                SetPrevState(this);
 
                 keyinput = true;
             }
@@ -122,7 +129,8 @@ namespace TeamProject
             {
                 m_Param.m_PlayerDirection = P_DIRECTION.RIGHT;
                 m_speedDirection = SetDirectionSpeed(1.0f);
-                SetNextState();
+                SetNextState(this);
+                SetPrevState(this);
                 Debug.Log("右入力:" + this);
 
                 keyinput = true;
@@ -131,18 +139,26 @@ namespace TeamProject
             if (!L_input && !R_input)
             {
                 m_speedDirection = SetDirectionSpeed(0.0f);
-                SetNextState();
+                SetNextState(this);
+                SetPrevState(this);
             }
             //ジャンプボタン押し続け
             if (J_key)
             {
+                m_Param.m_PlayerState = P_STATE.RISE;
+
+                SetNextState(this);
+                SetPrevState(this);
+
                 Debug.Log("jump:JUMP");
             }
             //ジャンプボタンを離す
-            else if (!J_key)
+            else if (!J_key&&m_timer>m_jumpMinTime)
             {
+                m_timer = 0.0f;
 
                 m_Param.m_PlayerState = P_STATE.FALL;
+                SetPrevState(this);
                 SetNextState(m_fallState);
                 SetJumpStartFlag(false);
                 keyinput = true;

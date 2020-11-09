@@ -79,9 +79,17 @@ namespace TeamProject
         //ジャンプする速度
         public float m_jumpSpeed = 0.0f;
 
-        //次の状態を持たせるもの
-        public PlayerState m_nextState;
+        //前の状態を持たせるもの
+        public PlayerState m_prevState { get; set; }
 
+        ////現在の状態を持たせるもの
+        //public PlayerState m_currentState { get; set; }
+
+        //次の状態を持たせるもの
+        public PlayerState m_nextState { get; set; }
+
+        //自分の状態を明示する変数
+        public P_STATE m_selfState { get; set; }
         //ここはプレイヤーの状態
         public P_PARAMETER m_Param;
 
@@ -101,8 +109,6 @@ namespace TeamProject
         //最大時間
         public float m_maxTime = 0.0f;
 
-        //自分の状態を明示する変数
-        public P_STATE m_selfState;
         public PlayerState()
         {
             Debug.Log("コンストラクタ:PLAYER");
@@ -141,13 +147,14 @@ namespace TeamProject
         /// </summary>
         /// <param name="_speed"></param>
         /// <returns></returns>
-        virtual public Vector2 SetSpeed(P_ADDSPEED _speed)
-        {
-            return new Vector2(0.0f, 0.0f);
-        }
-        virtual public void SetSpeed()
-        {
-        }
+        //virtual public Vector2 SetSpeed(P_ADDSPEED _speed)
+        //{
+        //    return new Vector2(0.0f, 0.0f);
+        //}
+        virtual public void SetSpeed() { }
+
+        virtual public void SetJumpParameter(float _maxheight,float _maxtime,float _mintime) { }
+
         //オーバライド用ここまで
         //===============================================
 
@@ -185,9 +192,24 @@ namespace TeamProject
         /// <param name="_directionspeed"></param>
         public float SetDirectionSpeed(float _directionspeed)
         {
-            return  _directionspeed;
+            return _directionspeed;
         }
 
+        /// <summary>
+        /// 次の状態をセットする
+        /// </summary>
+        /// <param name="_prev"></param>
+        public void SetPrevState(PlayerState _prev)
+        {
+            m_prevState = _prev;
+        }
+        /// <summary>
+        /// 状態に変更なしの場合、現在の状態をセットする
+        /// </summary>
+        public void SetPrevState()
+        {
+            m_prevState = this;
+        }
         /// <summary>
         /// 次の状態をセットする
         /// </summary>
@@ -244,10 +266,10 @@ namespace TeamProject
             return m_selfState;
         }
 
-        public  void SetParameter(PlayerState _prevstate)
+        public void SetParameter(PlayerState _prevstate)
         {
             PlayerState _stateWork = this;
-          _stateWork      = _prevstate;
+            _stateWork = _prevstate;
         }
         //共通用関数ここまで
         //-----------------------------------------------
