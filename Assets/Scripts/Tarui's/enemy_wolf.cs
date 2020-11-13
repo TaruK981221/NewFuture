@@ -54,9 +54,6 @@ public class enemy_wolf : MonoBehaviour
     [SerializeField]
     float StayTimeLimit = 2;
 
-    [SerializeField]
-    float speed = 100.0f;
-
     // false : 左    true : 右
     bool isLR = false;
 
@@ -221,11 +218,11 @@ public class enemy_wolf : MonoBehaviour
 
                         if (isLR)
                         {
-                            rb.velocity = new Vector2(speed * 0.4f, speed*0.8f);
+                            rb.velocity = new Vector2(4.0f, 8.0f);
                         }
                         else
                         {
-                            rb.velocity = new Vector2(-speed * 0.4f, speed * 0.8f);
+                            rb.velocity = new Vector2(-4.0f, 8.0f);
                         }
                     }
 
@@ -251,11 +248,11 @@ public class enemy_wolf : MonoBehaviour
         // 左右で移動が変わる
         if (isLR)
         {
-            rb.velocity = new Vector2(speed, 0.0f);
+            rb.velocity = new Vector2(5.0f, 0.0f);
         }
         else
         {
-            rb.velocity = new Vector2(-speed, 0.0f);
+            rb.velocity = new Vector2(-5.0f, 0.0f);
         }
 
         // 歩行する時間の管理
