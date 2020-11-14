@@ -15,6 +15,6 @@ public class MoveBlock1 : MonoBehaviour
 
     void FixedUpdate()
     {
-        rigid.MovePosition(new Vector2(defaultPos.x, defaultPos.y + Mathf.PingPong(Time.time, 2)));
+        rigid.MovePosition(new Vector2(defaultPos.x, defaultPos.y + Mathf.PingPong(Time.time, 6)));
     }
 }
