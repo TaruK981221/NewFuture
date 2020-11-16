@@ -46,17 +46,13 @@ namespace TeamProject
         override public bool PlayerInput()
         {
             bool keyinput = false;
-            bool R_key = InputManager.InputManager.Instance.GetArrow(InputManager.ArrowCode.RightArrow);
             bool R_arrow = Input.GetKey(KeyCode.RightArrow);
-            bool L_key = InputManager.InputManager.Instance.GetArrow(InputManager.ArrowCode.LeftArrow);
             bool L_arrow = Input.GetKey(KeyCode.LeftArrow);
             bool J_key = InputManager.InputManager.Instance.GetKey(InputManager.ButtonCode.Jump);
-            bool L_input = (L_key || L_arrow);
-            bool R_input = (R_key || R_arrow);
             // bool flag = false;
 
             //右入力
-            if (R_input)
+            if (R_arrow)
             {
                 m_Param.m_PlayerState = P_STATE.RUN;
                 m_Param.m_PlayerDirection = P_DIRECTION.RIGHT;
@@ -66,7 +62,7 @@ namespace TeamProject
                 keyinput = true;
             }
             //左入力
-            else if (L_input)
+            else if (L_arrow)
             {
 
                 m_Param.m_PlayerState = P_STATE.RUN;

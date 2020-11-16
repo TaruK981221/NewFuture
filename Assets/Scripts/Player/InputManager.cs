@@ -73,34 +73,34 @@ namespace TeamProject
                 keyString = new Tuple<string, KeyCode>[(int)ButtonCode.Max];
                 ps4KeyString = new Tuple<string, KeyCode>[(int)ButtonCode.Max];
 
-                //Xboxコントローラー対応ｘ
+                //Xboxコントローラー対応（一応対応してるが未調整）
                 //ボタン設定
-                keyString[(int)ButtonCode.Jump]      = Tuple.Create("joystick button 0", KeyCode.Space);         // Xboxコン = Aボタン
-                keyString[(int)ButtonCode.StyleNext] = Tuple.Create("joystick button 1", KeyCode.K);             // Xboxコン = Bボタン
-                keyString[(int)ButtonCode.StylePrev] = Tuple.Create("joystick button 2", KeyCode.L);             // Xboxコン = Xボタン
-                keyString[(int)ButtonCode.Attack]    = Tuple.Create("joystick button 3", KeyCode.J);             // Xboxコン = Yボタン
+                keyString[(int)ButtonCode.Jump]      = Tuple.Create("joystick button 0", KeyCode.X);             // Xboxコン = Aボタン
+                keyString[(int)ButtonCode.StyleNext] = Tuple.Create("joystick button 1", KeyCode.S);             // Xboxコン = Bボタン
+                keyString[(int)ButtonCode.StylePrev] = Tuple.Create("joystick button 2", KeyCode.A);             // Xboxコン = Xボタン
+                keyString[(int)ButtonCode.Attack]    = Tuple.Create("joystick button 3", KeyCode.Z);             // Xboxコン = Yボタン
 
                 //LRトリガー
-                keyString[(int)ButtonCode.R1]        = Tuple.Create("joystick button 4", KeyCode.S);             // Xboxコン = RBトリガー
-                keyString[(int)ButtonCode.R2]        = Tuple.Create("joystick button 0", KeyCode.N);             // 
-                keyString[(int)ButtonCode.L1]        = Tuple.Create("joystick button 5", KeyCode.W);             // Xboxコン = LBトリガー
-                keyString[(int)ButtonCode.L2]        = Tuple.Create("joystick button 0", KeyCode.L);             // 
+                keyString[(int)ButtonCode.R1]        = Tuple.Create("joystick button 4", KeyCode.K);             // Xboxコン = RBトリガー
+                keyString[(int)ButtonCode.R2]        = Tuple.Create("joystick button 0", KeyCode.I);             // 
+                keyString[(int)ButtonCode.L1]        = Tuple.Create("joystick button 5", KeyCode.H);             // Xboxコン = LBトリガー
+                keyString[(int)ButtonCode.L2]        = Tuple.Create("joystick button 0", KeyCode.Y);             // 
 
                 //スタートボタン
                 keyString[(int)ButtonCode.Menu]      = Tuple.Create("joystick button 7", KeyCode.Escape);        // Xboxコン = STARTボタン
                 keyString[(int)ButtonCode.View]      = Tuple.Create("joystick button 6", KeyCode.Escape);        // 現在未割り当て
 
                 //PS4キー（未設定）
-                ps4KeyString[(int)ButtonCode.Jump] = Tuple.Create("joystick button 1", KeyCode.LeftShift);  // 
+                ps4KeyString[(int)ButtonCode.Jump] = Tuple.Create("joystick button 1", KeyCode.LeftShift);       // 
                 ps4KeyString[(int)ButtonCode.StyleNext] = Tuple.Create("joystick button 2", KeyCode.Space);      // 
                 ps4KeyString[(int)ButtonCode.StylePrev] = Tuple.Create("joystick button 0", KeyCode.C);          // 
-                ps4KeyString[(int)ButtonCode.Attack] = Tuple.Create("joystick button 3", KeyCode.V);          // 
-                ps4KeyString[(int)ButtonCode.R1] = Tuple.Create("joystick button 5", KeyCode.E);         // 
-                ps4KeyString[(int)ButtonCode.R2] = Tuple.Create("joystick button 0", KeyCode.N);         // 
-                ps4KeyString[(int)ButtonCode.L1] = Tuple.Create("joystick button 4", KeyCode.Q);         // 
-                ps4KeyString[(int)ButtonCode.L2] = Tuple.Create("joystick button 0", KeyCode.L);         // 
-                ps4KeyString[(int)ButtonCode.Menu] = Tuple.Create("joystick button 9", KeyCode.P);       // 
-                ps4KeyString[(int)ButtonCode.View] = Tuple.Create("joystick button 12", KeyCode.Escape); // 現在未割り当て
+                ps4KeyString[(int)ButtonCode.Attack] = Tuple.Create("joystick button 3", KeyCode.V);             // 
+                ps4KeyString[(int)ButtonCode.R1] = Tuple.Create("joystick button 5", KeyCode.E);                 // 
+                ps4KeyString[(int)ButtonCode.R2] = Tuple.Create("joystick button 0", KeyCode.N);                 // 
+                ps4KeyString[(int)ButtonCode.L1] = Tuple.Create("joystick button 4", KeyCode.Q);                 // 
+                ps4KeyString[(int)ButtonCode.L2] = Tuple.Create("joystick button 0", KeyCode.L);                 // 
+                ps4KeyString[(int)ButtonCode.Menu] = Tuple.Create("joystick button 9", KeyCode.P);               // 
+                ps4KeyString[(int)ButtonCode.View] = Tuple.Create("joystick button 12", KeyCode.Escape);         // 現在未割り当て
 
                 arrowString = new Tuple<string, KeyCode>[(int)ArrowCode.Max];                            // 
                 ps4ArrowString = new Tuple<string, KeyCode>[(int)ArrowCode.Max];                         // 
