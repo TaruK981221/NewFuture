@@ -21,7 +21,6 @@ public class enemy_bard : MonoBehaviour
     }
 
     // こいつの状態
-    [SerializeField]
     STATUS status = STATUS.fly;
     ATK_STATUS aStatus = ATK_STATUS.stay;
 
@@ -180,6 +179,7 @@ public class enemy_bard : MonoBehaviour
                     }
 
                     this.transform.position = new Vector3(X, Y, 0.0f);
+                    this.transform.localEulerAngles = new Vector3(0, 0, (AtkTime / AtkFallTimeLimit * -180.0f + 90.0f));
 
                     if (AtkFallTimeLimit > AtkTime)
                     {
@@ -190,6 +190,8 @@ public class enemy_bard : MonoBehaviour
                         AtkTime = 0;
                         status = STATUS.fly;
                         aStatus = ATK_STATUS.stay;
+
+                        this.transform.localEulerAngles = Vector3.zero;
 
                         FlyTime = 0.0f;
                     }
