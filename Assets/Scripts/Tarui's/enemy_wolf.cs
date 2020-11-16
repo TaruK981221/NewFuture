@@ -55,7 +55,7 @@ public class enemy_wolf : MonoBehaviour
     float StayTimeLimit = 2;
 
     [SerializeField]
-    float speed = 100.0f;
+    float speed = 10.0f, jumpSpeed = 10.0f;
 
     // false : 左    true : 右
     bool isLR = false;
@@ -89,26 +89,35 @@ public class enemy_wolf : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject == player)
+        Debug.Log(collision.tag);
+
+        if(collision.tag == "Ground")
         {
-            // 攻撃可能か
-            if (isAttackOK)
+            rb.bodyType = RigidbodyType2D.Kinematic;
+            rb.velocity = Vector2.zero;
+        }
+    }
+
+    // 子オブジェクト的な？の当たり判定を通した処理
+    public void AtkCollision()
+    {
+        // 攻撃可能か
+        if (isAttackOK)
+        {
+            isAttackOK = false;
+
+            status = STATUS.attack;
+            aStatus = ATK_STATUS.stay;
+
+            rb.velocity = Vector2.zero;
+
+            if (player.transform.position.x >= this.transform.position.x)
             {
-                isAttackOK = false;
-
-                status = STATUS.attack;
-                aStatus = ATK_STATUS.stay;
-
-                rb.velocity = Vector2.zero;
-
-                if(collision.transform.position.x >= this.transform.position.x)
-                {
-                    isLR = true;
-                }
-                else
-                {
-                    isLR = false;
-                }
+                isLR = true;
+            }
+            else
+            {
+                isLR = false;
             }
         }
     }
@@ -208,6 +217,8 @@ public class enemy_wolf : MonoBehaviour
                         AtkTime = 0;
                         aStatus = ATK_STATUS.jump;
                         AtkFlg = true;
+
+                        rb.bodyType = RigidbodyType2D.Dynamic;
                     }
                 }
                 break;
@@ -221,11 +232,11 @@ public class enemy_wolf : MonoBehaviour
 
                         if (isLR)
                         {
-                            rb.velocity = new Vector2(speed * 0.4f, speed*0.8f);
+                            rb.velocity = new Vector2(jumpSpeed * 1, jumpSpeed * 2);
                         }
                         else
                         {
-                            rb.velocity = new Vector2(-speed * 0.4f, speed * 0.8f);
+                            rb.velocity = new Vector2(-jumpSpeed * 1, jumpSpeed * 2);
                         }
                     }
 

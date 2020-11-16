@@ -106,16 +106,12 @@ namespace TeamProject
         override public bool PlayerInput()
         {
             bool keyinput = false;
-            bool R_key = InputManager.InputManager.Instance.GetArrow(InputManager.ArrowCode.RightArrow);
             bool R_arrow = Input.GetKey(KeyCode.RightArrow);
-            bool L_key = InputManager.InputManager.Instance.GetArrow(InputManager.ArrowCode.LeftArrow);
             bool L_arrow = Input.GetKey(KeyCode.LeftArrow);
             bool J_key = InputManager.InputManager.Instance.GetKey(InputManager.ButtonCode.Jump);
-            bool L_input = (L_key || L_arrow);
-            bool R_input = (R_key || R_arrow);
 
             //左入力
-            if (L_key || L_arrow)
+            if (L_arrow)
             {
                 m_Param.m_PlayerDirection = P_DIRECTION.LEFT;
                 m_speedDirection = SetDirectionSpeed(-1.0f);
@@ -125,7 +121,7 @@ namespace TeamProject
                 keyinput = true;
             }
             //右入力
-            if (R_key || R_arrow)
+            if (R_arrow)
             {
                 m_Param.m_PlayerDirection = P_DIRECTION.RIGHT;
                 m_speedDirection = SetDirectionSpeed(1.0f);
@@ -136,7 +132,7 @@ namespace TeamProject
                 keyinput = true;
             }
             //左右入力無し
-            if (!L_input && !R_input)
+            if (!L_arrow && !R_arrow)
             {
                 m_speedDirection = SetDirectionSpeed(0.0f);
                 SetNextState(this);

@@ -49,6 +49,7 @@ public class enemy_bard : MonoBehaviour
     // 飛行の際に使用
     [SerializeField, Header("縦の揺れの幅(周波数)")]
     float T = 1.0f;
+    float FlyTime = 0;
 
     // 攻撃の際に使用
     [SerializeField]
@@ -101,6 +102,12 @@ public class enemy_bard : MonoBehaviour
                     Attack();
                 }
                 break;
+
+            case STATUS.Damage:
+                {
+                    Damage();
+                }
+                break;
         }
     }
 
@@ -118,10 +125,12 @@ public class enemy_bard : MonoBehaviour
             rb.velocity = new Vector2(-5.0f, 0.0f);
         }
 
+        FlyTime += Time.deltaTime;
+
         // 上下の揺れ運動
         float X = this.transform.position.x;
 
-        float Y = Mathf.Sin(2 * Mathf.PI * T * Time.time) + StartY;
+        float Y = Mathf.Sin(2 * Mathf.PI * T * FlyTime) + StartY;
 
         this.transform.position = new Vector3(X, Y, 0.0f);
     }
@@ -181,6 +190,8 @@ public class enemy_bard : MonoBehaviour
                         AtkTime = 0;
                         status = STATUS.fly;
                         aStatus = ATK_STATUS.stay;
+
+                        FlyTime = 0.0f;
                     }
                 }
                 break;
@@ -188,5 +199,10 @@ public class enemy_bard : MonoBehaviour
 
     }
     
+    void Damage()
+    {
+
+    }
+
     /* Actionの中身 end */
 }
