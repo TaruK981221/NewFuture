@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class thorn : MonoBehaviour
 {
+    private float hp;
 
 
 
@@ -17,8 +18,14 @@ public class thorn : MonoBehaviour
             Debug.Log("hit Player");  //コンソールにhit Playerが表示
             //gameObject.GetComponent<EnemyBulletManager>()でEnemyBulletManagerスクリプトを参照し
             //.powerEnemy; でEnemyBulletManagerのpowerEnemyの値をゲット
-            
+            hp -= collision.gameObject.GetComponent<PlayerControlScript>().powerEnemy;
         }
+
+    }
+    public class Thorn : MonoBehaviour
+    {
+
+        public float thorn = 1; //攻撃力
 
     }
 
