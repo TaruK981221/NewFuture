@@ -27,6 +27,7 @@ public class enemy_bard : MonoBehaviour
     // 使用する予定のコンポーネント
     Rigidbody2D rb;
     SpriteRenderer sr;
+    Animator animator;
 
     // 攻撃対象
     GameObject player = null;
@@ -52,7 +53,9 @@ public class enemy_bard : MonoBehaviour
 
     // 攻撃の際に使用
     [SerializeField]
-    float Move = 5.0f;
+    float MoveSpeed = 5.0f;
+    [SerializeField]
+    Vector2 AtkMoveSpeed = new Vector2(5.0f, 5.0f);
 
     // false : 左    true : 右
     bool isLR = false;
@@ -64,6 +67,7 @@ public class enemy_bard : MonoBehaviour
     {
         rb = this.GetComponent<Rigidbody2D>();
         sr = this.GetComponent<SpriteRenderer>();
+        animator = this.GetComponent<Animator>();
 
         player = GameObject.FindGameObjectWithTag("Player");
 
@@ -74,6 +78,15 @@ public class enemy_bard : MonoBehaviour
     void FixedUpdate()
     {
         Action();
+
+        if(isLR)
+        {
+            sr.flipX = true;
+        }
+        else
+        {
+            sr.flipX = false;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -84,6 +97,7 @@ public class enemy_bard : MonoBehaviour
             isAttackOK = true;
 
             rb.velocity = Vector2.zero;
+            animator.SetBool("Gatsuga", true);
         }
     }
 
@@ -117,11 +131,11 @@ public class enemy_bard : MonoBehaviour
         // 左右で移動が変わる
         if (isLR)
         {
-            rb.velocity = new Vector2(5.0f, 0.0f);
+            rb.velocity = new Vector2(MoveSpeed, 0.0f);
         }
         else
         {
-            rb.velocity = new Vector2(-5.0f, 0.0f);
+            rb.velocity = new Vector2(-MoveSpeed, 0.0f);
         }
 
         FlyTime += Time.deltaTime;
@@ -167,15 +181,15 @@ public class enemy_bard : MonoBehaviour
 
                     float time = AtkTime / AtkFallTimeLimit;
                     float X;
-                    float Y = Mathf.Sin(2 * Mathf.PI * 0.5f * (time+1)) * Move + StartY;
+                    float Y = Mathf.Sin(2 * Mathf.PI * 0.5f * (time+1)) * AtkMoveSpeed.y + StartY;
                     
                     if (isLR)
                     {
-                        X = -Mathf.Sin(2 * Mathf.PI * 0.5f * (time + 0.5f)) * Move + AtkX + Move;
+                        X = -Mathf.Sin(2 * Mathf.PI * 0.5f * (time + 0.5f)) * AtkMoveSpeed.x + AtkX + AtkMoveSpeed.x;
                     }
                     else
                     {
-                        X = Mathf.Sin(2 * Mathf.PI * 0.5f * (time + 0.5f)) * Move + AtkX - Move;
+                        X = Mathf.Sin(2 * Mathf.PI * 0.5f * (time + 0.5f)) * AtkMoveSpeed.x + AtkX - AtkMoveSpeed.x;
                     }
 
                     this.transform.position = new Vector3(X, Y, 0.0f);
@@ -190,6 +204,7 @@ public class enemy_bard : MonoBehaviour
                         AtkTime = 0;
                         status = STATUS.fly;
                         aStatus = ATK_STATUS.stay;
+                        animator.SetBool("Gatsuga", false);
 
                         this.transform.localEulerAngles = Vector3.zero;
 
