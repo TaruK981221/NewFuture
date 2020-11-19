@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1214100973478871842}
   - component: {fileID: 1214100973478871841}
   - component: {fileID: 1214100973478871845}
+  - component: {fileID: 8522912964005954448}
   m_Layer: 9
   m_Name: Bard
   m_TagString: enemy
@@ -28,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1214100973478871840}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.7, y: 7.6, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1214100974191537159}
@@ -74,7 +75,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7f58b05dd6c3a7e4485fcbcdcf7381fc, type: 3}
+  m_Sprite: {fileID: -970582282267372215, guid: 92a32f36caa2f3f49a58e561841d3426,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -134,12 +136,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 754c85984561e1a46bf5655f0b4cc343, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  status: 0
   AtkOKTimeLimit: 2
-  AtkStayTimeLimit: 0.1
+  AtkStayTimeLimit: 0
   AtkFallTimeLimit: 2
   T: 0.5
   Move: 5
+--- !u!95 &8522912964005954448
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1214100973478871840}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: afaec5a76058aef43a92cf61a91b23d0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1214100974191537158
 GameObject:
   m_ObjectHideFlags: 0

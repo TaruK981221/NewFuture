@@ -31,6 +31,9 @@ public class enemy_wolf : MonoBehaviour
     // 使用する予定のコンポーネント
     Rigidbody2D rb;
     SpriteRenderer sprite;
+    Animator animator;
+
+    float AnimSpeed = 0.0f;
 
     // 連続で攻撃しないようにする
     bool isAttackOK = false;
@@ -57,6 +60,9 @@ public class enemy_wolf : MonoBehaviour
     [SerializeField]
     float speed = 10.0f, jumpSpeed = 10.0f;
 
+    [SerializeField]
+    Sprite stay = null, landing = null;
+
     // false : 左    true : 右
     bool isLR = false;
 
@@ -68,6 +74,9 @@ public class enemy_wolf : MonoBehaviour
         rb = this.gameObject.GetComponent<Rigidbody2D>();
 
         sprite = this.GetComponent<SpriteRenderer>();
+
+        animator = this.GetComponent<Animator>();
+        AnimSpeed = animator.speed;
     }
 
     // Update is called once per frame
@@ -79,11 +88,11 @@ public class enemy_wolf : MonoBehaviour
         // 左右の向き
         if(isLR)
         {
-            sprite.flipX = false;
+            sprite.flipX = true;
         }
         else
         {
-            sprite.flipX = true;
+            sprite.flipX = false;
         }
     }
 
@@ -95,6 +104,11 @@ public class enemy_wolf : MonoBehaviour
         {
             rb.bodyType = RigidbodyType2D.Kinematic;
             rb.velocity = Vector2.zero;
+
+            animator.SetBool("Jump", false);
+            animator.speed = 0;
+            animator.enabled = false;
+            sprite.sprite = landing;
         }
     }
 
@@ -110,6 +124,8 @@ public class enemy_wolf : MonoBehaviour
             aStatus = ATK_STATUS.stay;
 
             rb.velocity = Vector2.zero;
+
+            animator.SetBool("Atk", true);
 
             if (player.transform.position.x >= this.transform.position.x)
             {
@@ -188,6 +204,11 @@ public class enemy_wolf : MonoBehaviour
             StayTime = 0;
             status = STATUS.walk;
 
+            animator.enabled = true;
+            animator.speed = AnimSpeed;
+            animator.SetBool("Atk", false);
+            animator.Play(0);
+
             // 左右の方向を決める
             if (player.transform.position.x >= this.transform.position.x)
             {
@@ -217,6 +238,10 @@ public class enemy_wolf : MonoBehaviour
                         AtkTime = 0;
                         aStatus = ATK_STATUS.jump;
                         AtkFlg = true;
+
+                        animator.enabled = true;
+                        animator.speed = AnimSpeed;
+                        animator.SetBool("Jump", true);
 
                         rb.bodyType = RigidbodyType2D.Dynamic;
                     }
@@ -250,6 +275,11 @@ public class enemy_wolf : MonoBehaviour
                         AtkOKTime = 0;
                         status = STATUS.stay;
                         aStatus = ATK_STATUS.stay;
+
+                        animator.SetBool("Jump", false);
+                        animator.speed = 0;
+                        animator.enabled = false;
+                        sprite.sprite = stay;
                     }
                 }
                 break;
@@ -278,6 +308,10 @@ public class enemy_wolf : MonoBehaviour
         {
             WalkTime = 0;
             status = STATUS.stay;
+
+            animator.speed = 0;
+            animator.enabled = false;
+            sprite.sprite = stay;
 
             rb.velocity = Vector2.zero;
         }
