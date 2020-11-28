@@ -16,7 +16,7 @@ public class thorn : MonoBehaviour
         //if (collision.gameObject.tag == "EnemyBullet")
         {
             Debug.Log("hit Player");  //コンソールにhit Playerが表示
-            //gameObject.GetComponent<EnemyBulletManager>()でEnemyBulletManagerスクリプトを参照し
+            //gameObject.GetCom+-+ponent<EnemyBulletManager>()でEnemyBulletManagerスクリプトを参照し
             //.powerEnemy; でEnemyBulletManagerのpowerEnemyの値をゲット
             hp -= collision.gameObject.GetComponent<PlayerControlScript>().powerEnemy;
         }
