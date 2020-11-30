@@ -13,10 +13,9 @@ namespace TeamProject
         {
             SetNextState(this);
             SetPrevState(this);
-            Debug.Log("コンストラクタ:DAMAGE");
         }
 
-        override public void SetSelfState() { m_selfState = P_STATE.DAMAGE; }
+        override public void SetSelfState() { SelfState = P_STATE.DAMAGE; }
 
         //// Update is called once per frame
         //void Update()

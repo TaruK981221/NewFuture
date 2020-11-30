@@ -13,10 +13,9 @@ namespace TeamProject
         {
             SetNextState(this);
             SetPrevState(this);
-            Debug.Log("コンストラクタ:J_ATTACK");
         }
 
-        override public void SetSelfState() { m_selfState = P_STATE.JUMP_ATTACK; }
+        override public void SetSelfState() { SelfState = P_STATE.JUMP_ATTACK; }
 
         //// Update is called once per frame
         //void Update()

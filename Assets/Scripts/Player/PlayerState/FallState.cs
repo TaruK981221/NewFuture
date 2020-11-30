@@ -16,10 +16,9 @@ namespace TeamProject
         {
             SetPrevState(this);
             SetNextState(this);
-            Debug.Log("コンストラクタ:FALL");
         }
 
-        override public void SetSelfState() { m_selfState = P_STATE.FALL; }
+        override public void SetSelfState() { SelfState = P_STATE.FALL; }
 
         //// Update is called once per frame
         override public bool Update()
@@ -27,10 +26,10 @@ namespace TeamProject
             if (m_isGround)
             {
                 Debug.Log("接地しました:FALLステート");
+                m_Param.m_PlayerGround = P_GROUND.GROUND;
+
                 SetPrevState(this);
                 SetNextState(m_idleState);
-
-                //SetIsGround(false);
                 return true;
             }
             PositionUpdate();
@@ -43,43 +42,101 @@ namespace TeamProject
             m_speed.y = -1.0f * m_gravitySpeed;
         }
 
-        override public bool PlayerInput()
+        #region//左入力時の処理
+        /// <summary>
+        /// 左入力時の処理
+        /// </summary>
+        public override void LeftKeyDownInput()
         {
-            bool keyinput = false;
-            bool R_arrow = Input.GetKey(KeyCode.RightArrow);
-            bool L_arrow = Input.GetKey(KeyCode.LeftArrow);
-            bool J_key = InputManager.InputManager.Instance.GetKey(InputManager.ButtonCode.Jump);
-
-            //左入力
-            if (L_arrow)
-            {
-                m_Param.m_PlayerDirection = P_DIRECTION.LEFT;
-                m_speedDirection = SetDirectionSpeed(-1.0f);
-                SetPrevState(this);
-                SetNextState(this);
-
-                keyinput = true;
-            }
-            //右入力
-            if (R_arrow)
-            {
-                m_Param.m_PlayerDirection = P_DIRECTION.RIGHT;
-                m_speedDirection = SetDirectionSpeed(1.0f);
-                SetPrevState(this);
-                SetNextState(this);
-                Debug.Log("右入力:"+this);
-
-                keyinput = true;
-            }
-            //左右入力無し
-            if (!L_arrow && !R_arrow)
-            {
-                m_speedDirection = SetDirectionSpeed(0.0f);
-                SetPrevState(this);
-                SetNextState(this);
-            }
-
-            return keyinput;
+            m_Param.m_PlayerDirection = P_DIRECTION.LEFT;
+            m_speedDirection = SetDirectionSpeed(-1.0f);
+            SetPrevState(this);
+            SetNextState(this);
         }
+
+        public override void LeftKeyHoldInput()
+        {
+            LeftKeyDownInput();
+        }
+        public override void LeftKeyUpInput()
+        {
+            m_Param.m_PlayerDirection = P_DIRECTION.LEFT;
+            m_speedDirection = SetDirectionSpeed(0.0f);
+            SetPrevState(this);
+            SetNextState(m_idleState);
+        }
+        #endregion
+
+        #region//右入力時の処理
+        /// <summary>
+        /// 右入力時の処理
+        /// </summary>
+        public override void RightKeyDownInput()
+        {
+            m_Param.m_PlayerDirection = P_DIRECTION.RIGHT;
+            m_speedDirection = SetDirectionSpeed(1.0f);
+            SetPrevState(this);
+            SetNextState(this);
+        }
+        public override void RightKeyHoldInput()
+        {
+            RightKeyDownInput();
+        }
+        public override void RightKeyUpInput()
+        {
+            m_Param.m_PlayerDirection = P_DIRECTION.RIGHT;
+            m_speedDirection = SetDirectionSpeed(0.0f);
+            SetPrevState(this);
+            SetNextState(m_idleState);
+        }
+        #endregion
+
+        /// <summary>
+        /// 左右入力無しの時の処理
+        /// </summary>
+        public override void NoMoveInput()
+        {
+            m_speedDirection = SetDirectionSpeed(0.0f);
+            SetPrevState(this);
+            SetNextState(this);
+        }
+
+        #region//攻撃入力時の処理
+        /// <summary>
+        /// 攻撃入力時の処理
+        /// </summary>
+        public override void AttackKeyDownInput() { }
+        public override void AttackKeyHoldInput() { }
+        public override void AttackKeyUpInput() { }
+        #endregion
+
+        #region//ジャンプ入力時の処理
+        /// <summary>
+        /// ジャンプ入力時の処理
+        /// </summary>
+        public override void JumpKeyDownInput()
+        {
+            if (false)/*ここにClawStyleの時のみtrueの条件を入れる*/
+            {
+                //  m_Param.m_PlayerState = P_STATE.RISE;
+                //m_Param.m_PlayerGround = P_GROUND.JUMP_2ND;
+                //SetPrevState(this);
+                //SetNextState(m_riseState);
+            }
+        }
+        public override void JumpKeyHoldInput() { }
+        public override void JumpKeyUpInput() { }
+        #endregion
+
+        /// <summary>
+        /// 次スタイルチェンジ入力時の処理
+        /// </summary>
+        public override void NextStyleInput() { }
+
+        /// <summary>
+        /// 前スタイルチェンジ入力時の処理
+        /// </summary>
+        public override void PrevStyleInput() { }
+
     }//    public class FallState : PlayerState END
 }//namespace TeamProject END

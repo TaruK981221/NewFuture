@@ -11,17 +11,25 @@ namespace TeamProject
     {
         public AttackState()
         {
-            SetNextState(this);
             SetPrevState(this);
-            Debug.Log("コンストラクタ:ATTACK");
+            SetNextState(this);
         }
 
-        override public void SetSelfState() { m_selfState = P_STATE.ATTACK; }
+        override public void SetSelfState() { SelfState = P_STATE.ATTACK; }
+        override public bool Update()
+        {
+            m_timer += Time.deltaTime;
+            if (m_timer>2.0f)
+            {
+                m_timer = 0.0f;
+                SetPrevState(this);
+                SetNextState(m_idleState);
+                return true;
+            }
+            SetPrevState(this);
+            SetNextState(this);
 
-        //// Update is called once per frame
-        //void Update()
-        //{
-
-        //}
-    }//    public class AttackState : PlayerState END
-}//namespace TeamProject END
+            return false;
+        }
+        }//    public class AttackState : PlayerState END
+    }//namespace TeamProject END

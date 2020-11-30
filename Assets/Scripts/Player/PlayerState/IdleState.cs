@@ -10,14 +10,13 @@ namespace TeamProject
         {
             SetPrevState(this);
             SetNextState(this);
-            Debug.Log("コンストラクタ:IDLE");
         }
         // Start is called before the first frame update
         //void Start()
         //{
 
         //}
-        override public void SetSelfState() { m_selfState = P_STATE.IDLE; }
+        override public void SetSelfState() { SelfState = P_STATE.IDLE; }
 
         // Update is called once per frame
         override public bool Update()
@@ -25,9 +24,11 @@ namespace TeamProject
             if (!m_isGround)
             {
                 Debug.Log("No接地:IDLEステート");
+                m_Param.m_PlayerGround = P_GROUND.FALL;
+
+
                 SetPrevState(this);
                 SetNextState(m_fallState);
-                //SetIsGround(false);
                 return true;
             }
 
@@ -42,95 +43,109 @@ namespace TeamProject
         }
 
 
-        // Update is called once per frame
-        override public bool PlayerInput()
+        #region//左入力時の処理
+        /// <summary>
+        /// 左入力時の処理
+        /// </summary>
+        public override void LeftKeyDownInput()
         {
-            bool keyinput = false;
-            bool R_arrow = Input.GetKey(KeyCode.RightArrow);
-            bool L_arrow = Input.GetKey(KeyCode.LeftArrow);
-            bool J_key = InputManager.InputManager.Instance.GetKey(InputManager.ButtonCode.Jump);
-            // bool flag = false;
-
-            //右入力
-            if (R_arrow)
-            {
-                m_Param.m_PlayerState = P_STATE.RUN;
-                m_Param.m_PlayerDirection = P_DIRECTION.RIGHT;
-                Debug.Log("right:IDLE");
-                SetPrevState(this);
-                SetNextState(m_runState);
-                keyinput = true;
-            }
-            //左入力
-            else if (L_arrow)
-            {
-
-                m_Param.m_PlayerState = P_STATE.RUN;
-                m_Param.m_PlayerDirection = P_DIRECTION.LEFT;
-                Debug.Log("left:IDLE");
-                SetPrevState(this);
-                SetNextState(m_runState);
-
-                keyinput = true;
-
-            }
-            else
-            {
-                SetNextState(this);
-
-            }
-            //ジャンプ入力
-            if (J_key)
-            {
-                m_Param.m_PlayerState = P_STATE.RISE;
-                m_Param.m_PlayerGround = P_GROUND.JUMP_1ST;
-                //m_speed.y = jumpSpeed;
-                //jumpPos = transform.position.y; //ジャンプした位置を記録する
-
-                ////isJump = true;
-
-                //jumpTime = 0.0f;
-                Debug.Log("jump:IDLE");
-                SetPrevState(this);
-                SetNextState(m_riseState);
-                keyinput = true;
-
-
-            }
-            //攻撃入力
-            if (InputManager.InputManager.Instance.GetKeyDown(InputManager.ButtonCode.Attack))
-            {
-
-                //SetPrevState(this);
-                SetNextState(m_attackState);
-
-                Debug.Log("attack:IDLE");
-
-            }
-            //次スタイルチェンジ入力
-            if (InputManager.InputManager.Instance.GetKeyDown(InputManager.ButtonCode.StyleNext))
-            {
-                //m_PlayerState = P_STATE.STYLE_CHANGE;
-                //SetPrevState(this);
-                SetNextState(this);
-
-                Debug.Log("style:IDLE");
-
-            }
-            //前スタイルチェンジ入力
-            else if (InputManager.InputManager.Instance.GetKeyDown(InputManager.ButtonCode.StyleNext))
-            {
-                //m_PlayerState = P_STATE.STYLE_CHANGE;
-                //SetPrevState(this);
-                SetNextState(this);
-                Debug.Log("style:IDLE");
-
-            }
-
-            return keyinput;
+            m_Param.m_PlayerState = P_STATE.RUN;
+            m_Param.m_PlayerDirection = P_DIRECTION.LEFT;
+            Debug.Log("left:IDLE");
+            SetPrevState(this);
+            SetNextState(m_runState);
 
         }
+        public override void LeftKeyHoldInput()
+        {
+            LeftKeyDownInput();
+        }
+        public override void LeftKeyUpInput() { }
+        #endregion
 
+        #region//右入力時の処理
+        /// <summary>
+        /// 右入力時の処理
+        /// </summary>
+        public override void RightKeyDownInput()
+        {
+            m_Param.m_PlayerState = P_STATE.RUN;
+            m_Param.m_PlayerDirection = P_DIRECTION.RIGHT;
+            Debug.Log("right:IDLE");
+            SetPrevState(this);
+            SetNextState(m_runState);
+        }
+        public override void RightKeyHoldInput()
+        {
+            RightKeyDownInput();
+        }
+        public override void RightKeyUpInput() { }
+        #endregion
 
+        /// <summary>
+        /// 左右入力無しの時の処理
+        /// </summary>
+        public override void NoMoveInput()
+        {
+            SetPrevState(this);
+            SetNextState(this);
+        }
+
+        #region//攻撃入力時の処理
+        /// <summary>
+        /// 攻撃入力時の処理
+        /// </summary>
+        public override void AttackKeyDownInput()
+        {
+
+            //SetPrevState(this);
+            SetNextState(m_attackState);
+
+            Debug.Log("attack:IDLE");
+
+        }
+        public override void AttackKeyHoldInput() { }
+        public override void AttackKeyUpInput() { }
+        #endregion
+
+        #region//ジャンプ入力時の処理
+        /// <summary>
+        /// ジャンプ入力時の処理
+        /// </summary>
+        public override void JumpKeyDownInput()
+        {
+            m_Param.m_PlayerState = P_STATE.RISE;
+            m_Param.m_PlayerGround = P_GROUND.JUMP_1ST;
+            Debug.Log("jump:IDLE");
+            SetPrevState(this);
+            SetNextState(m_riseState);
+        }
+        public override void JumpKeyHoldInput() {}
+        public override void JumpKeyUpInput() { }
+        #endregion
+
+        /// <summary>
+        /// 次スタイルチェンジ入力時の処理
+        /// </summary>
+        public override void NextStyleInput()
+        {
+            m_Param.m_PlayerState = P_STATE.STYLE_CHANGE_NEXT;
+            SetPrevState(this);
+            SetNextState(m_nextStyleChangeState);
+
+            Debug.Log("nextstyle:IDLE");
+        }
+
+        /// <summary>
+        /// 前スタイルチェンジ入力時の処理
+        /// </summary>
+        public override void PrevStyleInput()
+        {
+            m_Param.m_PlayerState = P_STATE.STYLE_CHANGE_PREV;
+            SetPrevState(this);
+            SetNextState(m_prevStyleChangeState);
+
+            Debug.Log("prevstyle:IDLE");
+        }
     }//    public class IdleState : PlayerState END
 }//namespace TeamProject END
