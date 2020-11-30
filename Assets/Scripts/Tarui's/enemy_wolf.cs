@@ -28,6 +28,10 @@ public class enemy_wolf : MonoBehaviour
     // 攻撃対象
     GameObject player = null;
 
+    // ステージとの当たり判定(IsGroundを使用する true:当たっている)
+    enemy_GroundCollision col = null;
+    bool isGround = false;
+
     // 使用する予定のコンポーネント
     Rigidbody2D rb;
     SpriteRenderer sprite;
@@ -77,6 +81,8 @@ public class enemy_wolf : MonoBehaviour
 
         animator = this.GetComponent<Animator>();
         AnimSpeed = animator.speed;
+
+        col = this.GetComponent<enemy_GroundCollision>();
     }
 
     // Update is called once per frame
@@ -85,8 +91,10 @@ public class enemy_wolf : MonoBehaviour
         // 行動の処理
         Action();
 
+        GroundCollision();
+
         // 左右の向き
-        if(isLR)
+        if (isLR)
         {
             sprite.flipX = true;
         }
@@ -96,19 +104,37 @@ public class enemy_wolf : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.tag == "Ground")
+    //    {
+    //        rb.bodyType = RigidbodyType2D.Kinematic;
+    //        rb.velocity = Vector2.zero;
+
+    //        animator.SetBool("Jump", false);
+    //        animator.speed = 0;
+    //        animator.enabled = false;
+    //        sprite.sprite = landing;
+    //    }
+    //}
+
+    void GroundCollision()
     {
-        Debug.Log(collision.tag);
-
-        if(collision.tag == "Ground")
+        if (col.IsGround)
         {
-            rb.bodyType = RigidbodyType2D.Kinematic;
-            rb.velocity = Vector2.zero;
+            if (!isGround)
+            {
+                animator.SetBool("Jump", false);
+                animator.speed = 0;
+                animator.enabled = false;
+                sprite.sprite = landing;
 
-            animator.SetBool("Jump", false);
-            animator.speed = 0;
-            animator.enabled = false;
-            sprite.sprite = landing;
+                isGround = true;
+            }
+        }
+        else
+        {
+            isGround = false;
         }
     }
 
@@ -208,16 +234,16 @@ public class enemy_wolf : MonoBehaviour
             animator.speed = AnimSpeed;
             animator.SetBool("Atk", false);
             animator.Play(0);
-
-            // 左右の方向を決める
-            if (player.transform.position.x >= this.transform.position.x)
-            {
-                isLR = true;
-            }
-            else
-            {
-                isLR = false;
-            }
+        }
+        
+        // 左右の方向を決める
+        if (player.transform.position.x >= this.transform.position.x)
+        {
+            isLR = true;
+        }
+        else
+        {
+            isLR = false;
         }
     }
 
@@ -297,6 +323,11 @@ public class enemy_wolf : MonoBehaviour
         else
         {
             rb.velocity = new Vector2(-speed, 0.0f);
+        }
+        // 壁にめり込んでいたら進まない
+        if(col.IsWall)
+        {
+            rb.velocity = Vector2.zero;
         }
 
         // 歩行する時間の管理
