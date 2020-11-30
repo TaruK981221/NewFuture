@@ -55,6 +55,7 @@ public class enemy_gazer : MonoBehaviour
 
     // 連続で攻撃しないようにする
     bool isAttackOK = false;
+    bool isAttackColOn = false;
     float AtkOKTime = 0;
     [SerializeField]
     float AtkOKTimeLimit = 2;
@@ -115,8 +116,6 @@ public class enemy_gazer : MonoBehaviour
             aStatus = ATK_STATUS.stay;
 
             rb.velocity = Vector2.zero;
-
-            //animator.SetBool("Atk", true);
         }
     }
 
@@ -157,60 +156,79 @@ public class enemy_gazer : MonoBehaviour
 
     void Stay()
     {
-        if(StayTime == 0)
+        if (StayTime == 0)
         {
-            isAttackOK = true;
-
             switch (rStatus)
             {
                 case Rotate_STATUS.left:
                     {
                         animator.SetTrigger("Left");
-
-                        child =
-                            Instantiate(
-                                childCol,
-                                LeftCol * this.transform.localScale.x +
-                                new Vector3(LeftCol.x * 2.5f, LeftCol.y * 1.4f) +
-                                this.transform.position,
-                                Quaternion.Euler(0, 0, -45.0f),
-                                this.transform);
                     }
                     break;
                 case Rotate_STATUS.center:
                     {
                         animator.SetTrigger("Center");
-
-                        child =
-                            Instantiate(
-                                childCol,
-                                CenterCol * this.transform.localScale.x +
-                                new Vector3(LeftCol.x * 2.5f, LeftCol.y * 1.4f) +
-                                this.transform.position,
-                                Quaternion.Euler(0, 0, 0),
-                                this.transform);
                     }
                     break;
                 case Rotate_STATUS.right:
                     {
                         animator.SetTrigger("Right");
-
-                        child =
-                            Instantiate(
-                                childCol,
-                                RightCol * this.transform.localScale.x +
-                                new Vector3(LeftCol.x * 2.5f, LeftCol.y * 1.4f) +
-                                this.transform.position,
-                                Quaternion.Euler(0, 0, 45.0f),
-                                this.transform);
                     }
                     break;
                 default:
                     break;
             }
         }
+        else
+        {
+            if (!isAttackColOn && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
+            {
+                isAttackOK = true;
+                isAttackColOn = true;
 
-        if(animator)
+                switch (rStatus)
+                {
+                    case Rotate_STATUS.left:
+                        {
+                            child =
+                                Instantiate(
+                                    childCol,
+                                    LeftCol * this.transform.lossyScale.x -
+                                    new Vector3(childCol.transform.localScale.x / Mathf.Sqrt(2),
+                                    childCol.transform.localScale.x / Mathf.Sqrt(2)) * 4 * this.transform.lossyScale.x +
+                                    this.transform.position,
+                                    Quaternion.Euler(0, 0, -45.0f),
+                                    this.transform);
+                        }
+                        break;
+                    case Rotate_STATUS.center:
+                        {
+                            child =
+                                Instantiate(
+                                    childCol,
+                                    CenterCol * this.transform.lossyScale.x -
+                                    new Vector3(0, childCol.transform.localScale.y) * 4 * this.transform.lossyScale.x +
+                                    this.transform.position,
+                                    Quaternion.Euler(0, 0, 0),
+                                    this.transform);
+                        }
+                        break;
+                    case Rotate_STATUS.right:
+                        {
+                            child =
+                                Instantiate(
+                                    childCol,
+                                    RightCol * this.transform.lossyScale.x -
+                                    new Vector3(-childCol.transform.localScale.x / Mathf.Sqrt(2),
+                                    childCol.transform.localScale.x / Mathf.Sqrt(2)) * 4 * this.transform.lossyScale.x +
+                                    this.transform.position,
+                                    Quaternion.Euler(0, 0, 45.0f),
+                                    this.transform);
+                        }
+                        break;
+                }
+            }
+        }
 
         if (StayTimeLimit > StayTime)
         {
@@ -226,6 +244,7 @@ public class enemy_gazer : MonoBehaviour
             Destroy(child);
 
             isAttackOK = false;
+            isAttackColOn = false;
         }
     }
 
@@ -263,17 +282,32 @@ public class enemy_gazer : MonoBehaviour
                         {
                             case Rotate_STATUS.left:
                                 {
-                                    Instantiate(beam, LeftCol, Quaternion.identity, this.transform);
+                                    Instantiate(
+                                        beam,
+                                        LeftCol * this.transform.lossyScale.x
+                                        + this.transform.position,
+                                        Quaternion.identity,
+                                        this.transform);
                                 }
                                 break;
                             case Rotate_STATUS.center:
                                 {
-                                    Instantiate(beam, CenterCol, Quaternion.identity, this.transform);
+                                    Instantiate(
+                                        beam,
+                                        CenterCol * this.transform.lossyScale.x
+                                        + this.transform.position,
+                                        Quaternion.identity,
+                                        this.transform);
                                 }
                                 break;
                             case Rotate_STATUS.right:
                                 {
-                                    Instantiate(beam, RightCol, Quaternion.identity, this.transform);
+                                    Instantiate(
+                                        beam,
+                                        RightCol * this.transform.lossyScale.x
+                                        + this.transform.position,
+                                        Quaternion.identity,
+                                        this.transform);
                                 }
                                 break;
                         }

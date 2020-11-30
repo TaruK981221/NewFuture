@@ -30,6 +30,7 @@ public class enemy_ghost : MonoBehaviour
     GameObject player = null;
 
     enemy_GroundCollision col = null;
+    enemy_GroundNotFall[] notFall = null;
 
     // 使用する予定のコンポーネント
     Rigidbody2D rb;
@@ -91,7 +92,8 @@ public class enemy_ghost : MonoBehaviour
     {
         rb = this.GetComponent<Rigidbody2D>();
         sprite = this.GetComponentInChildren<SpriteRenderer>();
-        col = this.GetComponent<enemy_GroundCollision>();
+        col = this.GetComponentInChildren<enemy_GroundCollision>();
+        notFall = this.GetComponentsInChildren<enemy_GroundNotFall>();
 
         child = this.transform.GetChild(1);
         startPos = child.localPosition;
@@ -202,7 +204,9 @@ public class enemy_ghost : MonoBehaviour
             rb.velocity = new Vector2(speed, 0.0f);
         }
         // 壁にめり込んでいたら進まない
-        if (col.IsWall)
+        if (col.IsWall || 
+            !((notFall[0].IsNotFall && notFall[1].IsNotFall) ||
+            (!notFall[0].IsNotFall && !notFall[1].IsNotFall)))
         {
             rb.velocity = Vector2.zero;
         }

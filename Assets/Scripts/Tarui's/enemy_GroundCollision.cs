@@ -27,7 +27,7 @@ public class enemy_GroundCollision : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = this.GetComponent<Rigidbody2D>();
+        rb = this.GetComponentInParent<Rigidbody2D>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -36,13 +36,13 @@ public class enemy_GroundCollision : MonoBehaviour
         {
             rb.velocity = Vector2.zero;
 
-            if(collision.transform.position.x >= this.transform.position.x)
+            if(collision.transform.position.x >= this.transform.parent.position.x)
             {
-                this.transform.position += new Vector3(-0.05f,0);
+                this.transform.parent.position += new Vector3(-0.05f,0);
             }
             else
             {
-                this.transform.position += new Vector3(0.05f, 0);
+                this.transform.parent.position += new Vector3(0.05f, 0);
             }
 
             isWall = true;
@@ -79,13 +79,13 @@ public class enemy_GroundCollision : MonoBehaviour
         {
             rb.velocity = Vector2.zero;
 
-            if (collision.transform.position.x >= this.transform.position.x)
+            if (collision.transform.position.x >= this.transform.parent.position.x)
             {
-                this.transform.position += new Vector3(-0.05f, 0);
+                this.transform.parent.position += new Vector3(-0.05f, 0);
             }
             else
             {
-                this.transform.position += new Vector3(0.05f, 0);
+                this.transform.parent.position += new Vector3(0.05f, 0);
             }
         }
 
@@ -93,7 +93,7 @@ public class enemy_GroundCollision : MonoBehaviour
         {
             if(!isGround)
             {
-                this.transform.position += new Vector3(0, 0.05f);
+                this.transform.parent.position += new Vector3(0, 0.05f);
             }
         }
     }

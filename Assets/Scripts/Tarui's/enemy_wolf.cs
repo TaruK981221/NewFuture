@@ -82,7 +82,7 @@ public class enemy_wolf : MonoBehaviour
         animator = this.GetComponent<Animator>();
         AnimSpeed = animator.speed;
 
-        col = this.GetComponent<enemy_GroundCollision>();
+        col = this.GetComponentInChildren<enemy_GroundCollision>();
     }
 
     // Update is called once per frame
@@ -283,11 +283,11 @@ public class enemy_wolf : MonoBehaviour
 
                         if (isLR)
                         {
-                            rb.velocity = new Vector2(jumpSpeed * 1, jumpSpeed * 2);
+                            rb.velocity = new Vector2(jumpSpeed * 1, jumpSpeed * 2) * this.transform.lossyScale;
                         }
                         else
                         {
-                            rb.velocity = new Vector2(-jumpSpeed * 1, jumpSpeed * 2);
+                            rb.velocity = new Vector2(-jumpSpeed * 1, jumpSpeed * 2) * this.transform.lossyScale;
                         }
                     }
 
@@ -318,11 +318,11 @@ public class enemy_wolf : MonoBehaviour
         // 左右で移動が変わる
         if (isLR)
         {
-            rb.velocity = new Vector2(speed, 0.0f);
+            rb.velocity = new Vector2(speed, 0.0f) * this.transform.lossyScale;
         }
         else
         {
-            rb.velocity = new Vector2(-speed, 0.0f);
+            rb.velocity = new Vector2(-speed, 0.0f) * this.transform.lossyScale;
         }
         // 壁にめり込んでいたら進まない
         if(col.IsWall)

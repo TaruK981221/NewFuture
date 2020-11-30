@@ -16,8 +16,6 @@ public class enemy_gazer_beam : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.transform.position = this.transform.parent.position;
-
         Spos = this.transform.position;
 
         GameObject player =
