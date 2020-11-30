@@ -136,30 +136,30 @@ namespace TeamProject
                 }
             }
 
-            public bool GetKeyDown(ButtonCode _buttun)
+            public bool GetKeyDown(ButtonCode _button)
             {
-                var padStringFlag = Input.GetKeyDown(activeKeyString[(int)_buttun].Item1);
-                var keyStringFlag = Input.GetKeyDown(activeKeyString[(int)_buttun].Item2);
+                var padStringFlag = Input.GetKeyDown(activeKeyString[(int)_button].Item1);
+                var keyStringFlag = Input.GetKeyDown(activeKeyString[(int)_button].Item2);
 
                 PadJudge(keyStringFlag, padStringFlag);
 
                 return keyStringFlag || padStringFlag;
             }
 
-            public bool GetKey(ButtonCode _buttun)
+            public bool GetKey(ButtonCode _button)
             {
-                var padStringFlag = Input.GetKey(activeKeyString[(int)_buttun].Item1);
-                var keyStringFlag = Input.GetKey(activeKeyString[(int)_buttun].Item2);
+                var padStringFlag = Input.GetKey(activeKeyString[(int)_button].Item1);
+                var keyStringFlag = Input.GetKey(activeKeyString[(int)_button].Item2);
 
                 PadJudge(keyStringFlag, padStringFlag);
 
                 return keyStringFlag || padStringFlag;
             }
 
-            public bool GetKeyUp(ButtonCode _buttun)
+            public bool GetKeyUp(ButtonCode _button)
             {
-                var padStringFlag = Input.GetKeyUp(activeKeyString[(int)_buttun].Item1);
-                var keyStringFlag = Input.GetKeyUp(activeKeyString[(int)_buttun].Item2);
+                var padStringFlag = Input.GetKeyUp(activeKeyString[(int)_button].Item1);
+                var keyStringFlag = Input.GetKeyUp(activeKeyString[(int)_button].Item2);
 
                 PadJudge(keyStringFlag, padStringFlag);
 
