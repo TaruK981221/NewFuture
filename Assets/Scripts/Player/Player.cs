@@ -7,23 +7,33 @@ namespace TeamProject
     public class Player : MonoBehaviour
     {
         //ここはプレイヤーの状態
-        [Header("")]
-        public P_STATE m_state;
-        public P_GROUND m_ground;
-        public P_DIRECTION m_direction;
-        public P_STYLE m_style;
+
+        //実際にプレイヤーの状態を受け取るモノ
+        [SerializeField, Header("スタイル")]
+        private P_STYLE m_style;
+        [SerializeField, Header("状態")]
+        private P_STATE m_state;
+        [SerializeField, Header("接地状況")]
+        private P_GROUND m_ground;
+        [SerializeField, Header("方向")]
+        private P_DIRECTION m_direction;
+
+        [Header("プレイヤーの開始時の設定")]
+        public P_STYLE     m_startStyle;
+        public P_STATE     m_startState;
+        public P_GROUND    m_startGround;
+        public P_DIRECTION m_startDirection;
 
         public PlayerState m_playerState;
         private PlayerState m_playerPrevState;
 
         [Header("座標計算用速度")]
-        public Vector2 m_speed;
-        [Header("追加する速度(移動,ジャンプ,落下)")]
-        public P_ADDSPEED m_addSpeed;
-        //public Vector2 m_addSpeed;
-        public GameObject m_Player;
+        //public Vector2 m_speed;
+       // public GameObject m_Player;
+        private GameObject m_playerSpriteObj;
         private PlayerAnimation m_playerAnim;
-        public Vector3 m_Position;
+        //前フレームの座標
+        public Vector3 m_prevPosition;
 
         [Header("スタイルチェンジにかかる時間・仮")]
         public float m_styleChangeTime;
@@ -31,59 +41,107 @@ namespace TeamProject
 
 
         //インスペクターで設定する
-        public float speed;     //速度
-        public float gravity;   //重力
-        public float jumpSpeed; //ジャンプする速度
-        [Header("ジャンプ高さ制限")]
-        public float jumpHeight;
-        [Header("ジャンプ制限時間")]
-        public float jumpLimitTime;
-        [Header("最低ジャンプ時間")]
-        public float jumpMinTime;
+        [SerializeField, Header("水平速度")]
+        private float speed = 0.0f;
+        [SerializeField, Header("重力速度")]
+        private float gravity = 0.0f;
+        [SerializeField, Header("ジャンプ速度")]
+        private float jumpSpeed = 0.0f;
+        [SerializeField, Header("ジャンプ高さ制限")]
+        private float jumpHeight = 0.0f;
+        [SerializeField, Header("ジャンプ制限時間")]
+        private float jumpLimitTime = 0.0f;
+        [SerializeField, Header("最低ジャンプ時間")]
+        private float jumpMinTime = 0.0f;
+        [Header("水平速度の挙動")]
+        public AnimationCurve horizonSpCurve;
+        [Header("ジャンプ速度の挙動")]
+        public AnimationCurve jumpSpCurve;
 
+        [Header("当たり判定用オブジェクトをアタッチ")]
         public GroundCheck_k ground; //接地判定
         public GroundCheck_k head;//頭ぶつけた判定
+        //public GroundCheck_k wallL;//頭ぶつけた判定
+        //public GroundCheck_k wallR;
+        //頭ぶつけた判定
+        public GroundCheck_k[] wall_Collision = new GroundCheck_k[(int)P_DIRECTION.MAX_DIRECT];
 
         //プライベート変数
         //private Animator anim = null;
         private Rigidbody2D rb = null;
+        //床との当たり判定用フラグ
         public bool isGround = false;
+        //天井との当たり判定用フラグ
         public bool isHead = false;
-        //private bool isJump = false;
-        private float jumpPos = 0.0f;
-        private float jumpTime = 0.0f;
-        // Start is called before the first frame update
-        void Start()
-        {
-            m_state = P_STATE.IDLE;
-            m_ground = P_GROUND.GROUND;
-            m_direction = P_DIRECTION.RIGHT;
-            m_style = P_STYLE.BLADE;
-            m_Player = this.gameObject;
+        //壁との当たり判定用フラグ
+        public bool[] isWalls = new bool[(int)P_DIRECTION.MAX_DIRECT];
 
+        public GameObject MagicAttackCollisionObj;
+        public GameObject ScytheAttackCollisionObj;
+        public bool flag = false;
+
+        private void Awake()
+        {
             //コンポーネントのインスタンスを捕まえる
-            //anim = GetComponent<Animator>();
             rb = GetComponent<Rigidbody2D>();
             m_playerAnim = GetComponent<PlayerAnimation>();
             m_playerState = new IdleState();
             m_playerPrevState = m_playerState;
 
+            if (ground == null)
+            {
+                Debug.LogError("床との判定用オブジェクトアタッチし忘れ");
+            }
+            if (head == null)
+            {
+                Debug.LogError("天井との判定用オブジェクトアタッチし忘れ");
+            }
+            if (wall_Collision[(int)P_DIRECTION.RIGHT] ==null)
+            {
+                Debug.LogError("右側壁接触判定用オブジェクトアタッチし忘れ");
+            }
+            if (wall_Collision[(int)P_DIRECTION.LEFT] ==null)
+            {
+                Debug.LogError("左側壁接触判定用オブジェクトアタッチし忘れ");
+            }
+        }
+        // Start is called before the first frame update
+        void Start()
+        {
+          m_state = m_startState;
+            m_ground = m_startGround;
+            m_direction = m_startDirection;
+            m_style = m_startStyle;
+            //m_Player = this.gameObject;
+
+            SetParameter();
+
+            //スプライトのオブジェクトを取得（左右の向きを切り替えるために）
+            m_playerSpriteObj = transform.GetChild(0).gameObject;
             Vector3 vec3work = this.transform.position;
+
             m_playerState.SetPosition(vec3work);
             //速度のセット
             m_playerState.SetBaseSpeed(speed, gravity, jumpSpeed);
             m_playerState.SetSpeed();
+            //  //スタイルアニメーションの変更
+            m_playerAnim.ChangeStyleAnimation((int)m_startStyle);
+
 
         }
 
         // Update is called once per frame
         void Update()
         {
-            //プレイヤーの入力確認
-            bool keyinput = m_playerState.PlayerInput();
-            Vector3 vec3work = this.transform.position;
+            //前フレームの座標をセット
+            m_prevPosition = this.transform.position;
+
             //アニメーションのリセット
             m_playerAnim.AnimOFF(m_playerState.GetCurrentState());
+          //プレイヤーの入力確認
+            bool keyinput = m_playerState.PlayerInput();
+
+            Vector3 vec3work = this.transform.position;
 
 
             //キー入力されたら行動する
@@ -93,24 +151,15 @@ namespace TeamProject
             {
 
                 Debug.Log("playerState:MAIN:" + m_playerState);
-                GetParameter(m_playerState.m_Param);
-                m_playerState.m_nextState.SetPosition(vec3work);
-                ChangeState(m_playerState.m_nextState);
+                GetParameter();
+                //GetParameter(m_playerState.m_Param);
+                m_playerState.NextState.SetPosition(vec3work);
+                ChangeState(m_playerState.NextState);
                 SetParameter();
                 m_playerState.SetJumpParameter(jumpHeight, jumpLimitTime, jumpMinTime);
-                //
 
-                //m_playerState.SetPosition(vec3work);
-                //m_playerState.SetMaxJumpHeight(jumpHeight);
-                //m_playerState.SetMaxJumpTime(jumpLimitTime);
-                //if (m_playerState == PlayerState.m_riseState)
-                //{
-                //    m_playerState.SetJumpStartPos(m_Player.transform.position.y);
-                //}
             }
 
-            //m_playerState.SetPosition(vec3work);
-            //m_speed = m_playerState.SetSpeed(m_addSpeed);
             //速度のセット
             m_playerState.SetBaseSpeed(speed, gravity, jumpSpeed);
             m_playerState.SetSpeed();
@@ -119,17 +168,30 @@ namespace TeamProject
             bool stateUpdate = m_playerState.Update();
             if (stateUpdate)
             {
-                GetParameter(m_playerState.m_Param);
-                m_playerState.m_nextState.SetPosition(vec3work);
-                ChangeState(m_playerState.m_nextState);
+                GetParameter();
+                //GetParameter(m_playerState.m_Param);
+                m_playerState.NextState.SetPosition(vec3work);
+                ChangeState(m_playerState.NextState);
                 SetParameter();
 
-                //m_speed = m_playerState.SetSpeed(m_addSpeed);
+            }
 
-                //m_playerState.SetPosition(vec3work);
-           }
+            //後で整理していきたい部分
+            ////スタイル変更があれば
+            //if (m_playerState!=m_playerState.NextState)
+            //{
+            //    GetParameter();
+            //    //m_playerState.NextState.SetPosition(vec3work);
+            //    ChangeState(m_playerState.NextState);
+            //    SetParameter();
+            //     m_playerState.SetJumpParameter(jumpHeight, jumpLimitTime, jumpMinTime);
+            //}
+            //else{   m_direction = m_playerState.m_Param.m_PlayerDirection;
+            //}
+
             //接地判定を得る
             isGround = ground.IsGround();
+            //天井判定を得る
             isHead = head.IsGround();
             m_playerState.SetIsGround(isGround);
             m_playerState.SetIsHead(isHead);
@@ -137,313 +199,63 @@ namespace TeamProject
 
             //座標の更新
             vec3work = m_playerState.GetPosition();
-            m_Player.transform.position = vec3work;
+            this.transform.position = vec3work;
             //m_Position = m_playerState.GetPosition();
             m_state = m_playerState.GetCurrentState();
+
+            //壁接触判定
+            WallCollisionCheck();
+
+            //プレイヤーの向きを変更する
+            DirectionChange();
+            
+            //状態ごとのオブジェクト処理
+
+            if (m_playerState.GetCurrentState() == P_STATE.ATTACK)
+            {
+                switch (m_style)
+                {
+                    case P_STYLE.SCYTHE:
+                        Debug.Log("SCYTHESTYLE:" + m_style);
+
+                        break;
+                    case P_STYLE.CLAW:
+                        Debug.Log("CLAWSTYLE:" + m_style);
+                        break;
+                    case P_STYLE.MAGIC:
+                        Debug.Log("MAGICSTYLE:" + m_style);
+                //  if (!flag)
+                //{
+                //    flag = true;
+                //    Vector3 pospos = new Vector3(20, 50, 0);
+                //    Vector3 pos = this.transform.position + pospos;
+                //Instantiate(Object_A, pos, new Quaternion(0, 0, 0, 0));
+                //}
+                      break;
+                    case P_STYLE.MAX_STYLE:
+                        break;
+                    default:
+                        break;
+                }
+                //攻撃
+            }
+            //Debug.Log("m_endAnimation:::" + m_playerState.m_endAnimation);
+            Debug.Log("EndAnimation():::" + m_playerSpriteObj.transform.GetComponent<IsAnimationCheck>().EndAnimation());
+            bool finishStyleChange = m_playerSpriteObj.transform.GetComponent<IsAnimationCheck>().EndAnimation();
+            m_playerState.SetEndAnimFlag(finishStyleChange);
+           if (finishStyleChange)
+            {
+                //スタイルアニメーションの変更
+                m_playerAnim.ChangeStyleAnimation((int)m_style);
+                //アニメーションのリセット
+                m_playerAnim.AnimOFF(m_playerState.GetCurrentState());
+
+            }
             //アニメーションの更新
             m_playerAnim.AnimON(m_playerState.GetCurrentState());
 
-        }
+        }//void Update() END
 
-        //更新関数
-        private void IdleUpdate()
-        {
-            //右入力
-            if (InputManager.InputManager.Instance.GetArrow(InputManager.ArrowCode.RightArrow) || Input.GetKey(KeyCode.RightArrow))
-            {
-                m_state = P_STATE.RUN;
-                m_direction = P_DIRECTION.RIGHT;
-
-            }
-            else if (InputManager.InputManager.Instance.GetArrow(InputManager.ArrowCode.LeftArrow) || Input.GetKey(KeyCode.LeftArrow))
-            {            //左入力
-
-                m_state = P_STATE.RUN;
-                m_direction = P_DIRECTION.LEFT;
-
-            }
-            //入力
-            if (InputManager.InputManager.Instance.GetKeyDown(InputManager.ButtonCode.Jump))
-            {
-                m_state = P_STATE.RISE;
-                m_speed.y = jumpSpeed;
-                jumpPos = transform.position.y; //ジャンプした位置を記録する
-
-                m_ground = P_GROUND.JUMP_1ST;
-                //isJump = true;
-
-                jumpTime = 0.0f;
-
-            }
-            //入力
-            if (InputManager.InputManager.Instance.GetKeyDown(InputManager.ButtonCode.Attack))
-            {
-                m_state = P_STATE.ATTACK;
-
-                ChangeState(new AttackState());
-
-            }
-            //入力
-            if (InputManager.InputManager.Instance.GetKeyDown(InputManager.ButtonCode.StyleNext))
-            {
-                m_state = P_STATE.STYLE_CHANGE_NEXT;
-
-            }
-
-        }
-        private void RunUpdate()
-        {
-            //右入力
-            if (InputManager.InputManager.Instance.GetArrow(InputManager.ArrowCode.RightArrow) || Input.GetKey(KeyCode.RightArrow))
-            {
-                //m_Position.x += Time.deltaTime * m_speed.x;
-                //m_Player.transform.position += m_Position;
-                m_speed.x = speed;
-
-                m_direction = P_DIRECTION.RIGHT;
-
-            }
-            else if (InputManager.InputManager.Instance.GetArrow(InputManager.ArrowCode.LeftArrow) || Input.GetKey(KeyCode.LeftArrow))
-            {            //左入力
-
-                //m_Position.x -= Time.deltaTime * m_speed.x;
-                //m_Player.transform.position += m_Position;
-                m_speed.x = -1.0f * speed;
-
-                m_direction = P_DIRECTION.LEFT;
-
-            }
-            else
-            {
-                m_state = P_STATE.IDLE;
-
-            }
-            //入力
-            if (InputManager.InputManager.Instance.GetKeyDown(InputManager.ButtonCode.Jump))
-            {
-                m_state = P_STATE.RISE;
-
-            }
-            //入力
-            if (InputManager.InputManager.Instance.GetKeyDown(InputManager.ButtonCode.Attack))
-            {
-                m_state = P_STATE.ATTACK;
-
-            }
-            //入力
-            if (InputManager.InputManager.Instance.GetKeyDown(InputManager.ButtonCode.StyleNext))
-            {
-                m_state = P_STATE.STYLE_CHANGE_NEXT;
-            }
-        }
-        private void JumpUpdate()
-        {
-            //上方向キーを押しているか
-            bool pushUpKey = InputManager.InputManager.Instance.GetKey(InputManager.ButtonCode.Jump);
-            //現在の高さが飛べる高さより下か
-            bool canHeight = (jumpPos + jumpHeight) > transform.position.y;
-            //ジャンプ時間が長くなりすぎてないか
-            bool canTime = jumpLimitTime > jumpTime;
-
-            //入力
-            if (pushUpKey && canHeight && canTime)// && !isHead)
-            {
-                m_state = P_STATE.RISE;
-                // m_PlayerDirection = P_DIRECTION.RIGHT;
-
-                m_speed.y = jumpSpeed;
-
-                jumpTime += Time.deltaTime;
-            }
-            else
-            {
-                if (isGround)
-                {
-                    m_state = P_STATE.IDLE;
-
-                    m_ground = P_GROUND.GROUND;
-                    jumpTime = 0.0f;
-
-                }
-                m_speed.y = -gravity;
-
-            }
-
-            //右入力
-            if (InputManager.InputManager.Instance.GetArrow(InputManager.ArrowCode.RightArrow) || Input.GetKey(KeyCode.RightArrow))
-            {
-                //m_Position.x += Time.deltaTime * m_speed.x;
-                //m_Player.transform.position += m_Position;
-                //m_PlayerState = P_STATE.RUN;
-                m_speed.x = speed;
-                m_direction = P_DIRECTION.RIGHT;
-
-            }
-            else if (InputManager.InputManager.Instance.GetArrow(InputManager.ArrowCode.LeftArrow) || Input.GetKey(KeyCode.LeftArrow))
-            {            //左入力
-
-                //m_Position.x -= Time.deltaTime * m_speed.x;
-                //m_Player.transform.position += m_Position;
-                m_speed.x = -1.0f * speed;
-                // m_PlayerState = P_STATE.RUN;
-                m_direction = P_DIRECTION.LEFT;
-
-            }
-            //else
-            //{
-            //    m_PlayerState = P_STATE.IDLE;
-
-            //}
-            //入力
-            if (InputManager.InputManager.Instance.GetKeyDown(InputManager.ButtonCode.Attack))
-            {
-                m_state = P_STATE.JUMP_ATTACK;
-
-            }
-            //入力
-            if (InputManager.InputManager.Instance.GetKeyDown(InputManager.ButtonCode.StyleNext))
-            {
-            }
-        }
-        private void RiseUpdate()
-        {
-            //上方向キーを押しているか
-            bool pushUpKey = InputManager.InputManager.Instance.GetKey(InputManager.ButtonCode.Jump);
-            //現在の高さが飛べる高さより下か
-            bool canHeight = (jumpPos + jumpHeight) > transform.position.y;
-            //ジャンプ時間が長くなりすぎてないか
-            bool canTime = jumpLimitTime > jumpTime;
-
-            //入力
-            if (pushUpKey && canHeight && canTime)// && !isHead)
-            {
-                m_state = P_STATE.RISE;
-                // m_PlayerDirection = P_DIRECTION.RIGHT;
-
-                m_speed.y = jumpSpeed;
-
-                jumpTime += Time.deltaTime;
-            }
-            else
-            {
-                if (isGround)
-                {
-                    m_state = P_STATE.IDLE;
-
-                    m_ground = P_GROUND.GROUND;
-                    jumpTime = 0.0f;
-
-                }
-                m_speed.y = -gravity;
-
-            }
-
-            //右入力
-            if (InputManager.InputManager.Instance.GetArrow(InputManager.ArrowCode.RightArrow) || Input.GetKey(KeyCode.RightArrow))
-            {
-                //m_Position.x += Time.deltaTime * m_speed.x;
-                //m_Player.transform.position += m_Position;
-                //m_PlayerState = P_STATE.RUN;
-                m_speed.x = speed;
-                m_direction = P_DIRECTION.RIGHT;
-
-            }
-            else if (InputManager.InputManager.Instance.GetArrow(InputManager.ArrowCode.LeftArrow) || Input.GetKey(KeyCode.LeftArrow))
-            {            //左入力
-
-                //m_Position.x -= Time.deltaTime * m_speed.x;
-                //m_Player.transform.position += m_Position;
-                m_speed.x = -1.0f * speed;
-                // m_PlayerState = P_STATE.RUN;
-                m_direction = P_DIRECTION.LEFT;
-
-            }
-            //else
-            //{
-            //    m_PlayerState = P_STATE.IDLE;
-
-            //}
-            //入力
-            if (InputManager.InputManager.Instance.GetKeyDown(InputManager.ButtonCode.Attack))
-            {
-                m_state = P_STATE.JUMP_ATTACK;
-
-            }
-            //入力
-            if (InputManager.InputManager.Instance.GetKeyDown(InputManager.ButtonCode.StyleNext))
-            {
-            }
-        }
-        private void AttackUpdate()
-        {
-            //ひとまず時間で待機に戻る処理
-            ToIdling();
-            //入力
-            if (InputManager.InputManager.Instance.GetKeyDown(InputManager.ButtonCode.Attack))
-            {
-
-            }
-            else
-            {
-                m_state = P_STATE.IDLE;
-
-            }
-        }
-        private void JumpAttackUpdate()
-        {
-            //ひとまず時間で待機に戻る処理
-            ToIdling();
-        }
-        private void DamageUpdate()
-        {
-            //ひとまず時間で待機に戻る処理
-            ToIdling();
-
-        }
-        private void StyleChangeUpdate()
-        {
-            //ひとまず時間で待機に戻る処理
-            m_timeCount += Time.deltaTime;
-            if (m_timeCount > m_styleChangeTime)
-            {
-                m_timeCount = 0.0f;
-                StyleChange();
-                m_state = P_STATE.IDLE;
-
-            }
-        }
-
-        private void StyleChange()
-        {
-            switch (m_style)
-            {
-                case P_STYLE.BLADE:
-                    m_style = P_STYLE.SPEED;
-                    break;
-                case P_STYLE.SPEED:
-                    m_style = P_STYLE.MAGIC;
-                    break;
-                case P_STYLE.MAGIC:
-                    m_style = P_STYLE.BLADE;
-                    break;
-                case P_STYLE.MAX_STYLE:
-                    break;
-
-            }
-        }
-
-        //ひとまずの時間で待機に戻る処理
-        private void ToIdling()
-        {
-            m_timeCount += Time.deltaTime;
-            if (m_timeCount > m_styleChangeTime)
-            {
-                m_timeCount = 0.0f;
-                m_state = P_STATE.IDLE;
-                m_playerState = new IdleState();
-
-            }
-        }
 
         private void ChangeState(PlayerState _state)
         {
@@ -462,6 +274,15 @@ namespace TeamProject
             m_style = _param.m_playerStyle;
 
         }
+        private void GetParameter()
+        {
+
+            m_state = m_playerState.m_Param.m_PlayerState;
+            m_ground = m_playerState.m_Param.m_PlayerGround;
+            m_direction = m_playerState.m_Param.m_PlayerDirection;
+            m_style = m_playerState.m_Param.m_playerStyle;
+
+        }
         private void SetParameter()
         {
             m_playerState.m_Param.m_PlayerState = m_state;
@@ -470,6 +291,64 @@ namespace TeamProject
             m_playerState.m_Param.m_playerStyle = m_style;
         }
 
+        /// <summary>
+        /// プレイヤーのスプライトのみかけの向きを切り替える
+        /// </summary>
+        private void DirectionChange()
+        {
+            Vector3 spritescale_work = m_playerSpriteObj.transform.localScale;
+            //方向の更新（逆向きなら変更する）
+            switch (m_direction)
+            {
+                case P_DIRECTION.RIGHT:
+                    if (spritescale_work.x > 0.0f)
+                    {
+                        spritescale_work.x *= -1.0f;
+
+                        m_playerSpriteObj.transform.localScale = spritescale_work;
+                    }
+                    break;
+                case P_DIRECTION.LEFT:
+                    if (spritescale_work.x < 0.0f)
+                    {
+                        spritescale_work.x *= -1.0f;
+
+                        m_playerSpriteObj.transform.localScale = spritescale_work;
+                    }
+                    break;
+            }
+
+        }
+
+        private void WallCollisionCheck()
+        {
+            //作業用
+            Vector3 vec3work;
+            //壁接触判定を得る
+            isWalls[(int)P_DIRECTION.RIGHT] = wall_Collision[(int)P_DIRECTION.RIGHT].IsGround();
+            isWalls[(int)P_DIRECTION.LEFT] = wall_Collision[(int)P_DIRECTION.LEFT].IsGround();
+            //壁接触後の座標調整
+            switch (m_direction)
+            {
+                case P_DIRECTION.RIGHT:
+                    if (isWalls[(int)P_DIRECTION.RIGHT])
+                    {
+                        Debug.Log("右壁接触してます");
+                        vec3work = new Vector3(m_prevPosition.x, this.transform.position.y, this.transform.position.z);
+                        this.transform.position = vec3work;
+                    }
+                    break;
+                case P_DIRECTION.LEFT:
+                    if (isWalls[(int)P_DIRECTION.LEFT])
+                    {
+                        Debug.Log("左壁接触してます");
+                        vec3work = new Vector3(m_prevPosition.x, this.transform.position.y, this.transform.position.z);
+                        this.transform.position = vec3work;
+                    }
+                    break;
+            }
+
+        }
     }//    public class Player : MonoBehaviour END
 }//namespace TeamProject END
 
