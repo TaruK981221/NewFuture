@@ -9,6 +9,7 @@ TagManager:
   - GroundPlatform
   - FallFloor
   - Ground
+  - PlayerAttack
   layers:
   - Default
   - TransparentFX
