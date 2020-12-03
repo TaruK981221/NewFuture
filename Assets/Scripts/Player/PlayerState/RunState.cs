@@ -55,7 +55,7 @@ namespace TeamProject
                 case P_DIRECTION.MAX_DIRECT:
                     break;
             }
-            m_speed.x = m_speedDirection * m_horizontalSpeed;
+            m_speed.x = m_speedDirection * m_horizontalSpeed * m_horisontalAnimCurve.Evaluate(m_timer);
             m_speed.y = +0.0f * m_gravitySpeed;
         }
 
@@ -79,7 +79,7 @@ namespace TeamProject
         {
             m_Param.m_PlayerState = P_STATE.IDLE;
             m_Param.m_PlayerDirection = P_DIRECTION.LEFT;
-
+            m_timer = 0.0f;
             SetPrevState(this);
             SetNextState(m_idleState);
         }
@@ -105,6 +105,7 @@ namespace TeamProject
         {
             m_Param.m_PlayerState = P_STATE.IDLE;
             m_Param.m_PlayerDirection = P_DIRECTION.RIGHT;
+            m_timer = 0.0f;
 
             SetPrevState(this);
             SetNextState(m_idleState);
@@ -126,7 +127,7 @@ namespace TeamProject
         public override void AttackKeyDownInput()
         {
 
-            //SetPrevState(this);
+            SetPrevState(this);
             SetNextState(m_attackState);
 
             Debug.Log("attack:IDLE");
@@ -142,6 +143,8 @@ namespace TeamProject
         /// </summary>
         public override void JumpKeyDownInput()
         {
+            //m_timer = 0.0f;
+
             m_Param.m_PlayerState = P_STATE.RISE;
             m_Param.m_PlayerGround = P_GROUND.JUMP_1ST;
             SetPrevState(this);

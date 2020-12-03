@@ -81,13 +81,8 @@ namespace TeamProject
         public override void SetSpeed()
         {
             m_speed.x = m_speedDirection * m_horizontalSpeed;
-            m_speed.y = 1.0f * m_gravitySpeed;
-            ////水平速度
-            //m_horizontalSpeed
-            ////重力速度
-            //m_gravitySpeed 
-            ////ジャンプする速度
-            //m_jumpSpeed
+            float animationCurve = m_jumpAnimCurve.Evaluate(m_timer);
+            m_speed.y = 1.0f * animationCurve * m_jumpSpeed;
         }
 
         override public void SetJumpParameter(float _maxheight, float _maxtime, float _mintime)
