@@ -11,6 +11,7 @@ TagManager:
   - Ground
   - PlayerAttack
   - EnemyAttack
+  - BreakableBlock
   layers:
   - Default
   - TransparentFX
