@@ -17,10 +17,5 @@ namespace TeamProject
 
         override public void SetSelfState() { SelfState = P_STATE.JUMP_ATTACK; }
 
-        //// Update is called once per frame
-        //void Update()
-        //{
-
-        //}
     }//    public class JumpAttackState : PlayerState END
 }//namespace TeamProject END

@@ -116,12 +116,16 @@ namespace TeamProject
         /// </summary>
         public override void JumpKeyDownInput()
         {
-            if (false)/*ここにClawStyleの時のみtrueの条件を入れる*/
+            if (m_Param.m_playerStyle==P_STYLE.CLAW)/*ここにClawStyleの時のみtrueの条件を入れる*/
             {
-                //  m_Param.m_PlayerState = P_STATE.RISE;
-                //m_Param.m_PlayerGround = P_GROUND.JUMP_2ND;
-                //SetPrevState(this);
-                //SetNextState(m_riseState);
+                if (m_Param.m_PlayerGround == P_GROUND.JUMP_1ST || m_Param.m_PlayerGround == P_GROUND.FALL)
+                {
+
+                m_Param.m_PlayerState = P_STATE.RISE;
+                m_Param.m_PlayerGround = P_GROUND.JUMP_2ND;
+                SetPrevState(this);
+                SetNextState(m_riseState);
+                }
             }
         }
         public override void JumpKeyHoldInput() { }
