@@ -5,7 +5,7 @@ using UnityEngine;
 public class enemy_GroundCollision : MonoBehaviour
 {
     Rigidbody2D rb;
-
+    
     bool isGround = false;
     public bool IsGround
     {
@@ -38,11 +38,13 @@ public class enemy_GroundCollision : MonoBehaviour
 
             if(collision.transform.position.x >= this.transform.parent.position.x)
             {
-                this.transform.parent.position += new Vector3(-0.05f,0);
+                this.transform.parent.position += 
+                    new Vector3(-0.05f,0) * this.transform.parent.lossyScale.x;
             }
             else
             {
-                this.transform.parent.position += new Vector3(0.05f, 0);
+                this.transform.parent.position += 
+                    new Vector3(0.05f, 0) * this.transform.parent.lossyScale.x;
             }
 
             isWall = true;
@@ -81,11 +83,13 @@ public class enemy_GroundCollision : MonoBehaviour
 
             if (collision.transform.position.x >= this.transform.parent.position.x)
             {
-                this.transform.parent.position += new Vector3(-0.05f, 0);
+                this.transform.parent.position += 
+                    new Vector3(-0.05f, 0) * this.transform.parent.lossyScale.x;
             }
             else
             {
-                this.transform.parent.position += new Vector3(0.05f, 0);
+                this.transform.parent.position += 
+                    new Vector3(0.05f, 0) * this.transform.parent.lossyScale.x;
             }
         }
 
@@ -93,7 +97,8 @@ public class enemy_GroundCollision : MonoBehaviour
         {
             if(!isGround)
             {
-                this.transform.parent.position += new Vector3(0, 0.05f);
+                this.transform.parent.position += 
+                    new Vector3(0, 0.05f) * this.transform.parent.lossyScale.x;
             }
         }
     }

@@ -34,9 +34,6 @@ public class enemy_bard : MonoBehaviour
 
     // 連続で攻撃しないようにする
     bool isAttackOK = false;
-    float AtkOKTime = 0;
-    [SerializeField]
-    float AtkOKTimeLimit = 2;
 
     // 攻撃の際に使用
     float AtkTime = 0;

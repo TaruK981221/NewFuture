@@ -204,11 +204,24 @@ public class enemy_ghost : MonoBehaviour
             rb.velocity = new Vector2(speed, 0.0f);
         }
         // 壁にめり込んでいたら進まない
-        if (col.IsWall || 
-            !((notFall[0].IsNotFall && notFall[1].IsNotFall) ||
+        if (col.IsWall)
+        {
+            rb.velocity = Vector2.zero;
+        }
+
+        if (!((notFall[0].IsNotFall && notFall[1].IsNotFall) ||
             (!notFall[0].IsNotFall && !notFall[1].IsNotFall)))
         {
             rb.velocity = Vector2.zero;
+
+            if(notFall[0].IsNotFall && !isLR)
+            {
+                this.transform.position += new Vector3(0.02f, 0);
+            }
+            else if(notFall[1].IsNotFall && isLR)
+            {
+                this.transform.position -= new Vector3(0.02f, 0);
+            }
         }
 
         // 歩行する時間の管理
