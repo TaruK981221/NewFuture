@@ -108,7 +108,8 @@ namespace TeamProject
         // Start is called before the first frame update
         void Start()
         {
-          m_state = m_startState;
+            FadeManager.FadeIn(0.5f);
+          　m_state = m_startState;
             m_ground = m_startGround;
             m_direction = m_startDirection;
             m_style = m_startStyle;
@@ -127,11 +128,11 @@ namespace TeamProject
             //  //スタイルアニメーションの変更
             m_playerAnim.ChangeStyleAnimation((int)m_startStyle);
 
+            m_playerState.SetAnimationCurve(horizonSpCurve, jumpSpCurve);
+    }
 
-        }
-
-        // Update is called once per frame
-        void Update()
+    // Update is called once per frame
+    void Update()
         {
             //前フレームの座標をセット
             m_prevPosition = this.transform.position;
@@ -243,6 +244,7 @@ namespace TeamProject
             Debug.Log("EndAnimation():::" + m_playerSpriteObj.transform.GetComponent<IsAnimationCheck>().EndAnimation());
             bool finishStyleChange = m_playerSpriteObj.transform.GetComponent<IsAnimationCheck>().EndAnimation();
             m_playerState.SetEndAnimFlag(finishStyleChange);
+           // Debug.Log("finishStyleChange==" + finishStyleChange);
            if (finishStyleChange)
             {
                 //スタイルアニメーションの変更

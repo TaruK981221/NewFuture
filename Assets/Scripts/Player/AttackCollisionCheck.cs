@@ -36,6 +36,8 @@ public class AttackCollisionCheck : MonoBehaviour
     {
         if (collision.tag == enemyTag)
         {
+            Debug.Log("当たった！");
+
             isCollisionEnter = true;
         }
     }

@@ -64,6 +64,9 @@ namespace TeamProject
 
         //アニメーション終了フラグ
         /*static*/ public bool m_endAnimation = false;
+
+       static protected AnimationCurve m_horisontalAnimCurve;
+       static protected AnimationCurve m_jumpAnimCurve;
         public PlayerState()
         {
             SetSelfState();
@@ -468,6 +471,12 @@ namespace TeamProject
             }
         }
 
+        //各アニメーションカーブをセットする
+        public void SetAnimationCurve(AnimationCurve _horizontal, AnimationCurve _jump)
+        {
+            m_horisontalAnimCurve = _horizontal;
+            m_jumpAnimCurve = _jump;
+        }
         //共通用関数ここまで
         //-----------------------------------------------
 

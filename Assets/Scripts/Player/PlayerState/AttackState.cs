@@ -19,7 +19,7 @@ namespace TeamProject
         override public bool Update()
         {
             m_timer += Time.deltaTime;
-            if (m_timer>2.0f)
+            if (m_timer>0.1f)
             {
                 m_timer = 0.0f;
                 SetPrevState(this);
@@ -29,7 +29,7 @@ namespace TeamProject
             SetPrevState(this);
             SetNextState(this);
 
-            return false;
+            return true;
         }
         }//    public class AttackState : PlayerState END
     }//namespace TeamProject END

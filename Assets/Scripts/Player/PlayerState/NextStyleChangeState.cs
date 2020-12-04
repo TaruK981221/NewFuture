@@ -36,5 +36,14 @@ namespace TeamProject
 
             return false;
         }
+        #region//左入力時の処理
+        /// <summary>
+        /// 左入力時の処理
+        /// </summary>
+        public override void LeftKeyDownInput() { }
+        public override void LeftKeyHoldInput() { }
+        public override void LeftKeyUpInput() { }
+        #endregion
+
     }//    public class NextStyleChangeState : PlayerState END
 }//namespace TeamProject END

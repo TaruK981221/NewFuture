@@ -28,13 +28,16 @@ public class enemy_GroundNotFall : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if(!(collision.tag == "Ground"))
+        if (isNotFall)
         {
-            rb.velocity = Vector2.zero;
-            rb.bodyType = RigidbodyType2D.Dynamic;
-            isNotFall = false;
+            if ((collision.tag == "Ground"))
+            {
+                rb.velocity = Vector2.zero;
+                rb.bodyType = RigidbodyType2D.Kinematic;
+                isNotFall = false;
+            }
         }
     }
 
@@ -43,7 +46,6 @@ public class enemy_GroundNotFall : MonoBehaviour
         if(collision.tag == "Ground")
         {
             rb.velocity = Vector2.zero;
-            rb.bodyType = RigidbodyType2D.Kinematic;
             isNotFall = true;
         }
     }

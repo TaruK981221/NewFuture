@@ -10,6 +10,8 @@ public class enemy_gazer_beam : MonoBehaviour
     float dis;
     float atan;
 
+    GameObject PopCollision;
+
     [SerializeField]
     float speed = 5.0f;
 
@@ -20,6 +22,8 @@ public class enemy_gazer_beam : MonoBehaviour
 
         GameObject player =
             GameObject.FindGameObjectWithTag("Player");
+
+        PopCollision = GameObject.Find("PopCollision");
 
         Ppos = player.transform.position;
 
@@ -43,5 +47,15 @@ public class enemy_gazer_beam : MonoBehaviour
         vec.z = 0.0f;
 
         this.transform.position -= vec;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.name == "PopCollision")
+        {
+            Destroy(this.gameObject);
+        }
+
+        Debug.Log(collision.name);
     }
 }

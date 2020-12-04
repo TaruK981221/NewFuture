@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5525856340013196408}
   - component: {fileID: 5525856340013196409}
   - component: {fileID: 5525856340013196414}
+  - component: {fileID: 5242542588758095202}
   m_Layer: 0
   m_Name: PopCollision
   m_TagString: Untagged
@@ -75,3 +76,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &5242542588758095202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5525856340013196412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a0d05a993aefa74383ecd7dc49cdc62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
