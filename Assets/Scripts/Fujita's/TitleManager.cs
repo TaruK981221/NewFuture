@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class TitleManager : MonoBehaviour
 {
     // 移行先のシーン名保存用
-    [SerializeField] private string TransScene = "testScene";   // 移行先のシーン名入力
+    [SerializeField] private string TransScene = "stage1_test";   // 移行先のシーン名入力
 
     // タイトルアニメーション用
     [SerializeField] private float PosY = 300.0f;       // タイトル名移動後の位置
