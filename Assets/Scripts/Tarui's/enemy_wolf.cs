@@ -30,6 +30,7 @@ public class enemy_wolf : MonoBehaviour
 
     // ステージとの当たり判定(IsGroundを使用する true:当たっている)
     enemy_GroundCollision col = null;
+    enemy_WallCollision[] wcol;
     bool isGround = false;
 
     // 使用する予定のコンポーネント
@@ -77,12 +78,13 @@ public class enemy_wolf : MonoBehaviour
 
         rb = this.gameObject.GetComponent<Rigidbody2D>();
 
-        sprite = this.GetComponent<SpriteRenderer>();
+        sprite = this.GetComponentInChildren<SpriteRenderer>();
 
-        animator = this.GetComponent<Animator>();
+        animator = this.GetComponentInChildren<Animator>();
         AnimSpeed = animator.speed;
 
         col = this.GetComponentInChildren<enemy_GroundCollision>();
+        wcol = this.GetComponentsInChildren<enemy_WallCollision>();
     }
 
     // Update is called once per frame
@@ -104,26 +106,20 @@ public class enemy_wolf : MonoBehaviour
         }
     }
 
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if (collision.tag == "Ground")
-    //    {
-    //        rb.bodyType = RigidbodyType2D.Kinematic;
-    //        rb.velocity = Vector2.zero;
-
-    //        animator.SetBool("Jump", false);
-    //        animator.speed = 0;
-    //        animator.enabled = false;
-    //        sprite.sprite = landing;
-    //    }
-    //}
-
     void GroundCollision()
     {
         if (col.IsGround)
         {
             if (!isGround)
             {
+                if(aStatus == ATK_STATUS.jump)
+                {
+                    AtkTime = 0;
+                    AtkOKTime = 0;
+                    status = STATUS.stay;
+                    aStatus = ATK_STATUS.stay;
+                }
+
                 animator.SetBool("Jump", false);
                 animator.speed = 0;
                 animator.enabled = false;
@@ -291,22 +287,22 @@ public class enemy_wolf : MonoBehaviour
                         }
                     }
 
-                    if (AtkJumpTimeLimit > AtkTime)
-                    {
-                        AtkTime += Time.deltaTime;
-                    }
-                    else
-                    {
-                        AtkTime = 0;
-                        AtkOKTime = 0;
-                        status = STATUS.stay;
-                        aStatus = ATK_STATUS.stay;
+                    //if (AtkJumpTimeLimit > AtkTime)
+                    //{
+                    //    AtkTime += Time.deltaTime;
+                    //}
+                    //else
+                    //{
+                    //    AtkTime = 0;
+                    //    AtkOKTime = 0;
+                    //    status = STATUS.stay;
+                    //    aStatus = ATK_STATUS.stay;
 
-                        animator.SetBool("Jump", false);
-                        animator.speed = 0;
-                        animator.enabled = false;
-                        sprite.sprite = stay;
-                    }
+                    //    animator.SetBool("Jump", false);
+                    //    animator.speed = 0;
+                    //    animator.enabled = false;
+                    //    sprite.sprite = stay;
+                    //}
                 }
                 break;
         }
@@ -324,10 +320,21 @@ public class enemy_wolf : MonoBehaviour
         {
             rb.velocity = new Vector2(-speed, 0.0f) * this.transform.lossyScale;
         }
+
         // 壁にめり込んでいたら進まない
-        if(col.IsWall)
+        if (!((wcol[0].IsWall && wcol[1].IsWall) ||
+            (!wcol[0].IsWall && !wcol[1].IsWall)))
         {
             rb.velocity = Vector2.zero;
+
+            if (wcol[0].IsWall && !isLR)
+            {
+                this.transform.position += new Vector3(0.02f, 0);
+            }
+            else if (wcol[1].IsWall && isLR)
+            {
+                this.transform.position -= new Vector3(0.02f, 0);
+            }
         }
 
         // 歩行する時間の管理
