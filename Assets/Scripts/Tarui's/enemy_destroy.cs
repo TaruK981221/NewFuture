@@ -11,7 +11,7 @@ public class enemy_destroy : MonoBehaviour
         {
             collision.transform.GetComponentInParent<enemy_pop>().IsPop = false;
 
-            if (collision.transform.parent.name != "EnemyPop")
+            if (collision.transform.parent.tag != "POP")
             {
                 Destroy(collision.transform.parent.gameObject);
             }
