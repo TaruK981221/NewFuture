@@ -197,11 +197,11 @@ public class enemy_ghost : MonoBehaviour
         // 左右で移動が変わる
         if (isLR)
         {
-            rb.velocity = new Vector2(-speed, 0.0f);
+            rb.velocity = new Vector2(-speed, 0.0f) * this.transform.lossyScale;
         }
         else
         {
-            rb.velocity = new Vector2(speed, 0.0f);
+            rb.velocity = new Vector2(speed, 0.0f) * this.transform.lossyScale;
         }
         // 壁にめり込んでいたら進まない
         if (col.IsWall)

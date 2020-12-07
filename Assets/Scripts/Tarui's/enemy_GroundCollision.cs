@@ -50,7 +50,7 @@ public class enemy_GroundCollision : MonoBehaviour
             isWall = true;
         }
 
-        if (collision.tag == "Ground")
+        if (!isGround && collision.tag == "Ground")
         {
             rb.bodyType = RigidbodyType2D.Kinematic;
             rb.velocity = Vector2.zero;
@@ -61,7 +61,7 @@ public class enemy_GroundCollision : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Ground")
+        if (isGround && collision.tag == "Ground")
         {
             rb.bodyType = RigidbodyType2D.Dynamic;
 
