@@ -5,7 +5,7 @@
 
 using UnityEngine;
 using System;
-//using TeamProject.System;
+using TeamProject.System;
 
 namespace TeamProject
 {
@@ -43,7 +43,7 @@ namespace TeamProject
             Max,
         }
 
-        class InputManager : SingletonMonoBehaviour<InputManager>
+        class InputManager : Singleton<InputManager>
         {
             static private Tuple<string, KeyCode>[] keyString;
             static private Tuple<string, KeyCode>[] ps4KeyString;
@@ -58,16 +58,16 @@ namespace TeamProject
             static private GamePad activePad;
             static public GamePad ActivePad { get { return activePad; } }
 
-            //=================================================================================
-            //初期化　兼　オブジェクトを生成
-            //=================================================================================
-            //起動時に実行される
-            [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
-            static void Initialize()
-            {
-                new GameObject("InputManager", typeof(InputManager));
-                Debug.Log("InputManagerオブジェクトを生成しました。");
-            }
+            ////=================================================================================
+            ////初期化　兼　オブジェクトを生成
+            ////=================================================================================
+            ////起動時に実行される
+            //[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+            //static void Initialize()
+            //{
+            //    new GameObject("InputManager", typeof(InputManager));
+            //    Debug.Log("InputManagerオブジェクトを生成しました。");
+            //}
             public InputManager()
             {
                 keyString = new Tuple<string, KeyCode>[(int)ButtonCode.Max];
