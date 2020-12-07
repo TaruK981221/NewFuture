@@ -12,6 +12,7 @@ TagManager:
   - PlayerAttack
   - EnemyAttack
   - BreakableBlock
+  - POP
   layers:
   - Default
   - TransparentFX
