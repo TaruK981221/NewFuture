@@ -6,8 +6,7 @@ public class enemy_gazer_beam : MonoBehaviour
 {
     Vector3 Ppos;
     Vector3 Spos;
-
-    float dis;
+    
     float atan;
 
     GameObject PopCollision;
@@ -30,8 +29,7 @@ public class enemy_gazer_beam : MonoBehaviour
         float x, y;
         x = Ppos.x - Spos.x;
         y = Ppos.y - Spos.y;
-
-        dis = Mathf.Sqrt(x * x + y * y);
+        
         atan = Mathf.Atan(y / x);
 
         this.transform.eulerAngles = 
@@ -42,8 +40,8 @@ public class enemy_gazer_beam : MonoBehaviour
     void FixedUpdate()
     {
         Vector3 vec;
-        vec.x = dis * Mathf.Cos(atan) * 0.01f * speed;
-        vec.y = dis * Mathf.Sin(atan) * 0.01f * speed;
+        vec.x = speed * Mathf.Cos(atan) * this.transform.lossyScale.x * 0.05f;
+        vec.y = speed * Mathf.Sin(atan) * this.transform.lossyScale.x * 0.05f;
         vec.z = 0.0f;
 
         this.transform.position -= vec;
@@ -55,7 +53,5 @@ public class enemy_gazer_beam : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-
-        Debug.Log(collision.name);
     }
 }
