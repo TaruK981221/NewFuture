@@ -30,10 +30,12 @@ public class enemy_gazer_beam : MonoBehaviour
         x = Ppos.x - Spos.x;
         y = Ppos.y - Spos.y;
         
-        atan = Mathf.Atan(y / x);
+        atan = Mathf.Atan2(y, x);
 
         this.transform.eulerAngles = 
             new Vector3(0, 0, atan * 180.0f / Mathf.PI - 90.0f);
+
+
     }
 
     // Update is called once per frame
@@ -44,7 +46,7 @@ public class enemy_gazer_beam : MonoBehaviour
         vec.y = speed * Mathf.Sin(atan) * this.transform.lossyScale.x * 0.05f;
         vec.z = 0.0f;
 
-        this.transform.position -= vec;
+        this.transform.position += vec;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
