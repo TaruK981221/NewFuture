@@ -66,7 +66,7 @@ public class enemy_wolf : MonoBehaviour
     float speed = 10.0f, jumpSpeed = 10.0f;
 
     [SerializeField]
-    Sprite stay = null, landing = null;
+    Sprite stay = null, landing = null, falling = null;
 
     // false : 左    true : 右
     bool isLR = false;
@@ -131,6 +131,18 @@ public class enemy_wolf : MonoBehaviour
         else
         {
             isGround = false;
+
+            if(status == STATUS.walk)
+            {
+                status = STATUS.stay;
+                StayTime = 0;
+                sprite.sprite = falling;
+
+                animator.speed = 0;
+                animator.enabled = false;
+
+                WalkTime = 0;
+            }
         }
     }
 
@@ -138,7 +150,7 @@ public class enemy_wolf : MonoBehaviour
     public void AtkCollision()
     {
         // 攻撃可能か
-        if (isAttackOK)
+        if (isAttackOK && isGround)
         {
             isAttackOK = false;
 
@@ -322,19 +334,9 @@ public class enemy_wolf : MonoBehaviour
         }
 
         // 壁にめり込んでいたら進まない
-        if (!((wcol[0].IsWall && wcol[1].IsWall) ||
-            (!wcol[0].IsWall && !wcol[1].IsWall)))
+        if (wcol[0].IsWall || wcol[1].IsWall)
         {
             rb.velocity = Vector2.zero;
-
-            if (wcol[0].IsWall && !isLR)
-            {
-                this.transform.position += new Vector3(0.02f, 0);
-            }
-            else if (wcol[1].IsWall && isLR)
-            {
-                this.transform.position -= new Vector3(0.02f, 0);
-            }
         }
 
         // 歩行する時間の管理

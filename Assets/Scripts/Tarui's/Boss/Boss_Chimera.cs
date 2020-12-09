@@ -17,6 +17,7 @@ public class Boss_Chimera : MonoBehaviour
     {
         stay = 0,
         Fire,
+        Jump,
         Dash,
         ShockWave,
 
@@ -31,19 +32,31 @@ public class Boss_Chimera : MonoBehaviour
     SpriteRenderer sr;
 
 
-    float stayTime;
+    float stayTime = 0;
     [SerializeField]
-    float stayTimeLimit;
+    float stayTimeLimit=2;
 
-    float walkTime;
+    float walkTime=0;
     [SerializeField]
-    float walkTimeLimit;
+    float walkTimeLimit=2;
 
-    float atkTime;
+    float atkTime=0;
     [SerializeField]
-    float atkTimeLimit;
+    float atkTimeLimit=2;
 
+    // 強攻撃用
+    float atkS_Time = 0;
+    [SerializeField]
+    float atkS_TimeLimit = 30;
 
+    bool isAtk;
+    public bool IsAtk
+    {
+        get
+        {
+            return isAtk;
+        }
+    }
 
 
     // Start is called before the first frame update
@@ -75,6 +88,23 @@ public class Boss_Chimera : MonoBehaviour
             case STATUS.atk:
                 Attack();
                 break;
+        }
+
+        // 一定時間経過後に強攻撃
+        atkS_Time += Time.deltaTime;
+        if(atkS_Time >= atkS_TimeLimit &&
+            (status == STATUS.stay || status == STATUS.walk))
+        {
+            status = STATUS.atk;
+            atk_Status = ATKSTATUS.Dash;
+            if(status == STATUS.stay)
+            {
+                stayTime = 0;
+            }
+            else
+            {
+                walkTime = 0;
+            }
         }
     }
 
@@ -125,10 +155,10 @@ public class Boss_Chimera : MonoBehaviour
 
     public void AtkCol(int sts)
     {
-        // sts = 1 : 突進
+        // sts = 1 : とびかかり
         if(sts == 1)
         {
-            atk_Status = ATKSTATUS.Dash;
+            atk_Status = ATKSTATUS.Jump;
         }
         // sts = 2 : 火炎放射
         else if(sts == 2)

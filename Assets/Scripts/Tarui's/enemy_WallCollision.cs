@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class enemy_WallCollision : MonoBehaviour
 {
+    [SerializeField,Header("false : 左　true : 右")]
+    bool LRFlg = false;
+
     Rigidbody2D rb;
+
+    Transform parent;
 
     bool isWall = false;
     public bool IsWall
@@ -19,6 +24,8 @@ public class enemy_WallCollision : MonoBehaviour
     void Start()
     {
         rb = this.GetComponentInParent<Rigidbody2D>();
+
+        parent = rb.transform;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -27,15 +34,15 @@ public class enemy_WallCollision : MonoBehaviour
         {
             rb.velocity = Vector2.zero;
 
-            if (collision.transform.position.x >= this.transform.parent.position.x)
+            if(LRFlg)
             {
-                this.transform.parent.position +=
-                    new Vector3(-0.01f, 0) * this.transform.parent.lossyScale.x;
+                parent.position +=
+                    new Vector3(-0.01f,0) * parent.lossyScale.x;
             }
             else
             {
-                this.transform.parent.position +=
-                    new Vector3(0.01f, 0) * this.transform.parent.lossyScale.x;
+                parent.position +=
+                    new Vector3(0.01f, 0) * parent.lossyScale.x;
             }
 
             isWall = true;
@@ -57,15 +64,15 @@ public class enemy_WallCollision : MonoBehaviour
         {
             rb.velocity = Vector2.zero;
 
-            if (collision.transform.position.x <= this.transform.parent.position.x)
+            if (LRFlg)
             {
-                this.transform.parent.position +=
-                    new Vector3(-0.01f, 0) * this.transform.parent.lossyScale.x;
+                parent.position +=
+                    new Vector3(-0.01f, 0) * parent.lossyScale.x;
             }
             else
             {
-                this.transform.parent.position +=
-                    new Vector3(0.01f, 0) * this.transform.parent.lossyScale.x;
+                parent.position +=
+                    new Vector3(0.01f, 0) * parent.lossyScale.x;
             }
         }
     }

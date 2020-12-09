@@ -157,6 +157,8 @@ MonoBehaviour:
   stay: {fileID: 1584860959959181306, guid: 99c6974eaf54e794bb0196654c29c969, type: 3}
   landing: {fileID: -5158883173219173250, guid: 99c6974eaf54e794bb0196654c29c969,
     type: 3}
+  falling: {fileID: -9089304821292276846, guid: 99c6974eaf54e794bb0196654c29c969,
+    type: 3}
 --- !u!1001 &9097163561722049764
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -173,6 +175,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.y
       value: 1.4865704
+      objectReference: {fileID: 0}
+    - target: {fileID: 2066913240615884288, guid: d718255926ce66446ac1be204c9bc2c3,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.58973694
+      objectReference: {fileID: 0}
+    - target: {fileID: 2066913240615884288, guid: d718255926ce66446ac1be204c9bc2c3,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 6.5703363
       objectReference: {fileID: 0}
     - target: {fileID: 2495223932578907669, guid: d718255926ce66446ac1be204c9bc2c3,
         type: 3}
