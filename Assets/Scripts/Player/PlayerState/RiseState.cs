@@ -119,7 +119,7 @@ namespace TeamProject
             m_speedDirection = SetDirectionSpeed(0.0f);
 
             SetPrevState(this);
-            SetNextState(m_idleState);
+            SetNextState(this);
         }
         #endregion
 
@@ -143,7 +143,7 @@ namespace TeamProject
             m_Param.m_PlayerDirection = P_DIRECTION.RIGHT;
             m_speedDirection = SetDirectionSpeed(0.0f);
             SetPrevState(this);
-            SetNextState(m_idleState);
+            SetNextState(this);
         }
         #endregion
 
