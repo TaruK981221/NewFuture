@@ -174,10 +174,20 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 1.4865704
       objectReference: {fileID: 0}
+    - target: {fileID: 2495223932578907669, guid: d718255926ce66446ac1be204c9bc2c3,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3575761592979193591, guid: d718255926ce66446ac1be204c9bc2c3,
         type: 3}
       propertyPath: m_Name
       value: GCol
+      objectReference: {fileID: 0}
+    - target: {fileID: 5540081021530743568, guid: d718255926ce66446ac1be204c9bc2c3,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8208226643939046499, guid: d718255926ce66446ac1be204c9bc2c3,
         type: 3}

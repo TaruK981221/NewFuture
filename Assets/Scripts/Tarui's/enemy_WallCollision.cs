@@ -57,7 +57,7 @@ public class enemy_WallCollision : MonoBehaviour
         {
             rb.velocity = Vector2.zero;
 
-            if (collision.transform.position.x >= this.transform.parent.position.x)
+            if (collision.transform.position.x <= this.transform.parent.position.x)
             {
                 this.transform.parent.position +=
                     new Vector3(-0.01f, 0) * this.transform.parent.lossyScale.x;
