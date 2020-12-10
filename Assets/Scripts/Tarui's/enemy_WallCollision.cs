@@ -32,7 +32,7 @@ public class enemy_WallCollision : MonoBehaviour
     {
         if (!isWall && collision.tag == "Ground")
         {
-            rb.velocity = Vector2.zero;
+            rb.velocity *= new Vector2(0,1);
 
             if(LRFlg)
             {
@@ -62,7 +62,7 @@ public class enemy_WallCollision : MonoBehaviour
     {
         if (isWall && collision.tag == "Ground")
         {
-            rb.velocity = Vector2.zero;
+            rb.velocity *= new Vector2(0, 1);
 
             if (LRFlg)
             {
