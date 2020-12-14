@@ -130,18 +130,23 @@ public class enemy_wolf : MonoBehaviour
         }
         else
         {
-            isGround = false;
-
-            if(status == STATUS.walk)
+            if(isGround)
             {
-                status = STATUS.stay;
-                StayTime = 0;
-                sprite.sprite = falling;
+                isGround = false;
+            }
+            else
+            {
+                if (status == STATUS.walk)
+                {
+                    status = STATUS.stay;
+                    StayTime = 0;
+                    sprite.sprite = falling;
 
-                animator.speed = 0;
-                animator.enabled = false;
+                    animator.speed = 0;
+                    animator.enabled = false;
 
-                WalkTime = 0;
+                    WalkTime = 0;
+                }
             }
         }
     }
@@ -161,7 +166,7 @@ public class enemy_wolf : MonoBehaviour
 
             animator.SetBool("Atk", true);
 
-            if (player.transform.position.x <= this.transform.position.x)
+            if (player.transform.position.x >= this.transform.position.x)
             {
                 isLR = true;
             }
@@ -289,7 +294,7 @@ public class enemy_wolf : MonoBehaviour
                     {
                         AtkFlg = false;
 
-                        if (!isLR)
+                        if (isLR)
                         {
                             rb.velocity = new Vector2(jumpSpeed * 1, jumpSpeed * 2) * this.transform.lossyScale;
                         }
@@ -324,7 +329,7 @@ public class enemy_wolf : MonoBehaviour
     void Walk()
     {
         // 左右で移動が変わる
-        if (!isLR)
+        if (isLR)
         {
             rb.velocity = new Vector2(speed, 0.0f) * this.transform.lossyScale;
         }

@@ -49,7 +49,8 @@ public class enemy_GroundCollision : MonoBehaviour
         {
             if(!isGround)
             {
-                rb.bodyType = RigidbodyType2D.Kinematic;
+                //rb.bodyType = RigidbodyType2D.Kinematic;
+                rb.velocity *= new Vector2(1, 0);
 
                 this.transform.parent.position += 
                     new Vector3(0, 0.05f) * this.transform.parent.lossyScale.x;
