@@ -9,16 +9,11 @@ public class enemy_destroy : MonoBehaviour
         if(collision.tag == "enemy" &&
             collision.transform.GetComponentInParent<enemy_pop>().IsPop)
         {
-            collision.transform.GetComponentInParent<enemy_pop>().IsPop = false;
+            enemy_pop pop = collision.transform.GetComponentInParent<enemy_pop>();
 
-            if (collision.transform.parent.tag != "POP")
-            {
-                Destroy(collision.transform.parent.gameObject);
-            }
-            else
-            {
-                Destroy(collision.gameObject);
-            }
+            pop.IsPop = false;
+            
+            Destroy(pop.transform.GetChild(0).gameObject);
         }
     }
 }

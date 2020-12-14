@@ -128,11 +128,13 @@ public class enemy_bard : MonoBehaviour
         // 左右で移動が変わる
         if (isLR)
         {
-            rb.velocity = new Vector2(MoveSpeed, 0.0f) * this.transform.lossyScale.x;
+            rb.velocity = new Vector2(MoveSpeed, 0.0f) * 
+                this.transform.lossyScale.x;
         }
         else
         {
-            rb.velocity = new Vector2(-MoveSpeed, 0.0f) * this.transform.lossyScale.x;
+            rb.velocity = new Vector2(-MoveSpeed, 0.0f) * 
+                this.transform.lossyScale.x;
         }
 
         FlyTime += Time.deltaTime;
@@ -140,7 +142,8 @@ public class enemy_bard : MonoBehaviour
         // 上下の揺れ運動
         float X = this.transform.position.x;
 
-        float Y = Mathf.Sin(2 * Mathf.PI * T * FlyTime) + StartY;
+        float Y = Mathf.Sin(2 * Mathf.PI * T * FlyTime) *
+            this.transform.lossyScale.x + StartY;
 
         this.transform.position = new Vector3(X, Y, 0.0f);
     }

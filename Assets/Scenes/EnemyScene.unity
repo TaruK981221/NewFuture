@@ -514,6 +514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7cc9fe25379b424b849e975cbf03c00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LRFlg: 1
 --- !u!1 &480497617
 GameObject:
   m_ObjectHideFlags: 0
@@ -835,6 +836,7 @@ MonoBehaviour:
   walkTimeLimit: 0
   atkTimeLimit: 0
   atkS_TimeLimit: 30
+  speed: 10
 --- !u!1 &552399299
 GameObject:
   m_ObjectHideFlags: 0
@@ -1707,6 +1709,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7cc9fe25379b424b849e975cbf03c00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LRFlg: 0
 --- !u!1001 &1141350979361344088
 PrefabInstance:
   m_ObjectHideFlags: 0

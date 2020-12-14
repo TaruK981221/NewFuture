@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Boss_Chimera : MonoBehaviour
+public partial class Boss_Chimera : MonoBehaviour
 {
     enum STATUS
     {
@@ -15,11 +15,9 @@ public class Boss_Chimera : MonoBehaviour
 
     public enum ATKSTATUS
     {
-        stay = 0,
-        Fire,
+        Fire = 0,
         Jump,
         Dash,
-        ShockWave,
 
         end
     }
@@ -31,6 +29,11 @@ public class Boss_Chimera : MonoBehaviour
     Rigidbody2D rb;
     SpriteRenderer sr;
 
+
+    enemy_GroundCollision   gCol;
+    enemy_WallCollision[]   wCol;
+
+    GameObject player;
 
     float stayTime = 0;
     [SerializeField]
@@ -49,6 +52,11 @@ public class Boss_Chimera : MonoBehaviour
     [SerializeField]
     float atkS_TimeLimit = 30;
 
+    bool isAtkOK = false;
+
+    [SerializeField]
+    float speed = 10.0f;
+
     bool isAtk;
     public bool IsAtk
     {
@@ -59,14 +67,22 @@ public class Boss_Chimera : MonoBehaviour
     }
 
 
+    // false : 左    true : 右
+    bool isLR = false;
+
     // Start is called before the first frame update
     void Start()
     {
         status = STATUS.stay;
-        atk_Status = ATKSTATUS.stay;
+        atk_Status = ATKSTATUS.end;
 
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponentInChildren<SpriteRenderer>();
+
+        player = GameObject.FindGameObjectWithTag("Player");
+
+        gCol = this.transform.GetComponentInChildren<enemy_GroundCollision>();
+        wCol = this.transform.GetComponentsInChildren<enemy_WallCollision>();
     }
 
     // Update is called once per frame
@@ -110,6 +126,15 @@ public class Boss_Chimera : MonoBehaviour
 
     void Stay()
     {
+        if(player.transform.position.x <= this.transform.position.x)
+        {
+            isLR = true;
+        }
+        else
+        {
+            isLR = false;
+        }
+
         if (stayTime < stayTimeLimit)
         {
             stayTime += Time.deltaTime;
@@ -123,6 +148,17 @@ public class Boss_Chimera : MonoBehaviour
 
     void Walk()
     {
+        if(isLR)
+        {
+            this.transform.position +=
+                new Vector3(speed, 0.0f) * this.transform.lossyScale.x;
+        }
+        else
+        {
+            this.transform.position +=
+                new Vector3(-speed, 0.0f) * this.transform.lossyScale.x;
+        }
+
         if (walkTime < walkTimeLimit)
         {
             walkTime += Time.deltaTime;
@@ -136,34 +172,34 @@ public class Boss_Chimera : MonoBehaviour
 
     void Attack()
     {
-        if (atkTime < atkTimeLimit)
+        switch (atk_Status)
         {
-            if (atkTime == 0)
-            {
-                stayTime = 0;
-                walkTime = 0;
-            }
+            case ATKSTATUS.Fire:
+                ATK_Fire();
+                break;
+            case ATKSTATUS.Jump:
+                ATK_Jump();
+                break;
+            case ATKSTATUS.Dash:
+                ATK_Dash();
+                break;
+        }
 
-            atkTime += Time.deltaTime;
-        }
-        else
-        {
-            atkTime = 0;
-            status = STATUS.stay;
-        }
-    }
 
-    public void AtkCol(int sts)
-    {
-        // sts = 1 : とびかかり
-        if(sts == 1)
-        {
-            atk_Status = ATKSTATUS.Jump;
-        }
-        // sts = 2 : 火炎放射
-        else if(sts == 2)
-        {
-            atk_Status = ATKSTATUS.Fire;
-        }
+        //if (atkTime < atkTimeLimit)
+        //{
+        //    if (atkTime == 0)
+        //    {
+        //        stayTime = 0;
+        //        walkTime = 0;
+        //    }
+
+        //    atkTime += Time.deltaTime;
+        //}
+        //else
+        //{
+        //    atkTime = 0;
+        //    status = STATUS.stay;
+        //}
     }
 }

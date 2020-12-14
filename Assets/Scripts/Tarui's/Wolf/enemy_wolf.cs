@@ -161,7 +161,7 @@ public class enemy_wolf : MonoBehaviour
 
             animator.SetBool("Atk", true);
 
-            if (player.transform.position.x >= this.transform.position.x)
+            if (player.transform.position.x <= this.transform.position.x)
             {
                 isLR = true;
             }
@@ -289,7 +289,7 @@ public class enemy_wolf : MonoBehaviour
                     {
                         AtkFlg = false;
 
-                        if (isLR)
+                        if (!isLR)
                         {
                             rb.velocity = new Vector2(jumpSpeed * 1, jumpSpeed * 2) * this.transform.lossyScale;
                         }
@@ -324,7 +324,7 @@ public class enemy_wolf : MonoBehaviour
     void Walk()
     {
         // 左右で移動が変わる
-        if (isLR)
+        if (!isLR)
         {
             rb.velocity = new Vector2(speed, 0.0f) * this.transform.lossyScale;
         }
