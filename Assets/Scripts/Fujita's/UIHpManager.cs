@@ -56,16 +56,28 @@ public class UIHpManager : MonoBehaviour
             GameObject hps = (GameObject)Resources.Load("hps");
 
             // hpsプレハブを元にインスタンスを生成
-            Instantiate(hps, new Vector3(Left, 0.0f, 0.0f), Quaternion.identity);
+            GameObject obj = Instantiate(hps, new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);
+            // 子オブジェクト化
+            obj.transform.parent = this.gameObject.transform;
+
+            // サイズ調整
+            obj.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+            obj.GetComponent<RectTransform>().sizeDelta = new Vector2(Width, this.gameObject.GetComponent<RectTransform>().sizeDelta.y);
+            // 位置調整
+            obj.transform.localPosition = new Vector3(Left, 0.0f, 0.0f);
+
+            // リストに子オブジェクト格納
+            ChildList.Add(obj);
+
             Left += Width;      // 生成位置をずらす
         }
 
         // 横幅変更, リストに子オブジェクトを格納
-        foreach (Transform child in this.gameObject.transform)
+        /*foreach (Transform child in this.gameObject.transform)
         {
             child.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(Width, child.gameObject.GetComponent<RectTransform>().sizeDelta.y);
             ChildList.Add(child.gameObject);
-        }
+        }*/
     }
 
 
