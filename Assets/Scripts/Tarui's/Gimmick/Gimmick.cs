@@ -6,7 +6,7 @@ public class Gimmick : MonoBehaviour
 {
     float postime = 0;
 
-    [SerializeField,Header("false:左から　true:右から")]
+    [SerializeField,Header("false:左(下)から　true:右(上)から")]
     bool isLR = false;
     [SerializeField,Header("false:左右　true:上下")]
     bool isXY = false;

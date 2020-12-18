@@ -126,15 +126,6 @@ public partial class Boss_Chimera : MonoBehaviour
 
     void Stay()
     {
-        if(player.transform.position.x <= this.transform.position.x)
-        {
-            isLR = true;
-        }
-        else
-        {
-            isLR = false;
-        }
-
         if (stayTime < stayTimeLimit)
         {
             stayTime += Time.deltaTime;
@@ -148,7 +139,20 @@ public partial class Boss_Chimera : MonoBehaviour
 
     void Walk()
     {
-        if(isLR)
+        // 移動の直前に主人公の方向を向く
+        if (walkTime == 0)
+        {
+            if (player.transform.position.x <= this.transform.position.x)
+            {
+                isLR = true;
+            }
+            else
+            {
+                isLR = false;
+            }
+        }
+
+        if (isLR)
         {
             this.transform.position +=
                 new Vector3(speed, 0.0f) * this.transform.lossyScale.x;
