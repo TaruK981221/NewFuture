@@ -1,0 +1,1319 @@
+fileFormatVersion: 2
+guid: 0d87cc48384cafe428c0c063b2f04258
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3356416029483141046
+    second: Denzi100912-5_wall2_0
+  - first:
+      213: -5357332198894574420
+    second: Denzi100912-5_wall2_1
+  - first:
+      213: 1180268589925317150
+    second: Denzi100912-5_wall2_2
+  - first:
+      213: -8464994548342910313
+    second: Denzi100912-5_wall2_3
+  - first:
+      213: 6397775261482254468
+    second: Denzi100912-5_wall2_4
+  - first:
+      213: -4585595396815991678
+    second: Denzi100912-5_wall2_5
+  - first:
+      213: -2030549596345436570
+    second: Denzi100912-5_wall2_6
+  - first:
+      213: 7091915454044102041
+    second: Denzi100912-5_wall2_7
+  - first:
+      213: -5754323309790597559
+    second: Denzi100912-5_wall2_8
+  - first:
+      213: -8429359395911570635
+    second: Denzi100912-5_wall2_9
+  - first:
+      213: -7837019106811710007
+    second: Denzi100912-5_wall2_10
+  - first:
+      213: -5817523018850615901
+    second: Denzi100912-5_wall2_11
+  - first:
+      213: 358782169564477396
+    second: Denzi100912-5_wall2_12
+  - first:
+      213: 4604898852898154860
+    second: Denzi100912-5_wall2_13
+  - first:
+      213: -2161336059016222701
+    second: Denzi100912-5_wall2_14
+  - first:
+      213: 613077307649060906
+    second: Denzi100912-5_wall2_15
+  - first:
+      213: -4749129226455024140
+    second: Denzi100912-5_wall2_16
+  - first:
+      213: -8790471106743086940
+    second: Denzi100912-5_wall2_17
+  - first:
+      213: 7018554391129906241
+    second: Denzi100912-5_wall2_18
+  - first:
+      213: 4448700547217699954
+    second: Denzi100912-5_wall2_19
+  - first:
+      213: 8969755838694851762
+    second: Denzi100912-5_wall2_20
+  - first:
+      213: 7132129146842929251
+    second: Denzi100912-5_wall2_21
+  - first:
+      213: 4162851118315545669
+    second: Denzi100912-5_wall2_22
+  - first:
+      213: -1296334237702478147
+    second: Denzi100912-5_wall2_23
+  - first:
+      213: 202461850077954868
+    second: Denzi100912-5_wall2_24
+  - first:
+      213: -276164579530772078
+    second: Denzi100912-5_wall2_25
+  - first:
+      213: -5683474485442900033
+    second: Denzi100912-5_wall2_26
+  - first:
+      213: -5847875045461533572
+    second: Denzi100912-5_wall2_27
+  - first:
+      213: 8030409743608970546
+    second: Denzi100912-5_wall2_28
+  - first:
+      213: 127127886237720660
+    second: Denzi100912-5_wall2_29
+  - first:
+      213: 2760713333684786961
+    second: Denzi100912-5_wall2_30
+  - first:
+      213: 1710474204009166462
+    second: Denzi100912-5_wall2_31
+  - first:
+      213: -5094958732365157581
+    second: Denzi100912-5_wall2_32
+  - first:
+      213: 6113957985336672906
+    second: Denzi100912-5_wall2_33
+  - first:
+      213: -4998143494628044549
+    second: Denzi100912-5_wall2_34
+  - first:
+      213: 6305748870061108744
+    second: Denzi100912-5_wall2_35
+  - first:
+      213: -1206142949908454727
+    second: Denzi100912-5_wall2_36
+  - first:
+      213: 5422379672581148117
+    second: Denzi100912-5_wall2_37
+  - first:
+      213: -857942617257468134
+    second: Denzi100912-5_wall2_38
+  - first:
+      213: 7805638725007525161
+    second: Denzi100912-5_wall2_39
+  - first:
+      213: -2824053729639123939
+    second: Denzi100912-5_wall2_40
+  - first:
+      213: -8078661459680067851
+    second: Denzi100912-5_wall2_41
+  - first:
+      213: -6119283870636529096
+    second: Denzi100912-5_wall2_42
+  - first:
+      213: 876752356529749229
+    second: Denzi100912-5_wall2_43
+  - first:
+      213: 1460082993176523906
+    second: Denzi100912-5_wall2_44
+  - first:
+      213: 7879405296071718967
+    second: WallChip_0
+  - first:
+      213: -4438679966402412862
+    second: WallChip_1
+  - first:
+      213: -1793865256473987041
+    second: WallChip_2
+  - first:
+      213: 7477529333864435968
+    second: WallChip_3
+  - first:
+      213: 6150361187693325341
+    second: WallChip_4
+  - first:
+      213: -7198913494298415248
+    second: WallChip_5
+  - first:
+      213: -529717482609026376
+    second: WallChip_6
+  - first:
+      213: -6382659008784701795
+    second: WallChip_7
+  - first:
+      213: 5156358824172651347
+    second: WallChip_8
+  - first:
+      213: -6488050885140588315
+    second: WallChip_9
+  - first:
+      213: 4951001615612981714
+    second: WallChip_10
+  - first:
+      213: 5135018127366019383
+    second: WallChip_11
+  - first:
+      213: 8114570709717599413
+    second: WallChip_12
+  - first:
+      213: -7315247673889986911
+    second: WallChip_13
+  - first:
+      213: 5882147885102130853
+    second: WallChip_14
+  - first:
+      213: -4570491711462879392
+    second: WallChip_15
+  - first:
+      213: 7848152547315230291
+    second: WallChip_16
+  - first:
+      213: 1524777284555025859
+    second: WallChip_17
+  - first:
+      213: -6768917794927566601
+    second: WallChip_18
+  - first:
+      213: 7360324119194604751
+    second: WallChip_19
+  - first:
+      213: 3825311039207416190
+    second: WallChip_20
+  - first:
+      213: 70768736646337503
+    second: WallChip_21
+  - first:
+      213: 3198311223110089159
+    second: WallChip_22
+  - first:
+      213: 8683834459968485410
+    second: WallChip_23
+  - first:
+      213: 1746068774865130194
+    second: WallChip_24
+  - first:
+      213: -794139138247811312
+    second: WallChip_25
+  - first:
+      213: -987716676221270123
+    second: WallChip_26
+  - first:
+      213: 4892096483872140187
+    second: WallChip_27
+  - first:
+      213: -1640330710341789296
+    second: WallChip_28
+  - first:
+      213: 1544714997757763567
+    second: WallChip_29
+  - first:
+      213: -6966458906295215764
+    second: WallChip_30
+  - first:
+      213: 8868970351969828166
+    second: WallChip_31
+  - first:
+      213: -5966995511948026741
+    second: WallChip_32
+  - first:
+      213: 5068169372851277162
+    second: WallChip_33
+  - first:
+      213: 3613259655542165870
+    second: WallChip_34
+  - first:
+      213: 9037690226491343913
+    second: WallChip_35
+  - first:
+      213: 7751219697404995941
+    second: WallChip_36
+  - first:
+      213: -7692077439416714093
+    second: WallChip_37
+  - first:
+      213: -747996441936787453
+    second: WallChip_38
+  - first:
+      213: 1880013099339940577
+    second: WallChip_39
+  - first:
+      213: -3233117976643319600
+    second: WallChip_40
+  - first:
+      213: 7371518839611815241
+    second: WallChip_41
+  - first:
+      213: 2314583810683547932
+    second: WallChip_42
+  - first:
+      213: 2514235532042068967
+    second: WallChip_43
+  - first:
+      213: 2885496136289415989
+    second: WallChip_44
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: WallChip_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 738bfa1be55495d60800000000000000
+      internalID: 7879405296071718967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cef0f27614a662c0800000000000000
+      internalID: -4438679966402412862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f18f3f4bd09ea17e0800000000000000
+      internalID: -1793865256473987041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0019d8ebf4585c760800000000000000
+      internalID: 7477529333864435968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1c6fc80ae87a5550800000000000000
+      internalID: 6150361187693325341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip_5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07fa3938152581c90800000000000000
+      internalID: -7198913494298415248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip_6
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ba56c191c016a8f0800000000000000
+      internalID: -529717482609026376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d96e0f2c27d3c67a0800000000000000
+      internalID: -6382659008784701795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip_8
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3530341f7011f8740800000000000000
+      internalID: 5156358824172651347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip_9
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e8598a5810d5f5a0800000000000000
+      internalID: -6488050885140588315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip_10
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d13ff4ecbd75b440800000000000000
+      internalID: 4951001615612981714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip_11
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 739d7d4c7cf334740800000000000000
+      internalID: 5135018127366019383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip_12
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b4c181511fbc9070800000000000000
+      internalID: 8114570709717599413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip_13
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a6e8c99ff40b7a90800000000000000
+      internalID: -7315247673889986911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a6e3d7265691a150800000000000000
+      internalID: 5882147885102130853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip_15
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06f4361010a5290c0800000000000000
+      internalID: -4570491711462879392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip_16
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3562dc5192d3aec60800000000000000
+      internalID: 7848152547315230291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip_17
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cdac779cd8192510800000000000000
+      internalID: 1524777284555025859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip_18
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f0a587f029ff02a0800000000000000
+      internalID: -6768917794927566601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip_19
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc4955c2acf152660800000000000000
+      internalID: 7360324119194604751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip_20
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e71a65f6f1c361530800000000000000
+      internalID: 3825311039207416190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip_21
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd312018acb6bf000800000000000000
+      internalID: 70768736646337503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip_22
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c93f9eac1fa26c20800000000000000
+      internalID: 3198311223110089159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip_23
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 228b7b2be6d238870800000000000000
+      internalID: 8683834459968485410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d2dc37bc484b3810800000000000000
+      internalID: 1746068774865130194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip_25
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01f118a49a6aaf4f0800000000000000
+      internalID: -794139138247811312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip_26
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5970a178aecea42f0800000000000000
+      internalID: -987716676221270123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip_27
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9be22825d734e340800000000000000
+      internalID: 4892096483872140187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip_28
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 099d9e7e8ef5c39e0800000000000000
+      internalID: -1640330710341789296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip_29
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fefd1903b1eef6510800000000000000
+      internalID: 1544714997757763567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c69daebd88a225f90800000000000000
+      internalID: -6966458906295215764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip_31
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64df1a89b89e41b70800000000000000
+      internalID: 8868970351969828166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip_32
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8cdcf54239f03da0800000000000000
+      internalID: -5966995511948026741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip_33
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6d805a3131c55640800000000000000
+      internalID: 5068169372851277162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip_34
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6157d94380e42230800000000000000
+      internalID: 3613259655542165870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip_35
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 924490490635c6d70800000000000000
+      internalID: 9037690226491343913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 569e5df3f3dd19b60800000000000000
+      internalID: 7751219697404995941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip_37
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39c35ceb250404590800000000000000
+      internalID: -7692077439416714093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip_38
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3080a19f2359e95f0800000000000000
+      internalID: -747996441936787453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip_39
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e20d3ff3f5271a10800000000000000
+      internalID: 1880013099339940577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip_40
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d8ce3d7458a123d0800000000000000
+      internalID: -3233117976643319600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip_41
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94579222455ec4660800000000000000
+      internalID: 7371518839611815241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip_42
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c11b9ae66bd0f1020800000000000000
+      internalID: 2314583810683547932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip_43
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e3680935eb54e220800000000000000
+      internalID: 2514235532042068967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip_44
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 533fa4ca2775b0820800000000000000
+      internalID: 2885496136289415989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 1351db37ca656e943904310904675e15
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
