@@ -15,8 +15,6 @@ namespace TeamProject
         public RuntimeAnimatorController RuntimeAnimatorController1;
         public RuntimeAnimatorController RuntimeAnimatorController2;
 
-        //private P_STYLE 
-
         private void Awake()
         {
             pAnimName = new string[(int)P_STATE.MAX_STATE]
@@ -40,13 +38,13 @@ namespace TeamProject
         void Start()
         {
             //アニメーターのセット
-           // anim.runtimeAnimatorController = RuntimeAnimatorController[(int)P_STYLE.MAGIC];
+            // anim.runtimeAnimatorController = RuntimeAnimatorController[(int)P_STYLE.MAGIC];
+        
         }
 
         // Update is called once per frame
         void Update()
         {
-
         }
 
         /// <summary>

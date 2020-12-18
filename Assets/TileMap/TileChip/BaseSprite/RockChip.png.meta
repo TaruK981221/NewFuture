@@ -1,0 +1,1580 @@
+fileFormatVersion: 2
+guid: 3b915186fe0ce2041895fd15e3470864
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7297474124572456643
+    second: Denzi100308-1_rock1_0
+  - first:
+      213: 7593798849091687770
+    second: Denzi100308-1_rock1_1
+  - first:
+      213: -2325145326783548758
+    second: Denzi100308-1_rock1_2
+  - first:
+      213: -6606040715653341225
+    second: Denzi100308-1_rock1_3
+  - first:
+      213: -3882115162645281816
+    second: Denzi100308-1_rock1_4
+  - first:
+      213: 2055928472638230321
+    second: Denzi100308-1_rock1_5
+  - first:
+      213: -6338835237207032446
+    second: Denzi100308-1_rock1_6
+  - first:
+      213: -2419615483186306717
+    second: Denzi100308-1_rock1_7
+  - first:
+      213: -7929615565613863444
+    second: Denzi100308-1_rock1_8
+  - first:
+      213: 2792014804152541528
+    second: Denzi100308-1_rock1_9
+  - first:
+      213: -5507837711893962320
+    second: Denzi100308-1_rock1_10
+  - first:
+      213: -962542968877051312
+    second: Denzi100308-1_rock1_11
+  - first:
+      213: -4328994374107558765
+    second: Denzi100308-1_rock1_12
+  - first:
+      213: -9121680357597112450
+    second: Denzi100308-1_rock1_13
+  - first:
+      213: 8007489098363856183
+    second: Denzi100308-1_rock1_14
+  - first:
+      213: -9173870548775109164
+    second: Denzi100308-1_rock1_15
+  - first:
+      213: -7964358078349426548
+    second: Denzi100308-1_rock1_16
+  - first:
+      213: -3202140729648251081
+    second: Denzi100308-1_rock1_17
+  - first:
+      213: -8642080759645835345
+    second: Denzi100308-1_rock1_18
+  - first:
+      213: -4992490550580488282
+    second: Denzi100308-1_rock1_19
+  - first:
+      213: 7830808268196573423
+    second: Denzi100308-1_rock1_20
+  - first:
+      213: 4136844939358877168
+    second: Denzi100308-1_rock1_21
+  - first:
+      213: -8688720024938542234
+    second: Denzi100308-1_rock1_22
+  - first:
+      213: -3712614294608849843
+    second: Denzi100308-1_rock1_23
+  - first:
+      213: 1517569949814684419
+    second: Denzi100308-1_rock1_24
+  - first:
+      213: -3733130635859709433
+    second: Denzi100308-1_rock1_25
+  - first:
+      213: -6419694033879595046
+    second: Denzi100308-1_rock1_26
+  - first:
+      213: 6527462749806971621
+    second: Denzi100308-1_rock1_27
+  - first:
+      213: 9127653283818918818
+    second: Denzi100308-1_rock1_28
+  - first:
+      213: -5980428759683274077
+    second: Denzi100308-1_rock1_29
+  - first:
+      213: -5782784146330936756
+    second: Denzi100308-1_rock1_30
+  - first:
+      213: 4633339611999010883
+    second: Denzi100308-1_rock1_31
+  - first:
+      213: -2180479601139651717
+    second: Denzi100308-1_rock1_32
+  - first:
+      213: -2720943292230068301
+    second: Denzi100308-1_rock1_33
+  - first:
+      213: -90222860728552944
+    second: Denzi100308-1_rock1_34
+  - first:
+      213: 8370246043659336501
+    second: Denzi100308-1_rock1_35
+  - first:
+      213: 6956622146963877721
+    second: Denzi100308-1_rock1_36
+  - first:
+      213: 5878656465075764058
+    second: Denzi100308-1_rock1_37
+  - first:
+      213: -6572962191591698304
+    second: Denzi100308-1_rock1_38
+  - first:
+      213: 2424141414451095614
+    second: Denzi100308-1_rock1_39
+  - first:
+      213: -4678337054978559229
+    second: Denzi100308-1_rock1_40
+  - first:
+      213: 4127074485855284702
+    second: Denzi100308-1_rock1_41
+  - first:
+      213: -5800838440563310212
+    second: Denzi100308-1_rock1_42
+  - first:
+      213: 3964882358782570919
+    second: Denzi100308-1_rock1_43
+  - first:
+      213: 24754855126372728
+    second: Denzi100308-1_rock1_44
+  - first:
+      213: 3633889371153438947
+    second: Denzi100308-1_rock1_45
+  - first:
+      213: 3276590037605489519
+    second: Denzi100308-1_rock1_46
+  - first:
+      213: 8060535677054273125
+    second: Denzi100308-1_rock1_47
+  - first:
+      213: -6139833151195504049
+    second: Denzi100308-1_rock1_48
+  - first:
+      213: 7741694605956633171
+    second: Denzi100308-1_rock1_49
+  - first:
+      213: 5706754026766532178
+    second: Denzi100308-1_rock1_50
+  - first:
+      213: -9004585447175960220
+    second: Denzi100308-1_rock1_51
+  - first:
+      213: 4769569403660862127
+    second: Denzi100308-1_rock1_52
+  - first:
+      213: 5220687708585033865
+    second: Denzi100308-1_rock1_53
+  - first:
+      213: 5484182054878337637
+    second: Denzi100308-1_rock1_54
+  - first:
+      213: 5968964898624215115
+    second: Denzi100308-1_rock1_55
+  - first:
+      213: 6348101843394749054
+    second: Denzi100308-1_rock1_56
+  - first:
+      213: 1783801242776865449
+    second: Denzi100308-1_rock1_57
+  - first:
+      213: -4363762453419751751
+    second: Denzi100308-1_rock1_58
+  - first:
+      213: 1845001867658128141
+    second: Denzi100308-1_rock1_59
+  - first:
+      213: -5540553078507959069
+    second: Denzi100308-1_rock1_60
+  - first:
+      213: 4072614004787860563
+    second: Denzi100308-1_rock1_61
+  - first:
+      213: -8497266565594912152
+    second: Denzi100308-1_rock1_62
+  - first:
+      213: -6097602140673634805
+    second: Denzi100308-1_rock1_63
+  - first:
+      213: -5763190929849867903
+    second: Denzi100308-1_rock1_64
+  - first:
+      213: -1484751798553548026
+    second: Denzi100308-1_rock1_65
+  - first:
+      213: -6976353642797101167
+    second: Denzi100308-1_rock1_66
+  - first:
+      213: -7831072400237912551
+    second: Denzi100308-1_rock1_67
+  - first:
+      213: -3092655849262622492
+    second: Denzi100308-1_rock1_68
+  - first:
+      213: 1485573111221788530
+    second: Denzi100308-1_rock1_69
+  - first:
+      213: 3020439879055579729
+    second: Denzi100308-1_rock1_70
+  - first:
+      213: -7942818995346137815
+    second: Denzi100308-1_rock1_71
+  - first:
+      213: -6938294662147309571
+    second: Denzi100308-1_rock1_72
+  - first:
+      213: -840693751467940367
+    second: Denzi100308-1_rock1_73
+  - first:
+      213: 5005062929155668292
+    second: Denzi100308-1_rock1_74
+  - first:
+      213: 6060321597202655043
+    second: Denzi100308-1_rock1_75
+  - first:
+      213: 8525415233248166941
+    second: Denzi100308-1_rock1_76
+  - first:
+      213: 6365358793275837486
+    second: Denzi100308-1_rock1_77
+  - first:
+      213: 2463395325493631026
+    second: Denzi100308-1_rock1_78
+  - first:
+      213: 2021419014728816807
+    second: Denzi100308-1_rock1_79
+  - first:
+      213: 1153115805886072025
+    second: Denzi100308-1_rock1_80
+  - first:
+      213: -3838647900826636269
+    second: Denzi100308-1_rock1_81
+  - first:
+      213: 4454275823328901511
+    second: Denzi100308-1_rock1_82
+  - first:
+      213: 1536966738258715722
+    second: Denzi100308-1_rock1_83
+  - first:
+      213: 1604628616505649047
+    second: Denzi100308-1_rock1_84
+  - first:
+      213: 8789516082712697579
+    second: Denzi100308-1_rock1_85
+  - first:
+      213: 4641188495206603672
+    second: Denzi100308-1_rock1_86
+  - first:
+      213: -3276818333977945697
+    second: Denzi100308-1_rock1_87
+  - first:
+      213: 8550311762229087371
+    second: Denzi100308-1_rock1_88
+  - first:
+      213: 454362716626634954
+    second: Denzi100308-1_rock1_89
+  - first:
+      213: 6260753129010864010
+    second: Denzi100308-1_rock1_90
+  - first:
+      213: -8381555209782475003
+    second: Denzi100308-1_rock1_91
+  - first:
+      213: 6291324178837640613
+    second: Denzi100308-1_rock1_92
+  - first:
+      213: 4099865056296857187
+    second: Denzi100308-1_rock1_93
+  - first:
+      213: -3902827412058471435
+    second: Denzi100308-1_rock1_94
+  - first:
+      213: -8349391923263869709
+    second: Denzi100308-1_rock1_95
+  - first:
+      213: 2715976687902426124
+    second: Denzi100308-1_rock1_96
+  - first:
+      213: -5502605206323486953
+    second: Denzi100308-1_rock1_97
+  - first:
+      213: -7471966616624891594
+    second: Denzi100308-1_rock1_98
+  - first:
+      213: 4723556858229516583
+    second: Denzi100308-1_rock1_99
+  - first:
+      213: 757961908442131529
+    second: Denzi100308-1_rock1_100
+  - first:
+      213: -510812983712800171
+    second: Denzi100308-1_rock1_101
+  - first:
+      213: 5740357767628747224
+    second: Denzi100308-1_rock1_102
+  - first:
+      213: 4917700168410673543
+    second: Denzi100308-1_rock1_103
+  - first:
+      213: -7044682180789266247
+    second: Denzi100308-1_rock1_104
+  - first:
+      213: 1232918411506689728
+    second: Denzi100308-1_rock1_105
+  - first:
+      213: -7235273116397709682
+    second: Denzi100308-1_rock1_106
+  - first:
+      213: -6848659745234184291
+    second: Denzi100308-1_rock1_107
+  - first:
+      213: -7380936190086609714
+    second: Denzi100308-1_rock1_108
+  - first:
+      213: 852762741236701867
+    second: Denzi100308-1_rock1_109
+  - first:
+      213: 4516425910462212462
+    second: Denzi100308-1_rock1_110
+  - first:
+      213: 6457674679435681978
+    second: Denzi100308-1_rock1_111
+  - first:
+      213: -6116354378996715504
+    second: Denzi100308-1_rock1_112
+  - first:
+      213: 156984289602474970
+    second: Denzi100308-1_rock1_113
+  - first:
+      213: 2078728128884905562
+    second: Denzi100308-1_rock1_114
+  - first:
+      213: 4623780709981197292
+    second: Denzi100308-1_rock1_115
+  - first:
+      213: -1588194610127304589
+    second: Denzi100308-1_rock1_116
+  - first:
+      213: -1748863727016418045
+    second: Denzi100308-1_rock1_117
+  - first:
+      213: -1069190655688793447
+    second: Denzi100308-1_rock1_118
+  - first:
+      213: 2060446644073265464
+    second: Denzi100308-1_rock1_119
+  - first:
+      213: 7763615512712742233
+    second: Denzi100308-1_rock1_120
+  - first:
+      213: -284976491584380732
+    second: Denzi100308-1_rock1_121
+  - first:
+      213: -1656136607810429563
+    second: Denzi100308-1_rock1_122
+  - first:
+      213: 4780863090712029713
+    second: Denzi100308-1_rock1_123
+  - first:
+      213: 2508006255745220935
+    second: Denzi100308-1_rock1_124
+  - first:
+      213: -1457357944408859237
+    second: Denzi100308-1_rock1_125
+  - first:
+      213: 396063924605479914
+    second: Denzi100308-1_rock1_126
+  - first:
+      213: 4775242378101571746
+    second: Denzi100308-1_rock1_127
+  - first:
+      213: 5249574567590968662
+    second: Denzi100308-1_rock1_128
+  - first:
+      213: 8098096717018733746
+    second: Denzi100308-1_rock1_129
+  - first:
+      213: -343470580720252534
+    second: Denzi100308-1_rock1_130
+  - first:
+      213: 4352276324750708397
+    second: Denzi100308-1_rock1_131
+  - first:
+      213: -7613355124875359100
+    second: Denzi100308-1_rock1_132
+  - first:
+      213: -607094428213640336
+    second: Denzi100308-1_rock1_133
+  - first:
+      213: -7895650032010183145
+    second: Denzi100308-1_rock1_134
+  - first:
+      213: 828367139692707153
+    second: Denzi100308-1_rock1_135
+  - first:
+      213: -6638783940363688286
+    second: Denzi100308-1_rock1_136
+  - first:
+      213: -6044682609528117351
+    second: Denzi100308-1_rock1_137
+  - first:
+      213: 2672221430719885836
+    second: Denzi100308-1_rock1_138
+  - first:
+      213: -8843794411209535963
+    second: Denzi100308-1_rock1_139
+  - first:
+      213: -4458819271807133866
+    second: Denzi100308-1_rock1_140
+  - first:
+      213: 291588770394183165
+    second: Denzi100308-1_rock1_141
+  - first:
+      213: -3826192127284185780
+    second: Denzi100308-1_rock1_142
+  - first:
+      213: 820477400403388793
+    second: Denzi100308-1_rock1_143
+  - first:
+      213: 3571387135758868487
+    second: Denzi100308-1_rock1_144
+  - first:
+      213: 2173403807982836515
+    second: Denzi100308-1_rock1_145
+  - first:
+      213: 1052460453939345278
+    second: Denzi100308-1_rock1_146
+  - first:
+      213: -3703552875077331408
+    second: Denzi100308-1_rock1_147
+  - first:
+      213: 3203674064761611241
+    second: Denzi100308-1_rock1_148
+  - first:
+      213: 4704434287710860276
+    second: Denzi100308-1_rock1_149
+  - first:
+      213: -2828327221722699922
+    second: Denzi100308-1_rock1_150
+  - first:
+      213: -8499584275069190992
+    second: Denzi100308-1_rock1_151
+  - first:
+      213: -7661968930766126006
+    second: Denzi100308-1_rock1_152
+  - first:
+      213: 6129707937313447646
+    second: Denzi100308-1_rock1_153
+  - first:
+      213: -6459783667352013387
+    second: Denzi100308-1_rock1_154
+  - first:
+      213: 4433516542449158062
+    second: Denzi100308-1_rock1_155
+  - first:
+      213: 2806427283418192573
+    second: Denzi100308-1_rock1_156
+  - first:
+      213: -5066118484512899589
+    second: Denzi100308-1_rock1_157
+  - first:
+      213: 3568459037800928953
+    second: Denzi100308-1_rock1_158
+  - first:
+      213: -8248282004048646069
+    second: Denzi100308-1_rock1_159
+  - first:
+      213: 7744982454768120686
+    second: Denzi100308-1_rock1_160
+  - first:
+      213: -39713951937856807
+    second: Denzi100308-1_rock1_161
+  - first:
+      213: 6547480095247397127
+    second: Denzi100308-1_rock1_162
+  - first:
+      213: -4753358536207144544
+    second: Denzi100308-1_rock1_163
+  - first:
+      213: -3144955861864077073
+    second: Denzi100308-1_rock1_164
+  - first:
+      213: -2830349587454760882
+    second: Denzi100308-1_rock1_165
+  - first:
+      213: -935461709242075532
+    second: Denzi100308-1_rock1_166
+  - first:
+      213: 331628387869422647
+    second: Denzi100308-1_rock1_167
+  - first:
+      213: -1716352863437170552
+    second: RockChip_0
+  - first:
+      213: -7254737000065992098
+    second: RockChip_1
+  - first:
+      213: -4076431955199346359
+    second: RockChip_2
+  - first:
+      213: -5160948059762410740
+    second: RockChip_3
+  - first:
+      213: -754855718332104790
+    second: RockChip_4
+  - first:
+      213: -8048697691002181445
+    second: RockChip_5
+  - first:
+      213: 8585135035542840062
+    second: RockChip_6
+  - first:
+      213: 6595383477317045742
+    second: RockChip_7
+  - first:
+      213: -6487349633414599276
+    second: RockChip_8
+  - first:
+      213: -4645649558780311620
+    second: RockChip_9
+  - first:
+      213: 8049346526030895218
+    second: RockChip_10
+  - first:
+      213: 5043324940001700967
+    second: RockChip_11
+  - first:
+      213: -9187182045260964441
+    second: RockChip_12
+  - first:
+      213: -3780147314999558247
+    second: RockChip_13
+  - first:
+      213: 5881346058398450360
+    second: RockChip_14
+  - first:
+      213: 7298709193462468113
+    second: RockChip_15
+  - first:
+      213: -1806997870091976569
+    second: RockChip_16
+  - first:
+      213: -8609466652377607332
+    second: RockChip_17
+  - first:
+      213: -5619815979738828114
+    second: RockChip_18
+  - first:
+      213: 1803609983776073939
+    second: RockChip_19
+  - first:
+      213: 4595087897699865972
+    second: RockChip_20
+  - first:
+      213: 7479824481241329928
+    second: RockChip_21
+  - first:
+      213: 8198732117237427235
+    second: RockChip_22
+  - first:
+      213: -9092702732461154939
+    second: RockChip_23
+  - first:
+      213: -7433181435124968216
+    second: RockChip_24
+  - first:
+      213: -7653984931954545721
+    second: RockChip_25
+  - first:
+      213: -4122590618845390298
+    second: RockChip_26
+  - first:
+      213: -7152691880426689768
+    second: RockChip_27
+  - first:
+      213: 3948027644815388632
+    second: RockChip_28
+  - first:
+      213: 2670219260284017921
+    second: RockChip_29
+  - first:
+      213: -8291354249394100525
+    second: RockChip_30
+  - first:
+      213: -5892321083646641768
+    second: RockChip_31
+  - first:
+      213: 6158348261530038936
+    second: RockChip_32
+  - first:
+      213: 8011554715807289384
+    second: RockChip_33
+  - first:
+      213: 8749337171313895496
+    second: RockChip_34
+  - first:
+      213: 7042067860147060718
+    second: RockChip_35
+  - first:
+      213: 8133417182661258830
+    second: RockChip_36
+  - first:
+      213: 7322314688307332450
+    second: RockChip_37
+  - first:
+      213: -2224017669972465912
+    second: RockChip_38
+  - first:
+      213: -4551489289150914641
+    second: RockChip_39
+  - first:
+      213: 4243840193934713674
+    second: RockChip_40
+  - first:
+      213: 22521069741060131
+    second: RockChip_41
+  - first:
+      213: -3366560896134053656
+    second: RockChip_42
+  - first:
+      213: -2742847811446990234
+    second: RockChip_43
+  - first:
+      213: 1589975115952236487
+    second: RockChip_44
+  - first:
+      213: -7602196034990855103
+    second: RockChip_45
+  - first:
+      213: -6370316786788560561
+    second: RockChip_46
+  - first:
+      213: -8237814433220093042
+    second: RockChip_47
+  - first:
+      213: 2912357862744728263
+    second: RockChip_48
+  - first:
+      213: 6989307877080793929
+    second: RockChip_49
+  - first:
+      213: 1236569503971011829
+    second: RockChip_50
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: RockChip_0
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8885a911a2a4e28e0800000000000000
+      internalID: -1716352863437170552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockChip_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5afe2cb22ff15b90800000000000000
+      internalID: -7254737000065992098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockChip_2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 949ba4f0cba9d67c0800000000000000
+      internalID: -4076431955199346359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockChip_3
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0bbe916511a068b0800000000000000
+      internalID: -5160948059762410740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockChip_4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaf742c39b63685f0800000000000000
+      internalID: -754855718332104790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockChip_5
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb8ee4708184d4090800000000000000
+      internalID: -8048697691002181445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockChip_6
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef2aa4e24d6842770800000000000000
+      internalID: 8585135035542840062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockChip_7
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eed86fa2452878b50800000000000000
+      internalID: 6595383477317045742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockChip_8
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49def8e31ed48f5a0800000000000000
+      internalID: -6487349633414599276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockChip_9
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb703f90756578fb0800000000000000
+      internalID: -4645649558780311620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockChip_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2789816a40605bf60800000000000000
+      internalID: 8049346526030895218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockChip_11
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76c6bafef4d7df540800000000000000
+      internalID: 5043324940001700967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockChip_12
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ad9f590b92908080800000000000000
+      internalID: -9187182045260964441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockChip_13
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99ffdca8b083a8bc0800000000000000
+      internalID: -3780147314999558247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockChip_14
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b2cbf3541dbe9150800000000000000
+      internalID: 5881346058398450360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockChip_15
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11e453b57593a4560800000000000000
+      internalID: 7298709193462468113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockChip_19
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d8225c69b5b70910800000000000000
+      internalID: 1803609983776073939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockChip_20
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 475d81ed81805cf30800000000000000
+      internalID: 4595087897699865972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockChip_21
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 801f8a26cbcadc760800000000000000
+      internalID: 7479824481241329928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockChip_22
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32ce5800c6fb7c170800000000000000
+      internalID: 8198732117237427235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockChip_23
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58ddd6f3a0b30d180800000000000000
+      internalID: -9092702732461154939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockChip_24
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e419501ed808d890800000000000000
+      internalID: -7433181435124968216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockChip_25
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cb28a6c14597c590800000000000000
+      internalID: -7653984931954545721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockChip_26
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62adc51bcad99c6c0800000000000000
+      internalID: -4122590618845390298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockChip_27
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81ba85f91a88cbc90800000000000000
+      internalID: -7152691880426689768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockChip_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8dfa4a4b9363ac630800000000000000
+      internalID: 3948027644815388632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockChip_29
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10d92a115468e0520800000000000000
+      internalID: 2670219260284017921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockChip_30
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d660f95d313fec80800000000000000
+      internalID: -8291354249394100525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockChip_31
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 48
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89972ba71354a3ea0800000000000000
+      internalID: -5892321083646641768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockChip_32
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 48
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89274a39d19d67550800000000000000
+      internalID: 6158348261530038936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockChip_33
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 48
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8209c462192ce2f60800000000000000
+      internalID: 8011554715807289384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockChip_34
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 48
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84829442dc3eb6970800000000000000
+      internalID: 8749337171313895496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockChip_35
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 48
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eefb24888637ab160800000000000000
+      internalID: 7042067860147060718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockChip_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 16
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4e259eb5d3bfd070800000000000000
+      internalID: 8133417182661258830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockChip_37
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 16
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2650f2ae9661e9560800000000000000
+      internalID: 7322314688307332450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockChip_38
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 16
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 807691766b3b221e0800000000000000
+      internalID: -2224017669972465912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockChip_41
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 16
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 320b0e92bc2005000800000000000000
+      internalID: 22521069741060131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockChip_42
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 16
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e08537a3b29741d0800000000000000
+      internalID: -3366560896134053656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockChip_43
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 16
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66a9ebd92727fe9d0800000000000000
+      internalID: -2742847811446990234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 05b3295a9d22e97468dad79cda01ea39
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 namespace TeamProject
 {
     public class Player : MonoBehaviour
@@ -19,9 +19,9 @@ namespace TeamProject
         private P_DIRECTION m_direction;
 
         [Header("プレイヤーの開始時の設定")]
-        public P_STYLE     m_startStyle;
-        public P_STATE     m_startState;
-        public P_GROUND    m_startGround;
+        public P_STYLE m_startStyle;
+        public P_STATE m_startState;
+        public P_GROUND m_startGround;
         public P_DIRECTION m_startDirection;
 
         public PlayerState m_playerState;
@@ -29,7 +29,7 @@ namespace TeamProject
 
         [Header("座標計算用速度")]
         //public Vector2 m_speed;
-       // public GameObject m_Player;
+        // public GameObject m_Player;
         private GameObject m_playerSpriteObj;
         private PlayerAnimation m_playerAnim;
         //前フレームの座標
@@ -76,10 +76,9 @@ namespace TeamProject
         //壁との当たり判定用フラグ
         public bool[] isWalls = new bool[(int)P_DIRECTION.MAX_DIRECT];
 
-        public GameObject MagicAttackCollisionObj;
-        public GameObject ScytheAttackCollisionObj;
         public bool flag = false;
 
+        public GameObject bullet;
         private void Awake()
         {
             //コンポーネントのインスタンスを捕まえる
@@ -96,11 +95,11 @@ namespace TeamProject
             {
                 Debug.LogError("天井との判定用オブジェクトアタッチし忘れ");
             }
-            if (wall_Collision[(int)P_DIRECTION.RIGHT] ==null)
+            if (wall_Collision[(int)P_DIRECTION.RIGHT] == null)
             {
                 Debug.LogError("右側壁接触判定用オブジェクトアタッチし忘れ");
             }
-            if (wall_Collision[(int)P_DIRECTION.LEFT] ==null)
+            if (wall_Collision[(int)P_DIRECTION.LEFT] == null)
             {
                 Debug.LogError("左側壁接触判定用オブジェクトアタッチし忘れ");
             }
@@ -109,7 +108,7 @@ namespace TeamProject
         void Start()
         {
             FadeManager.FadeIn(0.5f);
-          　m_state = m_startState;
+            m_state = m_startState;
             m_ground = m_startGround;
             m_direction = m_startDirection;
             m_style = m_startStyle;
@@ -129,17 +128,17 @@ namespace TeamProject
             m_playerAnim.ChangeStyleAnimation((int)m_startStyle);
 
             m_playerState.SetAnimationCurve(horizonSpCurve, jumpSpCurve);
-    }
+        }
 
-    // Update is called once per frame
-    void Update()
+        // Update is called once per frame
+        void Update()
         {
             //前フレームの座標をセット
             m_prevPosition = this.transform.position;
 
             //アニメーションのリセット
             m_playerAnim.AnimOFF(m_playerState.GetCurrentState());
-          //プレイヤーの入力確認
+            //プレイヤーの入力確認
             bool keyinput = m_playerState.PlayerInput();
 
             Vector3 vec3work = this.transform.position;
@@ -209,7 +208,9 @@ namespace TeamProject
 
             //プレイヤーの向きを変更する
             DirectionChange();
-            
+
+
+            //----------------------
             //状態ごとのオブジェクト処理
 
             if (m_playerState.GetCurrentState() == P_STATE.ATTACK)
@@ -224,15 +225,16 @@ namespace TeamProject
                         Debug.Log("CLAWSTYLE:" + m_style);
                         break;
                     case P_STYLE.MAGIC:
+                        Shot();
                         Debug.Log("MAGICSTYLE:" + m_style);
-                //  if (!flag)
-                //{
-                //    flag = true;
-                //    Vector3 pospos = new Vector3(20, 50, 0);
-                //    Vector3 pos = this.transform.position + pospos;
-                //Instantiate(Object_A, pos, new Quaternion(0, 0, 0, 0));
-                //}
-                      break;
+                        //  if (!flag)
+                        //{
+                        //    flag = true;
+                        //    Vector3 pospos = new Vector3(20, 50, 0);
+                        //    Vector3 pos = this.transform.position + pospos;
+                        //Instantiate(Object_A, pos, new Quaternion(0, 0, 0, 0));
+                        //}
+                        break;
                     case P_STYLE.MAX_STYLE:
                         break;
                     default:
@@ -244,8 +246,8 @@ namespace TeamProject
             Debug.Log("EndAnimation():::" + m_playerSpriteObj.transform.GetComponent<IsAnimationCheck>().EndAnimation());
             bool finishStyleChange = m_playerSpriteObj.transform.GetComponent<IsAnimationCheck>().EndAnimation();
             m_playerState.SetEndAnimFlag(finishStyleChange);
-           // Debug.Log("finishStyleChange==" + finishStyleChange);
-           if (finishStyleChange)
+            // Debug.Log("finishStyleChange==" + finishStyleChange);
+            if (finishStyleChange)
             {
                 //スタイルアニメーションの変更
                 m_playerAnim.ChangeStyleAnimation((int)m_style);
@@ -351,6 +353,33 @@ namespace TeamProject
             }
 
         }
+
+        /// <summary>
+        /// 弾の生成
+        /// </summary>
+        private void Shot()
+        {
+            //ここに弾処理
+            if ((m_playerState.GetCurrentState() == P_STATE.ATTACK))
+            {
+                //クオータニオン用意
+                Quaternion abc = Quaternion.identity;
+
+                //方向の設定（向きによって回転させる）
+                switch (m_direction)
+                {
+                    case P_DIRECTION.RIGHT:
+                        abc = Quaternion.Euler(0.0f, 0.0f, 0.0f);
+                        break;
+                    case P_DIRECTION.LEFT:
+                        abc = Quaternion.Euler(0.0f, 0.0f, 180.0f);
+                        break;
+                }
+                //弾の実体の生成
+                Instantiate(bullet, this.transform.position, abc);
+            }
+        }
+
     }//    public class Player : MonoBehaviour END
 }//namespace TeamProject END
 

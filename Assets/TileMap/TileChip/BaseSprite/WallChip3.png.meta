@@ -1,0 +1,887 @@
+fileFormatVersion: 2
+guid: 60a1c4d899152e34ebadc60d3260c70e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1106999461693674544
+    second: "Denzi_32x32\u30C0\u30F3\u30B8\u30E7\u30F3\u30BF\u30A4\u30EB\u30BB\u30C3\u30C82_wall_0"
+  - first:
+      213: -780279130277446646
+    second: "Denzi_32x32\u30C0\u30F3\u30B8\u30E7\u30F3\u30BF\u30A4\u30EB\u30BB\u30C3\u30C82_wall_1"
+  - first:
+      213: -6541913121688904478
+    second: "Denzi_32x32\u30C0\u30F3\u30B8\u30E7\u30F3\u30BF\u30A4\u30EB\u30BB\u30C3\u30C82_wall_2"
+  - first:
+      213: 206950042776045413
+    second: "Denzi_32x32\u30C0\u30F3\u30B8\u30E7\u30F3\u30BF\u30A4\u30EB\u30BB\u30C3\u30C82_wall_3"
+  - first:
+      213: 7546749471374341585
+    second: "Denzi_32x32\u30C0\u30F3\u30B8\u30E7\u30F3\u30BF\u30A4\u30EB\u30BB\u30C3\u30C82_wall_4"
+  - first:
+      213: 2094235833451622674
+    second: "Denzi_32x32\u30C0\u30F3\u30B8\u30E7\u30F3\u30BF\u30A4\u30EB\u30BB\u30C3\u30C82_wall_5"
+  - first:
+      213: -156045193543456018
+    second: "Denzi_32x32\u30C0\u30F3\u30B8\u30E7\u30F3\u30BF\u30A4\u30EB\u30BB\u30C3\u30C82_wall_6"
+  - first:
+      213: 4440791695633654247
+    second: "Denzi_32x32\u30C0\u30F3\u30B8\u30E7\u30F3\u30BF\u30A4\u30EB\u30BB\u30C3\u30C82_wall_7"
+  - first:
+      213: -8477858045543429686
+    second: "Denzi_32x32\u30C0\u30F3\u30B8\u30E7\u30F3\u30BF\u30A4\u30EB\u30BB\u30C3\u30C82_wall_8"
+  - first:
+      213: 3567109824863263441
+    second: "Denzi_32x32\u30C0\u30F3\u30B8\u30E7\u30F3\u30BF\u30A4\u30EB\u30BB\u30C3\u30C82_wall_9"
+  - first:
+      213: 3366777069938272930
+    second: "Denzi_32x32\u30C0\u30F3\u30B8\u30E7\u30F3\u30BF\u30A4\u30EB\u30BB\u30C3\u30C82_wall_10"
+  - first:
+      213: -4139360248829385353
+    second: "Denzi_32x32\u30C0\u30F3\u30B8\u30E7\u30F3\u30BF\u30A4\u30EB\u30BB\u30C3\u30C82_wall_11"
+  - first:
+      213: -7895446706056498454
+    second: "Denzi_32x32\u30C0\u30F3\u30B8\u30E7\u30F3\u30BF\u30A4\u30EB\u30BB\u30C3\u30C82_wall_12"
+  - first:
+      213: -4355087120418012117
+    second: "Denzi_32x32\u30C0\u30F3\u30B8\u30E7\u30F3\u30BF\u30A4\u30EB\u30BB\u30C3\u30C82_wall_13"
+  - first:
+      213: -4884007656274297271
+    second: "Denzi_32x32\u30C0\u30F3\u30B8\u30E7\u30F3\u30BF\u30A4\u30EB\u30BB\u30C3\u30C82_wall_14"
+  - first:
+      213: -1078194908403255732
+    second: "Denzi_32x32\u30C0\u30F3\u30B8\u30E7\u30F3\u30BF\u30A4\u30EB\u30BB\u30C3\u30C82_wall_15"
+  - first:
+      213: -6895430266850002727
+    second: "Denzi_32x32\u30C0\u30F3\u30B8\u30E7\u30F3\u30BF\u30A4\u30EB\u30BB\u30C3\u30C82_wall_16"
+  - first:
+      213: 7842980607058225338
+    second: "Denzi_32x32\u30C0\u30F3\u30B8\u30E7\u30F3\u30BF\u30A4\u30EB\u30BB\u30C3\u30C82_wall_17"
+  - first:
+      213: -6814411608748186919
+    second: "Denzi_32x32\u30C0\u30F3\u30B8\u30E7\u30F3\u30BF\u30A4\u30EB\u30BB\u30C3\u30C82_wall_18"
+  - first:
+      213: -5682999689580102480
+    second: "Denzi_32x32\u30C0\u30F3\u30B8\u30E7\u30F3\u30BF\u30A4\u30EB\u30BB\u30C3\u30C82_wall_19"
+  - first:
+      213: 3841947790161483571
+    second: "Denzi_32x32\u30C0\u30F3\u30B8\u30E7\u30F3\u30BF\u30A4\u30EB\u30BB\u30C3\u30C82_wall_20"
+  - first:
+      213: -5545248608099111274
+    second: "Denzi_32x32\u30C0\u30F3\u30B8\u30E7\u30F3\u30BF\u30A4\u30EB\u30BB\u30C3\u30C82_wall_21"
+  - first:
+      213: -8791088494705001161
+    second: "Denzi_32x32\u30C0\u30F3\u30B8\u30E7\u30F3\u30BF\u30A4\u30EB\u30BB\u30C3\u30C82_wall_22"
+  - first:
+      213: -8287601654895600173
+    second: "Denzi_32x32\u30C0\u30F3\u30B8\u30E7\u30F3\u30BF\u30A4\u30EB\u30BB\u30C3\u30C82_wall_23"
+  - first:
+      213: 7518942207878574715
+    second: "Denzi_32x32\u30C0\u30F3\u30B8\u30E7\u30F3\u30BF\u30A4\u30EB\u30BB\u30C3\u30C82_wall_24"
+  - first:
+      213: 6228468406702621477
+    second: "Denzi_32x32\u30C0\u30F3\u30B8\u30E7\u30F3\u30BF\u30A4\u30EB\u30BB\u30C3\u30C82_wall_25"
+  - first:
+      213: -6486651366691388025
+    second: "Denzi_32x32\u30C0\u30F3\u30B8\u30E7\u30F3\u30BF\u30A4\u30EB\u30BB\u30C3\u30C82_wall_26"
+  - first:
+      213: -8174898224094723360
+    second: "Denzi_32x32\u30C0\u30F3\u30B8\u30E7\u30F3\u30BF\u30A4\u30EB\u30BB\u30C3\u30C82_wall_27"
+  - first:
+      213: -2499230746491056328
+    second: "Denzi_32x32\u30C0\u30F3\u30B8\u30E7\u30F3\u30BF\u30A4\u30EB\u30BB\u30C3\u30C82_wall_28"
+  - first:
+      213: -213062415633847320
+    second: WallChip3_0
+  - first:
+      213: -874471378885129296
+    second: WallChip3_1
+  - first:
+      213: -6098428164685765876
+    second: WallChip3_2
+  - first:
+      213: -5057334630199295819
+    second: WallChip3_3
+  - first:
+      213: -4571775544905382916
+    second: WallChip3_4
+  - first:
+      213: 583249551991370600
+    second: WallChip3_5
+  - first:
+      213: -4805723607950745753
+    second: WallChip3_6
+  - first:
+      213: -1874834990817771199
+    second: WallChip3_7
+  - first:
+      213: 5881790803412429823
+    second: WallChip3_8
+  - first:
+      213: -20284310624638790
+    second: WallChip3_9
+  - first:
+      213: 1885282472578464715
+    second: WallChip3_10
+  - first:
+      213: 1247681935957292903
+    second: WallChip3_11
+  - first:
+      213: 5526015141028835879
+    second: WallChip3_12
+  - first:
+      213: 9096135255693036524
+    second: WallChip3_13
+  - first:
+      213: 8078244236113912433
+    second: WallChip3_14
+  - first:
+      213: 558724230735987080
+    second: WallChip3_15
+  - first:
+      213: -8286439616243932299
+    second: WallChip3_16
+  - first:
+      213: -8963354795822899959
+    second: WallChip3_17
+  - first:
+      213: -175618240476935205
+    second: WallChip3_18
+  - first:
+      213: 2633546247292642868
+    second: WallChip3_19
+  - first:
+      213: 223488990093829857
+    second: WallChip3_20
+  - first:
+      213: 2844140321580982684
+    second: WallChip3_21
+  - first:
+      213: 5978778874428017264
+    second: WallChip3_22
+  - first:
+      213: -4673114878944255288
+    second: WallChip3_23
+  - first:
+      213: -7802129341188536597
+    second: WallChip3_24
+  - first:
+      213: 6438708931203987213
+    second: WallChip3_25
+  - first:
+      213: 4451005341516643093
+    second: WallChip3_26
+  - first:
+      213: 8085398257827416209
+    second: WallChip3_27
+  - first:
+      213: -8655861974351851981
+    second: WallChip3_28
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: WallChip3_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8eb6821acdc0b0df0800000000000000
+      internalID: -213062415633847320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip3_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bb4e4ff9e04dd3f0800000000000000
+      internalID: -874471378885129296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip3_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c03eaa325e70e5ba0800000000000000
+      internalID: -6098428164685765876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip3_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b080b0e2fcb0d9b0800000000000000
+      internalID: -5057334630199295819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip3_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf3c81d3d5acd80c0800000000000000
+      internalID: -4571775544905382916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip3_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 863f9d9906e181800800000000000000
+      internalID: 583249551991370600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip3_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76f136327d3ae4db0800000000000000
+      internalID: -4805723607950745753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip3_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14185d7528f3bf5e0800000000000000
+      internalID: -1874834990817771199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip3_8
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffbae88929150a150800000000000000
+      internalID: 5881790803412429823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip3_9
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab864b6e68fe7bff0800000000000000
+      internalID: -20284310624638790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip3_10
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcb3f4f8b6ed92a10800000000000000
+      internalID: 1885282472578464715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip3_11
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 767f7693c18a05110800000000000000
+      internalID: 1247681935957292903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip3_12
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72234702e7950bc40800000000000000
+      internalID: 5526015141028835879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip3_13
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ceb8d7852d6fb3e70800000000000000
+      internalID: 9096135255693036524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip3_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 172aa661550bb1070800000000000000
+      internalID: 8078244236113912433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip3_15
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8810c644abcf0c700800000000000000
+      internalID: 558724230735987080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip3_16
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5736e0d8217a00d80800000000000000
+      internalID: -8286439616243932299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip3_17
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90d9e279d44cb9380800000000000000
+      internalID: -8963354795822899959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip3_18
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdb0b480424109df0800000000000000
+      internalID: -175618240476935205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip3_19
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 436e079db5c3c8420800000000000000
+      internalID: 2633546247292642868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip3_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e6e0c96d0ef91300800000000000000
+      internalID: 223488990093829857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip3_21
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c912337bd8a687720800000000000000
+      internalID: 2844140321580982684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip3_22
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07a44e895b3e8f250800000000000000
+      internalID: 5978778874428017264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip3_23
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c26fedd6c2c52fb0800000000000000
+      internalID: -4673114878944255288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip3_24
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be60ece93b449b390800000000000000
+      internalID: -7802129341188536597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip3_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d077c80c8a3ea5950800000000000000
+      internalID: 6438708931203987213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip3_26
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51b377296c525cd30800000000000000
+      internalID: 4451005341516643093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip3_27
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1988d5190ea153070800000000000000
+      internalID: 8085398257827416209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallChip3_28
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33e42f1256330e780800000000000000
+      internalID: -8655861974351851981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: b06f014117d1356499b7923de31e475c
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
