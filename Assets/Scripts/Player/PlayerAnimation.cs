@@ -11,9 +11,6 @@ namespace TeamProject
         private Animator anim = null;
         //private float m_timer = 0.0f;
         public RuntimeAnimatorController[] RuntimeAnimatorController;
-        public RuntimeAnimatorController RuntimeAnimatorController0;
-        public RuntimeAnimatorController RuntimeAnimatorController1;
-        public RuntimeAnimatorController RuntimeAnimatorController2;
 
         private void Awake()
         {
