@@ -114,7 +114,10 @@ public class TitleManager : MonoBehaviour
 
     public void TriggerGameEnd()
     {
-
-        UnityEditor.EditorApplication.isPlaying = false;    // ゲーム終了処理(開発画面の場合)
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+    Application.Quit();
+#endif
     }
 }
