@@ -140,7 +140,7 @@ MonoBehaviour:
   AtkStayTimeLimit: 0
   AtkFallTimeLimit: 2
   T: 0.5
-  MoveSpeed: 30
+  MoveSpeed: 10
   AtkMoveSpeed: {x: 5, y: 5}
 --- !u!95 &8522912964005954448
 Animator:
