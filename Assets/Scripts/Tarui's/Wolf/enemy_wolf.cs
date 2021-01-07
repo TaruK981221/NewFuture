@@ -96,14 +96,7 @@ public class enemy_wolf : MonoBehaviour
         GroundCollision();
 
         // 左右の向き
-        if (isLR)
-        {
-            sprite.flipX = true;
-        }
-        else
-        {
-            sprite.flipX = false;
-        }
+        sprite.flipX = isLR;
     }
 
     void GroundCollision()

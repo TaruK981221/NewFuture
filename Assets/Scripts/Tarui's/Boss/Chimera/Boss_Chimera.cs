@@ -21,8 +21,10 @@ public partial class Boss_Chimera : MonoBehaviour
 
         end
     }
-    
+
+    [SerializeField]
     STATUS status;
+    [SerializeField]
     ATKSTATUS atk_Status;
 
 
@@ -30,34 +32,35 @@ public partial class Boss_Chimera : MonoBehaviour
     SpriteRenderer sr;
 
 
-    enemy_GroundCollision   gCol;
-    enemy_WallCollision[]   wCol;
+    enemy_GroundCollision gCol;
+    enemy_WallCollision[] wCol;
+    bool isGround = false;
 
     GameObject player;
 
     float stayTime = 0;
     [SerializeField]
-    float stayTimeLimit=2;
+    float stayTimeLimit = 2;
 
-    float walkTime=0;
+    float walkTime = 0;
     [SerializeField]
-    float walkTimeLimit=2;
+    float walkTimeLimit = 2;
 
-    float atkTime=0;
+    float atkOKTime = 0;
     [SerializeField]
-    float atkTimeLimit=2;
+    float atkOKTimeLimit = 2;
+
+    bool isAtkOK = true;
 
     // 強攻撃用
     float atkS_Time = 0;
     [SerializeField]
     float atkS_TimeLimit = 30;
 
-    bool isAtkOK = false;
-
     [SerializeField]
     float speed = 10.0f;
 
-    bool isAtk;
+    bool isAtk = false;
     public bool IsAtk
     {
         get
@@ -69,6 +72,13 @@ public partial class Boss_Chimera : MonoBehaviour
 
     // false : 左    true : 右
     bool isLR = false;
+    public bool IsLR
+    {
+        get
+        {
+            return isLR;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -89,6 +99,25 @@ public partial class Boss_Chimera : MonoBehaviour
     void FixedUpdate()
     {
         Action();
+
+        GroundCol();
+    }
+
+    void GroundCol()
+    {
+        if (gCol.IsGround)
+        {
+            if (!isGround)
+            {
+                isGround = true;
+
+                UninitAtk();
+            }
+        }
+        else
+        {
+            isGround = false;
+        }
     }
 
     void Action()
@@ -106,14 +135,20 @@ public partial class Boss_Chimera : MonoBehaviour
                 break;
         }
 
+        // 次に攻撃ができるまでのクールタイム
+        AtkOK();
+
+        // 左右の向き変更
+        sr.flipX = !isLR;
+
         // 一定時間経過後に強攻撃
         atkS_Time += Time.deltaTime;
-        if(atkS_Time >= atkS_TimeLimit &&
+        if (atkS_Time >= atkS_TimeLimit &&
             (status == STATUS.stay || status == STATUS.walk))
         {
             status = STATUS.atk;
             atk_Status = ATKSTATUS.Dash;
-            if(status == STATUS.stay)
+            if (status == STATUS.stay)
             {
                 stayTime = 0;
             }
@@ -144,23 +179,23 @@ public partial class Boss_Chimera : MonoBehaviour
         {
             if (player.transform.position.x <= this.transform.position.x)
             {
-                isLR = true;
+                isLR = false;
             }
             else
             {
-                isLR = false;
+                isLR = true;
             }
         }
 
-        if (isLR)
+        if (isLR && !wCol[1].IsWall)
         {
             this.transform.position +=
-                new Vector3(speed, 0.0f) * this.transform.lossyScale.x;
+                new Vector3(speed, 0.0f)/* * this.transform.lossyScale.x*/;
         }
-        else
+        else if (!isLR && !wCol[0].IsWall)
         {
             this.transform.position +=
-                new Vector3(-speed, 0.0f) * this.transform.lossyScale.x;
+                new Vector3(-speed, 0.0f)/* * this.transform.lossyScale.x*/;
         }
 
         if (walkTime < walkTimeLimit)
@@ -205,5 +240,21 @@ public partial class Boss_Chimera : MonoBehaviour
         //    atkTime = 0;
         //    status = STATUS.stay;
         //}
+    }
+
+    void AtkOK()
+    {
+        if (!isAtkOK)
+        {
+            if (atkOKTime <= atkOKTimeLimit)
+            {
+                atkOKTime += Time.deltaTime;
+            }
+            else
+            {
+                isAtkOK = true;
+                atkOKTime = 0;
+            }
+        }
     }
 }

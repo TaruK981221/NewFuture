@@ -7,6 +7,7 @@ public class enemy_wolf_col : MonoBehaviour
     enemy_wolf parentCom = null;
 
     // 攻撃対象
+    [SerializeField]
     Transform player = null;
 
     // Start is called before the first frame update
