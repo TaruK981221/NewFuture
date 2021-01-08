@@ -809,7 +809,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 910a7cc7c60c16a41ae0a6a3b4def931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TransScene: stage1_test
+  TransScene: Stage1
   PosY: 300
   Speed: 1
   BlinkInterval: 120

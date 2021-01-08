@@ -30,21 +30,24 @@ public partial class Boss_Chimera : MonoBehaviour
         end
     }
 
+    [SerializeField]
     JUMP jump = JUMP.stay;
+    [SerializeField]
     FIRE fire = FIRE.stay;
+    [SerializeField]
     DASH dash = DASH.stay;
 
-    [SerializeField, Header("ジャンプ攻撃")]
+    [SerializeField, Header("ジャンプ攻撃 時間or速さで管理")]
     float JStayTimeLimit = 2.0f;
     [SerializeField]
     float JJumpTimeLimit = 2.0f;
     [SerializeField]
-    float JFallTimeLimit = 1.0f;
+    float JFallSpeed = 1.0f;
     [SerializeField]
     Vector2 JumpSpeed = new Vector2(2.0f, 5.0f);
 
     float JTime = 0;
-    Vector2 JStart = Vector2.zero;
+    float JStartY = 0;
     float FStartY = 0;
 
     [SerializeField, Header("火炎放射")]
@@ -69,8 +72,42 @@ public partial class Boss_Chimera : MonoBehaviour
 
     bool isDash = false;
 
+    void UninitAtk()
+    {
+        switch (atk_Status)
+        {
+            case ATKSTATUS.Fire:
+                {
+                    fire = FIRE.stay;
+                    FTime = 0.0f;
+                }
+                break;
+            case ATKSTATUS.Jump:
+                {
+                    jump = JUMP.stay;
+                    JTime = 0.0f;
+                }
+                break;
+            case ATKSTATUS.Dash:
+                {
+                    dash = DASH.stay;
+                    DTime = 0.0f;
+                }
+                break;
+        }
+
+        atk_Status = ATKSTATUS.end;
+
+        status = STATUS.stay;
+
+        isAtkOK = false;
+        isAtk = false;
+    }
+
     void ATK_Jump()
     {
+        rb.bodyType = RigidbodyType2D.Kinematic;
+
         switch (jump)
         {
             case JUMP.stay:
@@ -96,7 +133,7 @@ public partial class Boss_Chimera : MonoBehaviour
             JTime = 0;
 
             jump = JUMP.jump;
-            JStart = this.transform.position;
+            JStartY = this.transform.position.y;
         }
     }
 
@@ -104,11 +141,19 @@ public partial class Boss_Chimera : MonoBehaviour
     {
         float time = JTime / JJumpTimeLimit;
 
-        float X = Mathf.Sin(2 * Mathf.PI * 0.25f * time) *
-            JumpSpeed.x * this.transform.lossyScale.x + JStart.x;
+        float X;
 
-        float Y = Mathf.Sin(2 * Mathf.PI * 0.5f * time) *
-            JumpSpeed.y * this.transform.lossyScale.x + JStart.y;
+        if(isLR)
+        {
+            X = JumpSpeed.x/* * this.transform.lossyScale.x*/ + transform.position.x;
+        }
+        else
+        {
+            X = -JumpSpeed.x/* * this.transform.lossyScale.x*/ + transform.position.x;
+        }
+
+        float Y = Mathf.Sin(2 * Mathf.PI * 0.25f * time) *
+            JumpSpeed.y * this.transform.lossyScale.x + JStartY;
 
         this.transform.position =
             new Vector3(X, Y, 0.0f);
@@ -128,24 +173,33 @@ public partial class Boss_Chimera : MonoBehaviour
 
     void JumpFall()
     {
-        float time = JTime / JFallTimeLimit;
+        //float time = JTime / JFallTimeLimit;
 
-        float pos = (FStartY - JStart.y) / Time.deltaTime;
+        Vector3 pos = Vector3.zero;
+        pos.y = JFallSpeed/* * this.transform.localScale.x*/;
 
-        this.transform.position +=
-            new Vector3();
-
-        if (JTime < JFallTimeLimit)
+        if (isLR && !wCol[1].IsWall)
         {
-            JTime += Time.deltaTime;
+            pos.x = -JFallSpeed/* * this.transform.localScale.x*/;
         }
-        else
+        else if (!isLR && !wCol[0].IsWall)
         {
-            JTime = 0;
-
-            jump = JUMP.stay;
-            status = STATUS.stay;
+            pos.x = JFallSpeed/* * this.transform.localScale.x*/;
         }
+
+        this.transform.position -= pos;
+
+        //if (JTime < JFallTimeLimit)
+        //{
+        //    JTime += Time.deltaTime;
+        //}
+        //else
+        //{
+        //    JTime = 0;
+
+        //    jump = JUMP.stay;
+        //    status = STATUS.stay;
+        //}
     }
 
     void ATK_Fire()
@@ -205,23 +259,6 @@ public partial class Boss_Chimera : MonoBehaviour
                 DashReturn();
                 break;
         }
-
-        if (atkTime < atkTimeLimit)
-        {
-            if (atkTime == 0)
-            {
-                stayTime = 0;
-                walkTime = 0;
-            }
-
-            atkTime += Time.deltaTime;
-        }
-        else
-        {
-            atkTime = 0;
-            atk_Status = ATKSTATUS.end;
-        }
-
     }
 
     void DashStay()
@@ -308,6 +345,8 @@ public partial class Boss_Chimera : MonoBehaviour
             {
                 atk_Status = ATKSTATUS.Fire;
             }
+
+            isAtk = true;
         }
     }
 }
