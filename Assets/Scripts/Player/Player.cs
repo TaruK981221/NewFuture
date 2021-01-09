@@ -135,43 +135,76 @@ namespace TeamProject
         {
             //前フレームの座標をセット
             m_prevPosition = this.transform.position;
+            //
 
             //アニメーションのリセット
             m_playerAnim.AnimOFF(m_playerState.GetCurrentState());
+
+            //各種キー入力の判定
             //プレイヤーの入力確認
             bool keyinput = m_playerState.PlayerInput();
 
+            //直前のフレームの座標をわたす用変数
             Vector3 vec3work = this.transform.position;
 
 
             //キー入力されたら行動する
             //m_Position = Vector3.zero;
+
             //入力を受けたかどうか
+            //特定の入力があるかどうか
             if (keyinput)
             {
 
                 Debug.Log("playerState:MAIN:" + m_playerState);
+
+                //プレイヤーの状態・接地状況を・方向・現在のスタイルを受け取る
+                //このスクリプトに受け取る
                 GetParameter();
+
                 //GetParameter(m_playerState.m_Param);
+                //次の状態の座標に現在の状態の座標をわたす
                 m_playerState.NextState.SetPosition(vec3work);
+
+                //次の状態を自分の現在の状態にセットする
                 ChangeState(m_playerState.NextState);
+
+                //
+                //playerStateスクリプト側に
+                //プレイヤーの状態・接地状況・方向・現在のスタイルを渡す
                 SetParameter();
+
+                //playerStateスクリプト側に
+                //ジャンプの設定をわたす
                 m_playerState.SetJumpParameter(jumpHeight, jumpLimitTime, jumpMinTime);
 
             }
 
             //速度のセット
+            //水平速度・重力速度・上昇速度
             m_playerState.SetBaseSpeed(speed, gravity, jumpSpeed);
+
+            //プレイヤーの状態ごとに速度を計算させる
+            //水平方向と垂直方向の速度を設定する
             m_playerState.SetSpeed();
 
-            //プレイヤーの更新処理
+            //プレイヤーの状態ごとの更新関数の処理
+            //状態に変化があればtrue返す
             bool stateUpdate = m_playerState.Update();
             if (stateUpdate)
             {
+                //プレイヤーの状態・接地状況を・方向・現在のスタイルを受け取る
+                //このスクリプトに受け取る2回目
                 GetParameter();
                 //GetParameter(m_playerState.m_Param);
+
+                //次の状態の座標に現在の状態の座標をわたす
                 m_playerState.NextState.SetPosition(vec3work);
+
+                //次の状態を自分の現在の状態にセットする
                 ChangeState(m_playerState.NextState);
+                //playerStateスクリプト側に
+                //プレイヤーの状態・接地状況・方向・現在のスタイルを渡す
                 SetParameter();
 
             }
@@ -193,20 +226,28 @@ namespace TeamProject
             isGround = ground.IsGround();
             //天井判定を得る
             isHead = head.IsGround();
+            //playerStateスクリプト側に
+            //接地判定情報をわたす
             m_playerState.SetIsGround(isGround);
+            //playerStateスクリプト側に
+            //天井接触判定情報をわたす
             m_playerState.SetIsHead(isHead);
 
 
             //座標の更新
+            //playerStateスクリプト側の座標を作業用変数に渡す
             vec3work = m_playerState.GetPosition();
+            //作業用変数からこのスクリプトの座標に渡す
             this.transform.position = vec3work;
-            //m_Position = m_playerState.GetPosition();
+
+            //playerStateスクリプト側の状態をこのスクリプトの状態変数に渡す
             m_state = m_playerState.GetCurrentState();
 
             //壁接触判定
             WallCollisionCheck();
 
             //プレイヤーの向きを変更する
+            //＝左右によってスプライトのスケールの反転
             DirectionChange();
 
 
@@ -225,15 +266,8 @@ namespace TeamProject
                         Debug.Log("CLAWSTYLE:" + m_style);
                         break;
                     case P_STYLE.MAGIC:
-                        Shot();
+                        //Shot();
                         Debug.Log("MAGICSTYLE:" + m_style);
-                        //  if (!flag)
-                        //{
-                        //    flag = true;
-                        //    Vector3 pospos = new Vector3(20, 50, 0);
-                        //    Vector3 pos = this.transform.position + pospos;
-                        //Instantiate(Object_A, pos, new Quaternion(0, 0, 0, 0));
-                        //}
                         break;
                     case P_STYLE.MAX_STYLE:
                         break;
@@ -242,11 +276,18 @@ namespace TeamProject
                 }
                 //攻撃
             }
+
+
             //Debug.Log("m_endAnimation:::" + m_playerState.m_endAnimation);
             Debug.Log("EndAnimation():::" + m_playerSpriteObj.transform.GetComponent<IsAnimationCheck>().EndAnimation());
+
+            //アニメーションが終わっていたらtrueを受け取る
             bool finishStyleChange = m_playerSpriteObj.transform.GetComponent<IsAnimationCheck>().EndAnimation();
+            //上のフラグをplayerStateスクリプト側に渡す
+            //ほぼスタイルチェンジ終了確認用変数
             m_playerState.SetEndAnimFlag(finishStyleChange);
             // Debug.Log("finishStyleChange==" + finishStyleChange);
+//アニメーション終了したら通る
             if (finishStyleChange)
             {
                 //スタイルアニメーションの変更
@@ -256,6 +297,7 @@ namespace TeamProject
 
             }
             //アニメーションの更新
+            //状態によって変化させる
             m_playerAnim.AnimON(m_playerState.GetCurrentState());
 
         }//void Update() END
@@ -280,18 +322,27 @@ namespace TeamProject
         }
         private void GetParameter()
         {
-
+            //プレイヤーの状態を受け取る
             m_state = m_playerState.m_Param.m_PlayerState;
+            //接地状況を受け取る
             m_ground = m_playerState.m_Param.m_PlayerGround;
+            //方向を受け取る
             m_direction = m_playerState.m_Param.m_PlayerDirection;
+            //現在のスタイルを受け取る
             m_style = m_playerState.m_Param.m_playerStyle;
 
         }
         private void SetParameter()
         {
+
+            //playerStateスクリプト側に
+            //プレイヤーの状態を渡す
             m_playerState.m_Param.m_PlayerState = m_state;
+            //接地状況を渡す
             m_playerState.m_Param.m_PlayerGround = m_ground;
+            //方向を渡す
             m_playerState.m_Param.m_PlayerDirection = m_direction;
+            //現在のスタイルを渡す
             m_playerState.m_Param.m_playerStyle = m_style;
         }
 
