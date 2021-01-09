@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class enemy_gazer_beam : MonoBehaviour
+public class LightBall : MonoBehaviour
 {
     Vector3 Ppos;
     Vector3 Spos;
-    
+
     float atan;
 
     [SerializeField]
@@ -25,10 +25,10 @@ public class enemy_gazer_beam : MonoBehaviour
         float x, y;
         x = Ppos.x - Spos.x;
         y = Ppos.y - Spos.y;
-        
+
         atan = Mathf.Atan2(y, x);
 
-        this.transform.eulerAngles = 
+        this.transform.eulerAngles =
             new Vector3(0, 0, atan * 180.0f / Mathf.PI - 90.0f);
 
 
@@ -47,7 +47,7 @@ public class enemy_gazer_beam : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.name == "PopCollision")
+        if (collision.name == "PopCollision")
         {
             Destroy(this.gameObject);
         }
