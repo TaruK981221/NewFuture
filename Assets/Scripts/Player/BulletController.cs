@@ -9,7 +9,7 @@ namespace TeamProject
         private Rigidbody2D rb2d;
         private Renderer rend;
         //弾速
-        float bulletSpeed = 500.0f;
+       public float bulletSpeed = 500.0f;
 
 
         void Start()
