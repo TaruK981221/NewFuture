@@ -265,7 +265,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 12726aa5a81a8974b8f8a1f6bcf92b99, type: 2}
+  m_Motion: {fileID: 7400000, guid: 66d5d2747bcc468408ff6d64ee8c5c21, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -294,7 +294,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 9f3c496e8bb39d94a8c8849beb4f4f6f, type: 2}
+  m_Motion: {fileID: 7400000, guid: bf24443330b8124459fd2c543f584543, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -404,7 +404,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 0e9b9d128a0e5124d9a5cfac9cfe4a30, type: 2}
+  m_Motion: {fileID: 7400000, guid: 00649a0f133aa1b439aa66e23c243937, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -484,7 +484,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 5a1ba2fe26c102c469626e99e5e9715e, type: 2}
+  m_Motion: {fileID: 7400000, guid: 7f46fd2fc9438134eb92b974e28c510e, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -655,7 +655,7 @@ AnimatorStateMachine:
     m_Position: {x: 290, y: 100, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1549301250961839772}
-    m_Position: {x: 680, y: 230, z: 0}
+    m_Position: {x: 680, y: 240, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3347368891119884569}
     m_Position: {x: 240, y: 920, z: 0}
@@ -664,7 +664,7 @@ AnimatorStateMachine:
     m_Position: {x: 760, y: 510, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3339290636083019493}
-    m_Position: {x: -90, y: 650, z: 0}
+    m_Position: {x: -80, y: 650, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2302305511564650261}
     m_Position: {x: -420, y: 650, z: 0}
