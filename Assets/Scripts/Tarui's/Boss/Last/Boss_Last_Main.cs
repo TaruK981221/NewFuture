@@ -45,6 +45,8 @@ public partial class Boss_Last_Main : MonoBehaviour
 
     float actionTime = 0.0f;
 
+    bool isFlg = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -69,7 +71,18 @@ public partial class Boss_Last_Main : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Action();
+        if (isFlg)
+        {
+            Action();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(Player == collision.gameObject)
+        {
+            isFlg = true;
+        }
     }
 
     void Action()
