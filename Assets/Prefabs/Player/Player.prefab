@@ -285,9 +285,11 @@ MonoBehaviour:
     m_RotationOrder: 4
   ground: {fileID: 2847246538396440602}
   head: {fileID: 2847246539434569782}
+  enemyCollision: {fileID: 4338572443325395976}
   wall_Collision:
   - {fileID: 2847246537714504096}
   - {fileID: 2847246537657553789}
+  isEnemyHit: 0
   isGround: 0
   isHead: 0
   isWalls: 0000
@@ -411,6 +413,7 @@ GameObject:
   - component: {fileID: 2847246538696943169}
   - component: {fileID: 2847246538696943170}
   - component: {fileID: 2847246538696943171}
+  - component: {fileID: 4338572443325395976}
   m_Layer: 0
   m_Name: BodyCollision
   m_TagString: Untagged
@@ -474,6 +477,18 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 85, y: 220}
   m_Direction: 0
+--- !u!114 &4338572443325395976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2847246538696943168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec5e37f9398f36741aa78def6221c5c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2847246539396777642
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,7 +559,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2135481207
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 52f1289e1fb749f488d5ad43ea6399f5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

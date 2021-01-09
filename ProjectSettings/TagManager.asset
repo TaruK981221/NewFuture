@@ -13,6 +13,7 @@ TagManager:
   - EnemyAttack
   - BreakableBlock
   - POP
+  - Needle
   layers:
   - Default
   - TransparentFX
@@ -56,8 +57,14 @@ TagManager:
   - name: Enemy
     uniqueID: 499912475
     locked: 0
+  - name: EnemyAttack
+    uniqueID: 244607357
+    locked: 0
   - name: Player
     uniqueID: 2135481207
+    locked: 0
+  - name: PlayerAttack
+    uniqueID: 1378837843
     locked: 0
   - name: Default
     uniqueID: 0

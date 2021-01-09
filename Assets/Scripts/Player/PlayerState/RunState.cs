@@ -40,6 +40,12 @@ namespace TeamProject
             // Debug.Log("m_PlayerState:RUN:" + m_Param.m_PlayerDirection);
             PositionUpdate();
 
+            if (DamageCheck())
+            {
+
+                return true;
+            }
+          
             return false;
         }
         public override void SetSpeed()

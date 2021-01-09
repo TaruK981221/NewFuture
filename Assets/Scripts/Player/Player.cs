@@ -61,7 +61,7 @@ namespace TeamProject
         [Header("当たり判定用オブジェクトをアタッチ")]
         public GroundCheck_k ground; //接地判定
         public GroundCheck_k head;//頭ぶつけた判定
-        //public GroundCheck_k wallL;//頭ぶつけた判定
+        public BodyCollisionCheck enemyCollision;//敵接触判定
         //public GroundCheck_k wallR;
         //頭ぶつけた判定
         public GroundCheck_k[] wall_Collision = new GroundCheck_k[(int)P_DIRECTION.MAX_DIRECT];
@@ -69,6 +69,8 @@ namespace TeamProject
         //プライベート変数
         //private Animator anim = null;
         private Rigidbody2D rb = null;
+        //敵との当たり判定用フラグ
+        public bool isEnemyHit = false;
         //床との当たり判定用フラグ
         public bool isGround = false;
         //天井との当たり判定用フラグ
@@ -102,6 +104,10 @@ namespace TeamProject
             if (wall_Collision[(int)P_DIRECTION.LEFT] == null)
             {
                 Debug.LogError("左側壁接触判定用オブジェクトアタッチし忘れ");
+            }
+            if (enemyCollision == null)
+            {
+                Debug.LogError("敵接触判定用オブジェクトアタッチし忘れ");
             }
         }
         // Start is called before the first frame update
@@ -222,16 +228,24 @@ namespace TeamProject
             //else{   m_direction = m_playerState.m_Param.m_PlayerDirection;
             //}
 
+            //敵接触判定を得る
+            isEnemyHit = enemyCollision.IsCollision();
+            //playerStateスクリプト側に
+            //敵接触判定情報をわたす
+            m_playerState.SetIsEnemy(isEnemyHit);
+  
             //接地判定を得る
             isGround = ground.IsGround();
-            //天井判定を得る
-            isHead = head.IsGround();
             //playerStateスクリプト側に
             //接地判定情報をわたす
             m_playerState.SetIsGround(isGround);
+
+            //天井判定を得る
+            isHead = head.IsGround();
             //playerStateスクリプト側に
             //天井接触判定情報をわたす
             m_playerState.SetIsHead(isHead);
+
 
 
             //座標の更新

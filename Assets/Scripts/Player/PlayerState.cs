@@ -40,6 +40,9 @@ namespace TeamProject
         //ここはプレイヤーの状態
         public P_PARAMETER m_Param;
 
+        //敵と接触してるかどうか
+        static public bool m_isEnemyHit = false;
+
         //着地してるかどうか
         static public bool m_isGround = false;
 
@@ -318,6 +321,14 @@ namespace TeamProject
         //共通用関数
 
         /// <summary>
+        /// 敵接触判定受け取り
+        /// </summary>
+        /// <param name="_enemy"></param>
+        public void SetIsEnemy(bool _enemy)
+        {
+            m_isEnemyHit = _enemy;
+        }
+        /// <summary>
         /// 接地判定受け取り
         /// </summary>
         /// <param name="_ground"></param>
@@ -477,6 +488,20 @@ namespace TeamProject
             m_horisontalAnimCurve = _horizontal;
             m_jumpAnimCurve = _jump;
         }
+
+        /// <summary>
+        /// ダメージ状態になるかどうか確認する
+        /// </summary>
+        public bool DamageCheck()
+        {
+            if (m_isEnemyHit)
+            {
+                SetNextState(m_damageState);
+                return true;
+            }
+            return false;
+        }
+
         //共通用関数ここまで
         //-----------------------------------------------
 
@@ -484,55 +509,3 @@ namespace TeamProject
 }//namespace TeamProject END
 
 
-/*仮置き
-          #region//左入力時の処理
-        /// <summary>
-        /// 左入力時の処理
-        /// </summary>
-      public override void LeftKeyDownInput() { }
-        public override void LeftKeyHoldInput() { }
-        public override void LeftKeyUpInput() { }
-        #endregion
-
-        #region//右入力時の処理
-        /// <summary>
-        /// 右入力時の処理
-        /// </summary>
-        public override void RightKeyDownInput() { }
-        public override void RightKeyHoldInput() { }
-        public override void RightKeyUpInput() { }
-        #endregion
-
-        /// <summary>
-        /// 左右入力無しの時の処理
-        /// </summary>
-        public override void NoMoveInput() { }
-
-        #region//攻撃入力時の処理
-        /// <summary>
-        /// 攻撃入力時の処理
-        /// </summary>
-      public override void AttackKeyDownInput() { }
-        public override void AttackKeyHoldInput() { }
-        public override void AttackKeyUpInput() { }
-        #endregion
-
-        #region//ジャンプ入力時の処理
-        /// <summary>
-        /// ジャンプ入力時の処理
-        /// </summary>
-        public override void JumpKeyDownInput() { }
-        public override void JumpKeyHoldInput() { }
-        public override void JumpKeyUpInput() { }
-        #endregion
-
-        /// <summary>
-        /// 次スタイルチェンジ入力時の処理
-        /// </summary>
-        public override void NextStyleInput() { }
-
-        /// <summary>
-        /// 前スタイルチェンジ入力時の処理
-        /// </summary>
-        public override void PrevStyleInput() { }
-        */

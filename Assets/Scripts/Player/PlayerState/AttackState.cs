@@ -28,6 +28,12 @@ namespace TeamProject
             }
             SetPrevState(this);
             SetNextState(this);
+            if (DamageCheck())
+            {
+
+                return true;
+            }
+
 
             return true;
         }

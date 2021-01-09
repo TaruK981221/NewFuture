@@ -33,6 +33,12 @@ namespace TeamProject
             }
 
             PositionUpdate();
+            if (DamageCheck())
+            {
+
+                return true;
+            }
+
 
             return false;
         }

@@ -74,6 +74,12 @@ namespace TeamProject
 
             }
             PositionUpdate();
+            if (DamageCheck())
+            {
+
+                return true;
+            }
+
 
             m_timer += Time.deltaTime;
             return false;
