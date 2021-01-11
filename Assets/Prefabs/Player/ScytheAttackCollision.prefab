@@ -497,7 +497,6 @@ GameObject:
   - component: {fileID: 5613325472635271426}
   - component: {fileID: 6389815513217005268}
   - component: {fileID: 4343017165127293498}
-  - component: {fileID: 4985533190227935393}
   m_Layer: 0
   m_Name: AttackCollision (1)
   m_TagString: PlayerAttack
@@ -571,18 +570,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 2.5}
   m_EdgeRadius: 0
---- !u!114 &4985533190227935393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4722472007442603629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94684aafbf21b754b832bdbbd00fed35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6010252352771614953
 GameObject:
   m_ObjectHideFlags: 0
@@ -632,7 +619,7 @@ GameObject:
   - component: {fileID: 5358962415668888209}
   - component: {fileID: 500734871704563872}
   - component: {fileID: 5054381990532075131}
-  - component: {fileID: 1068364257558394576}
+  - component: {fileID: 1379549916660950256}
   m_Layer: 0
   m_Name: AttackCollision
   m_TagString: PlayerAttack
@@ -706,7 +693,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2, y: 2.5}
   m_EdgeRadius: 0
---- !u!114 &1068364257558394576
+--- !u!114 &1379549916660950256
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -715,6 +702,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7619030053276729416}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94684aafbf21b754b832bdbbd00fed35, type: 3}
+  m_Script: {fileID: 11500000, guid: 0a0b0371953a42d4eac65751f1a43658, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
