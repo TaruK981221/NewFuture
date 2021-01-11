@@ -288,7 +288,7 @@ GameObject:
   - component: {fileID: 46766388}
   - component: {fileID: 46766387}
   m_Layer: 0
-  m_Name: bricks3 (1)
+  m_Name: bricks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -338,7 +338,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 85.6, y: 10.8}
+  m_Size: {x: 19.2, y: 10.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -352,7 +352,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 46766386}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 270, y: 4303, z: 0}
+  m_LocalPosition: {x: -3048, y: 4059, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1040,7 +1040,7 @@ PrefabInstance:
     - target: {fileID: 1722580242963370300, guid: 5fb79d44e6db9dc4da22952a6e943246,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1400
+      value: 1900
       objectReference: {fileID: 0}
     - target: {fileID: 1722580242963370300, guid: 5fb79d44e6db9dc4da22952a6e943246,
         type: 3}
@@ -1691,7 +1691,7 @@ PrefabInstance:
     - target: {fileID: 1722580242963370300, guid: 5fb79d44e6db9dc4da22952a6e943246,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4800
+      value: -4000
       objectReference: {fileID: 0}
     - target: {fileID: 1722580242963370300, guid: 5fb79d44e6db9dc4da22952a6e943246,
         type: 3}
@@ -1772,7 +1772,7 @@ PrefabInstance:
     - target: {fileID: 1722580242963370300, guid: 5fb79d44e6db9dc4da22952a6e943246,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2000
+      value: 1939
       objectReference: {fileID: 0}
     - target: {fileID: 1722580242963370300, guid: 5fb79d44e6db9dc4da22952a6e943246,
         type: 3}
@@ -1905,6 +1905,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1722580242963370302, guid: 5fb79d44e6db9dc4da22952a6e943246,
+        type: 3}
+      propertyPath: prefab
+      value: 
+      objectReference: {fileID: 1214100973478871840, guid: b821956581b382f428d595e0551dcf61,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fb79d44e6db9dc4da22952a6e943246, type: 3}
 --- !u!1001 &1359077297
@@ -2068,7 +2074,7 @@ GameObject:
   - component: {fileID: 1398688176}
   - component: {fileID: 1398688175}
   m_Layer: 0
-  m_Name: trees (4)
+  m_Name: trees3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2520,7 +2526,7 @@ PrefabInstance:
     - target: {fileID: 1722580242963370300, guid: 5fb79d44e6db9dc4da22952a6e943246,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8800
+      value: 9905
       objectReference: {fileID: 0}
     - target: {fileID: 1722580242963370300, guid: 5fb79d44e6db9dc4da22952a6e943246,
         type: 3}
@@ -2597,7 +2603,7 @@ GameObject:
   - component: {fileID: 1736308394}
   - component: {fileID: 1736308393}
   m_Layer: 0
-  m_Name: trees (3)
+  m_Name: trees2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2688,12 +2694,12 @@ PrefabInstance:
     - target: {fileID: 1722580242963370300, guid: 5fb79d44e6db9dc4da22952a6e943246,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2800
+      value: 4206
       objectReference: {fileID: 0}
     - target: {fileID: 1722580242963370300, guid: 5fb79d44e6db9dc4da22952a6e943246,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2400
+      value: -1917
       objectReference: {fileID: 0}
     - target: {fileID: 1722580242963370300, guid: 5fb79d44e6db9dc4da22952a6e943246,
         type: 3}
@@ -2769,7 +2775,7 @@ PrefabInstance:
     - target: {fileID: 1722580242963370300, guid: 5fb79d44e6db9dc4da22952a6e943246,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3800
+      value: -3000
       objectReference: {fileID: 0}
     - target: {fileID: 1722580242963370300, guid: 5fb79d44e6db9dc4da22952a6e943246,
         type: 3}
@@ -2850,12 +2856,12 @@ PrefabInstance:
     - target: {fileID: 1722580242963370300, guid: 5fb79d44e6db9dc4da22952a6e943246,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5500
+      value: 7680
       objectReference: {fileID: 0}
     - target: {fileID: 1722580242963370300, guid: 5fb79d44e6db9dc4da22952a6e943246,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3300
+      value: 3627
       objectReference: {fileID: 0}
     - target: {fileID: 1722580242963370300, guid: 5fb79d44e6db9dc4da22952a6e943246,
         type: 3}
@@ -2927,7 +2933,7 @@ GameObject:
   - component: {fileID: 1985905533}
   - component: {fileID: 1985905532}
   m_Layer: 0
-  m_Name: bricks3 (2)
+  m_Name: bricks2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3255,12 +3261,12 @@ PrefabInstance:
     - target: {fileID: 1722580242963370300, guid: 5fb79d44e6db9dc4da22952a6e943246,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2500
+      value: 3061
       objectReference: {fileID: 0}
     - target: {fileID: 1722580242963370300, guid: 5fb79d44e6db9dc4da22952a6e943246,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3400
+      value: 3306
       objectReference: {fileID: 0}
     - target: {fileID: 1722580242963370300, guid: 5fb79d44e6db9dc4da22952a6e943246,
         type: 3}
@@ -3445,12 +3451,12 @@ PrefabInstance:
     - target: {fileID: 1722580242963370300, guid: 5fb79d44e6db9dc4da22952a6e943246,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1200
+      value: 271
       objectReference: {fileID: 0}
     - target: {fileID: 1722580242963370300, guid: 5fb79d44e6db9dc4da22952a6e943246,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2400
+      value: -2150
       objectReference: {fileID: 0}
     - target: {fileID: 1722580242963370300, guid: 5fb79d44e6db9dc4da22952a6e943246,
         type: 3}
