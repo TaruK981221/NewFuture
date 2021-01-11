@@ -17,9 +17,9 @@ public class AttackStateBehavior : StateMachineBehaviour
     {
         if (stateInfo.normalizedTime>=1.0f)
         {
-            //animator.SetBool("attack", false);
-            //animator.SetBool("jump_attack", false);
-            //animator.SetBool("idle", true);
+            animator.SetBool("attack", false);
+            animator.SetBool("jump_attack", false);
+            animator.SetBool("idle", true);
             Debug.Log("update::攻撃終わり");
         }
     }

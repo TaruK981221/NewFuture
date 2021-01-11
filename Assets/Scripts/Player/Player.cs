@@ -345,17 +345,27 @@ namespace TeamProject
                 case P_STATE.FALL:
                     break;
                 case P_STATE.ATTACK:
-                    if (animation.GetBool("idle"))
+                    //if (animation.GetBool("idle")
+                    bool attack =
+    m_playerSpriteObj.transform
+    .GetComponent<IsAnimationCheck>()
+    .EndAnimation();
+
+                    if (attack)
                     {
                         m_playerState.StateChangeFlagOn();
-                        Debug.Log("確認用");
+                        Debug.Log("確認用" + m_playerState.GetCurrentState());
                     }
                     break;
                 case P_STATE.JUMPATTACK:
-                    if (animation.GetBool("idle"))
+                    bool jumpattack =
+  m_playerSpriteObj.transform
+  .GetComponent<IsAnimationCheck>()
+  .EndAnimation();
+                    if (jumpattack)
                     {
                         m_playerState.StateChangeFlagOn();
-                        Debug.Log("確認用");
+                        Debug.Log("確認用"+ m_playerState.GetCurrentState());
                     }
                     break;
                 case P_STATE.DAMAGE:

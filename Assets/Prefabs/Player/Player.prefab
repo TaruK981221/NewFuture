@@ -295,6 +295,7 @@ MonoBehaviour:
   isHead: 0
   isWalls: 0000
   isInvincibleflag: 0
+  isStyleFlag: 0
   bullet: {fileID: 1509079950284006497, guid: 9f1501881b9617b48b8b796794a72d32, type: 3}
 --- !u!50 &2847246537732950836
 Rigidbody2D:
