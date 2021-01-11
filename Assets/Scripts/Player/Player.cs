@@ -57,6 +57,9 @@ namespace TeamProject
         public AnimationCurve horizonSpCurve;
         [Header("ジャンプ速度の挙動")]
         public AnimationCurve jumpSpCurve;
+        [SerializeField, Header("無敵時間")]
+        private float invincibleTime = 0.0f;
+        private float invincibleCounter = 0.0f;
 
         [Header("当たり判定用オブジェクトをアタッチ")]
         public GroundCheck_k ground; //接地判定
@@ -78,7 +81,10 @@ namespace TeamProject
         //壁との当たり判定用フラグ
         public bool[] isWalls = new bool[(int)P_DIRECTION.MAX_DIRECT];
 
-        public bool flag = false;
+        //無敵中かどうか
+        public bool isInvincibleflag = false;
+        //スタイルチェンジ後かどうか
+        public bool isStyleFlag = false;
 
         public GameObject bullet;
         private void Awake()
@@ -144,7 +150,7 @@ namespace TeamProject
             //
 
             //アニメーションのリセット
-            m_playerAnim.AnimOFF(m_playerState.GetCurrentState());
+            //m_playerAnim.AnimOFF(m_playerState.GetCurrentState());
 
             //各種キー入力の判定
             //プレイヤーの入力確認
@@ -228,12 +234,49 @@ namespace TeamProject
             //else{   m_direction = m_playerState.m_Param.m_PlayerDirection;
             //}
 
-            //敵接触判定を得る
+            //敵接触判定を得る(毎ループ呼ぶ必要アリ)
             isEnemyHit = enemyCollision.IsCollision();
-            //playerStateスクリプト側に
-            //敵接触判定情報をわたす
-            m_playerState.SetIsEnemy(isEnemyHit);
-  
+            if (isInvincibleflag)
+            {
+                //無敵時間中
+                if (invincibleCounter > invincibleTime)
+                {
+                    //無敵時間終了
+                    //カウンターリセット
+                    invincibleCounter = 0.0f;
+                    //フラグOFF
+                    isInvincibleflag = false;
+                    //点滅終了処理
+                    m_playerSpriteObj.GetComponent<Blink>().BlinkEnd();
+                }
+                else
+                {
+
+                    invincibleCounter += Time.deltaTime;
+                }
+
+            }
+            else
+            {
+                //無敵ではないとき
+                if (isEnemyHit)
+                {
+                    Debug.Log("hitsitemasu");
+                    //敵接触アリ
+                    //カウンターリセット
+                    invincibleCounter = 0.0f;
+                    //フラグON
+                    isInvincibleflag = true;
+                    //点滅開始処理
+                    m_playerSpriteObj.GetComponent<Blink>().BlinkStart();
+                    //playerStateスクリプト側に
+                    //敵接触判定情報をわたす
+                    m_playerState.SetIsEnemy(isEnemyHit);
+
+                    isEnemyHit = false;
+                }
+            }
+
             //接地判定を得る
             isGround = ground.IsGround();
             //playerStateスクリプト側に
@@ -290,26 +333,60 @@ namespace TeamProject
                 }
                 //攻撃
             }
+            Animator animation = m_playerSpriteObj.GetComponent<Animator>();
+            switch (m_playerState.GetCurrentState())
+            {
+                case P_STATE.IDLE:
+                    break;
+                case P_STATE.RUN:
+                    break;
+                case P_STATE.RISE:
+                    break;
+                case P_STATE.FALL:
+                    break;
+                case P_STATE.ATTACK:
+                    if (animation.GetBool("idle"))
+                    {
+                        m_playerState.StateChangeFlagOn();
+                        Debug.Log("確認用");
+                    }
+                    break;
+                case P_STATE.JUMPATTACK:
+                    if (animation.GetBool("idle"))
+                    {
+                        m_playerState.StateChangeFlagOn();
+                        Debug.Log("確認用");
+                    }
+                    break;
+                case P_STATE.DAMAGE:
+                    break;
+                case P_STATE.STYLE_CHANGE_NEXT:
+                case P_STATE.STYLE_CHANGE_PREV:
 
-
-            //Debug.Log("m_endAnimation:::" + m_playerState.m_endAnimation);
-            Debug.Log("EndAnimation():::" + m_playerSpriteObj.transform.GetComponent<IsAnimationCheck>().EndAnimation());
+                    break;
+                case P_STATE.MAX_STATE:
+                    break;
+                default:
+                    break;
+            }
 
             //アニメーションが終わっていたらtrueを受け取る
-            bool finishStyleChange = m_playerSpriteObj.transform.GetComponent<IsAnimationCheck>().EndAnimation();
+            bool finishStyleChange =
+                m_playerSpriteObj.transform
+                .GetComponent<IsAnimationCheck>()
+                .EndAnimation();
             //上のフラグをplayerStateスクリプト側に渡す
             //ほぼスタイルチェンジ終了確認用変数
             m_playerState.SetEndAnimFlag(finishStyleChange);
-            // Debug.Log("finishStyleChange==" + finishStyleChange);
-//アニメーション終了したら通る
             if (finishStyleChange)
             {
+                //アニメーション終了したら通る
                 //スタイルアニメーションの変更
                 m_playerAnim.ChangeStyleAnimation((int)m_style);
-                //アニメーションのリセット
-                m_playerAnim.AnimOFF(m_playerState.GetCurrentState());
 
             }
+
+
             //アニメーションの更新
             //状態によって変化させる
             m_playerAnim.AnimON(m_playerState.GetCurrentState());

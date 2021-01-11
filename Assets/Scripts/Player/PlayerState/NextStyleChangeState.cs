@@ -23,14 +23,15 @@ namespace TeamProject
             {
                 SetPrevState(this);
                 SetNextState(m_idleState);
+
                 SetEndAnimFlag(false);
 
                 ChangeNextStyle();               
                 Debug.Log("次通った");
                 return true;
             }
-            SetNextState(this);
-            SetPrevState(this);
+            //SetNextState(this);
+            //SetPrevState(this);
 
             Debug.Log("次通ってない");
 

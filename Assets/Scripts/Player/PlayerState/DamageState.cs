@@ -24,10 +24,10 @@ namespace TeamProject
             switch (m_Param.m_PlayerDirection)
             {
                 case P_DIRECTION.RIGHT:
-                    m_Position.x -= 256.0f * Time.deltaTime;
+                    m_Position.x -= 512.0f * Time.deltaTime;
                     break;
                 case P_DIRECTION.LEFT:
-                    m_Position.x += 256.0f * Time.deltaTime;
+                    m_Position.x += 512.0f * Time.deltaTime;
                     break;
                 case P_DIRECTION.MAX_DIRECT:
                     break;
@@ -40,7 +40,11 @@ namespace TeamProject
                 m_timer = 0.0f;
                 return true;
             }
-            m_timer += Time.deltaTime;
+            else
+            {
+                m_timer += Time.deltaTime;
+
+            }
             return false;
         }
     }//    public class DamageState : PlayerState END

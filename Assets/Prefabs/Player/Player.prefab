@@ -283,6 +283,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  invincibleTime: 1
   ground: {fileID: 2847246538396440602}
   head: {fileID: 2847246539434569782}
   enemyCollision: {fileID: 4338572443325395976}
@@ -293,7 +294,7 @@ MonoBehaviour:
   isGround: 0
   isHead: 0
   isWalls: 0000
-  flag: 0
+  isInvincibleflag: 0
   bullet: {fileID: 1509079950284006497, guid: 9f1501881b9617b48b8b796794a72d32, type: 3}
 --- !u!50 &2847246537732950836
 Rigidbody2D:
@@ -501,6 +502,7 @@ GameObject:
   - component: {fileID: 2847246539396777620}
   - component: {fileID: 2847246539396777621}
   - component: {fileID: 2847246539396777622}
+  - component: {fileID: 1138740625791675000}
   m_Layer: 0
   m_Name: PlayerSprite
   m_TagString: Untagged
@@ -603,6 +605,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a508dee54c225b4aae7f9c335c9159b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1138740625791675000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2847246539396777642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75101dbfe25af214398396272ed6acff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_unlitTime: 0.1
+  m_lightTime: 0.2
 --- !u!1 &2847246539434569781
 GameObject:
   m_ObjectHideFlags: 0

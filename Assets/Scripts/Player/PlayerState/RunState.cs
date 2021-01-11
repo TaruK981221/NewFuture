@@ -24,7 +24,7 @@ namespace TeamProject
         //// Update is called once per frame
         override public bool Update()
         {
-            if (!m_isGround)// && m_timer > 0.2f)
+            if (!m_isGround)
             {
                 Debug.Log("No接地:RUNステート");
                 m_Param.m_PlayerGround = P_GROUND.FALL;

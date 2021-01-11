@@ -67,6 +67,8 @@ namespace TeamProject
 
         //アニメーション終了フラグ
         /*static*/ public bool m_endAnimation = false;
+        //状態切り替えフラグ
+        static public bool m_stateChangeFlag = false;
 
        static protected AnimationCurve m_horisontalAnimCurve;
        static protected AnimationCurve m_jumpAnimCurve;
@@ -496,12 +498,18 @@ namespace TeamProject
         {
             if (m_isEnemyHit)
             {
+                m_isEnemyHit = false;
                 SetNextState(m_damageState);
                 return true;
             }
+
             return false;
         }
 
+        public void StateChangeFlagOn()
+        {
+            m_stateChangeFlag = true;
+        }
         //共通用関数ここまで
         //-----------------------------------------------
 

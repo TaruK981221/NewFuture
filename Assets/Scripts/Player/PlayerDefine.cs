@@ -13,7 +13,7 @@ namespace TeamProject
         RISE,                       //上昇
         FALL,                       //下降
         ATTACK,                     //攻撃
-        JUMP_ATTACK,                //ジャンプ攻撃
+        JUMPATTACK,                //ジャンプ攻撃
         DAMAGE,                     //被ダメージ
         STYLE_CHANGE_NEXT,          //次のスタイルチェンジ
         STYLE_CHANGE_PREV,          //前のスタイルチェンジ

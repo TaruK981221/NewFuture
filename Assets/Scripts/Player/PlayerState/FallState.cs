@@ -111,7 +111,15 @@ namespace TeamProject
         /// <summary>
         /// 攻撃入力時の処理
         /// </summary>
-        public override void AttackKeyDownInput() { }
+        public override void AttackKeyDownInput()
+        {
+
+            //SetPrevState(this);
+            SetNextState(m_jumpattackState);
+
+            Debug.Log("attack:"+SelfState);
+
+        }
         public override void AttackKeyHoldInput() { }
         public override void AttackKeyUpInput() { }
         #endregion

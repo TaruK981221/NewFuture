@@ -18,16 +18,17 @@ namespace TeamProject
         override public void SetSelfState() { SelfState = P_STATE.ATTACK; }
         override public bool Update()
         {
-            m_timer += Time.deltaTime;
-            if (m_timer>0.1f)
+            //m_timer += Time.deltaTime;
+                //m_timer = 0.0f;
+            if (m_stateChangeFlag)
             {
-                m_timer = 0.0f;
+                m_stateChangeFlag = false;
                 SetPrevState(this);
                 SetNextState(m_idleState);
                 return true;
             }
-            SetPrevState(this);
-            SetNextState(this);
+            //SetPrevState(this);
+            //SetNextState(this);
             if (DamageCheck())
             {
 
@@ -35,7 +36,7 @@ namespace TeamProject
             }
 
 
-            return true;
+            return false;
         }
         }//    public class AttackState : PlayerState END
     }//namespace TeamProject END

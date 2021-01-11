@@ -34,9 +34,6 @@ namespace TeamProject
         // Start is called before the first frame update
         void Start()
         {
-            //アニメーターのセット
-            // anim.runtimeAnimatorController = RuntimeAnimatorController[(int)P_STYLE.MAGIC];
-        
         }
 
         // Update is called once per frame
@@ -50,6 +47,11 @@ namespace TeamProject
         /// <param name="_currentPState"></param>
         public void AnimON(P_STATE _currentPState)
         {
+            foreach (var animName in pAnimName)
+            {
+
+                anim.SetBool(animName, false);
+            }
             anim.SetBool(pAnimName[(int)_currentPState], true);
         }
 
