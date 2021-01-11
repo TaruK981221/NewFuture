@@ -51,6 +51,9 @@ TagManager:
   - name: BackGround
     uniqueID: 1765886613
     locked: 0
+  - name: BackObject
+    uniqueID: 2492230243
+    locked: 0
   - name: Stage
     uniqueID: 3561626681
     locked: 0
